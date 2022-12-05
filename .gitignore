@@ -20,3 +20,11 @@ build
 # other
 eclipse
 run
+
+# manually added
+*.disabled
+*.jar
+*.txt
+*.zip
+
+src/generated

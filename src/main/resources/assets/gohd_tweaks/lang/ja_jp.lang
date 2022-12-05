@@ -1,0 +1,27 @@
+
+# Blocks
+tile.dustblock.0.name=プラチナ粉末ブロック
+tile.dustblock.1.name=イリジウム粉末ブロック
+tile.dustblock.2.name=ミスリル粉末ブロック
+tile.dustblock.3.name=エレクトラム粉末ブロック
+tile.dustblock.4.name=インバー粉末ブロック
+tile.dustblock.5.name=コンスタンタン粉末ブロック
+tile.grout_formed.0.name=未焼成の鋳造台
+tile.grout_formed.1.name=未焼成の鋳造鉢
+tile.grout_formed.2.name=未焼成の鋳造桶
+
+# Items
+item.book_spawn.0.name=Spawn Book (DEBUG)
+item.book_syntax.0.name=Syntax Book (DEBUG)
+item.parts_assembly.0.name=発展プロセッサアセンブリ
+item.parts_assembly.1.name=上級プロセッサアセンブリ
+item.parts_assembly.2.name=基本プロセッサアセンブリ
+item.parts_assembly.3.name=並列プロセッサアセンブリ
+item.parts_assembly.4.name=思考プロセッサアセンブリ
+item.ragi_ticket.0.name=らぎチケット
+
+# Text
+text.gohd_tweaks.decoration_line.name=§l========================================
+text.gohd_tweaks.spawn.name=§aTeleport you to the spawn point!
+text.gohd_tweaks.syntax.name=§aSyntax and Reload!
+text.gohd_tweaks.welcome.name=§c§l§oGOHD§r§lにようこそ!

@@ -1,0 +1,27 @@
+
+# Blocks
+tile.dustblock.0.name=Platinum Dust Block
+tile.dustblock.1.name=Iridium Dust Block
+tile.dustblock.2.name=Mana Infused Metal Dust Block
+tile.dustblock.3.name=Electrum Dust Block
+tile.dustblock.4.name=Invar Dust Block
+tile.dustblock.5.name=Constantan Dust Block
+tile.grout_formed.0.name=Unfired Casting Table
+tile.grout_formed.1.name=Unfired Casting Basin
+tile.grout_formed.2.name=Unfired Casting Channel
+
+# Items
+item.book_spawn.0.name=Spawn Book (DEBUG)
+item.book_syntax.0.name=Syntax Book (DEBUG)
+item.parts_assembly.0.name=Calculation Processor Assembly
+item.parts_assembly.1.name=Engineering Processor Assembly
+item.parts_assembly.2.name=Logic Processor Assembly
+item.parts_assembly.3.name=Parallel Processor Assembly
+item.parts_assembly.4.name=Speculative Processor Assembly
+item.ragi_ticket.0.name=Ragi Ticket
+
+# Text
+text.gohd_tweaks.decoration_line.name=§l========================================
+text.gohd_tweaks.spawn.name=§aTeleport you to the spawn point!
+text.gohd_tweaks.syntax.name=§aSyntax and Reload!
+text.gohd_tweaks.welcome.name=§o§lWelcome to §c§o§lGOHD§r§c§l!

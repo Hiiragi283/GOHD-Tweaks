@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "type=0": [{"model": "dcs_climate:ores/dcs_ore_dustblock3"}],
+    "type=1": [{"model": "gohd_tweaks:dustblock_iridium"}],
+    "type=2": [{"model": "dcs_climate:ores/dcs_ore_dustblock8"}],
+    "type=3": [{"model": "dcs_climate:ores/dcs_ore_dustblock11"}],
+    "type=4": [{"model": "dcs_climate:ores/dcs_ore2_dustblock2"}],
+    "type=5": [{"model": "dcs_climate:ores/dcs_ore_dustblock0"}],
+    "type=6": [{"model": "gohd_tweaks:dustblock_iridium"}],
+    "type=7": [{"model": "gohd_tweaks:dustblock_iridium"}],
+    "type=8": [{"model": "gohd_tweaks:dustblock_iridium"}],
+    "type=9": [{"model": "gohd_tweaks:dustblock_iridium"}],
+    "type=10": [{"model": "gohd_tweaks:dustblock_iridium"}],
+    "type=11": [{"model": "gohd_tweaks:dustblock_iridium"}],
+    "type=12": [{"model": "gohd_tweaks:dustblock_iridium"}],
+    "type=13": [{"model": "gohd_tweaks:dustblock_iridium"}],
+    "type=14": [{"model": "gohd_tweaks:dustblock_iridium"}],
+    "type=15": [{"model": "gohd_tweaks:dustblock_iridium"}]
+  }
+}
