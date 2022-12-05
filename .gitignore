@@ -27,4 +27,6 @@ run
 *.txt
 *.zip
 
+logs
+
 src/generated
