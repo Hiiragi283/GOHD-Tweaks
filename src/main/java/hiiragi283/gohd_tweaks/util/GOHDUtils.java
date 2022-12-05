@@ -3,6 +3,7 @@ package hiiragi283.gohd_tweaks.util;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
@@ -21,5 +22,10 @@ public class GOHDUtils {
     //ResourceLocationからItemを取得するメソッド
     public static Item getItem(String domain, String path) {
         return ForgeRegistries.ITEMS.getValue(new ResourceLocation(domain, path));
+    }
+
+    //
+    public static SoundEvent getSound(String domain, String path) {
+        return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(domain, path));
     }
 }

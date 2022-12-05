@@ -8,6 +8,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
@@ -65,6 +66,9 @@ public class GOHDTweaks {
         World world = player.world;
         //サーバー側のみで実行
         if (!world.isRemote) {
+            //音声とチャットを流す
+            //Hypixelで慣れ親しんだこの音声を再び聞いたとき，感動で泣きそうになりました
+            world.playSound(null, player.getPosition(), GOHDUtils.getSound("minecraft", "entity.player.levelup"), SoundCategory.BLOCKS, 1.0F, 0.5F);
             player.sendMessage(new TextComponentTranslation("text.gohd_tweaks.decoration_line.name"));
             player.sendMessage(new TextComponentTranslation("text.gohd_tweaks.welcome.name"));
             player.sendMessage(new TextComponentTranslation("text.gohd_tweaks.decoration_line.name"));
@@ -134,6 +138,8 @@ public class GOHDTweaks {
                 if (blockstate == GOHDUtils.getBlock("twilightforest", "root").getStateFromMeta(0)) {
                     //blockstateを根ブロック(苔)に差し替える
                     world.setBlockState(pos, block.getStateFromMeta(1));
+                    //これだけだと味気ないので音も生やす
+                    world.playSound(null, pos, GOHDUtils.getSound("minecraft", "block.waterlily.place"), SoundCategory.BLOCKS, 1.0F, 1.0F);
                 }
             }
         }
