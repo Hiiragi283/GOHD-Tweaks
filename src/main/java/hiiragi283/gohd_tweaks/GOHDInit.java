@@ -2,9 +2,9 @@ package hiiragi283.gohd_tweaks;
 
 import hiiragi283.gohd_tweaks.blocks.BlockDust;
 import hiiragi283.gohd_tweaks.blocks.BlockGroutFormed;
-import hiiragi283.gohd_tweaks.evets.onPlayerLoggedIn;
-import hiiragi283.gohd_tweaks.evets.onPlayerTick;
-import hiiragi283.gohd_tweaks.evets.onRightClickBlock;
+import hiiragi283.gohd_tweaks.events.onPlayerLoggedIn;
+import hiiragi283.gohd_tweaks.events.onPlayerTick;
+import hiiragi283.gohd_tweaks.events.onRightClickBlock;
 import hiiragi283.gohd_tweaks.items.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;

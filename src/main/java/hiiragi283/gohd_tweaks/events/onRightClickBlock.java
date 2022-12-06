@@ -1,4 +1,4 @@
-package hiiragi283.gohd_tweaks.evets;
+package hiiragi283.gohd_tweaks.events;
 
 import hiiragi283.gohd_tweaks.util.GOHDUtils;
 import net.minecraft.block.Block;
