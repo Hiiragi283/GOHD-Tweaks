@@ -16,7 +16,7 @@ public class AstralRecipe {
 
     //Starlight WellのレシピをWellLiquefaction経由で登録するメソッド
     public static void RegisterLiquefaction() {
-        WellLiquefaction(new ItemStack(GOHDUtils.getItem("tconstruct", "edible"), 1, 1), "blueslime", 1.0F, 20);
+        WellLiquefaction(GOHDUtils.getStack("tconstruct", "edible", 1, 1), "blueslime", 1.0F, 20);
     }
 
     //Starlight Wellのレシピをより簡単に登録するメソッド
