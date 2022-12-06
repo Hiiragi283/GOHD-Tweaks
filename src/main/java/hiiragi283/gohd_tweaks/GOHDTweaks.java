@@ -1,8 +1,7 @@
 package hiiragi283.gohd_tweaks;
 
 import hiiragi283.gohd_tweaks.proxy.CommonProxy;
-import hiiragi283.gohd_tweaks.recipes.IntegrationCore;
-import net.minecraftforge.common.MinecraftForge;
+import hiiragi283.gohd_tweaks.integration.IntegrationCore;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -26,8 +25,6 @@ public class GOHDTweaks {
     //Pre-Initializationの段階で呼ばれるevent
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        //このクラスをイベントに登録
-        MinecraftForge.EVENT_BUS.register(this);
         //GOHDInitの登録
         GOHDInit.Init();
         //ItemのModelの登録

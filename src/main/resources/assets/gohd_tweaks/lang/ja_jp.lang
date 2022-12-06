@@ -19,6 +19,7 @@ item.parts_assembly.2.name=基本プロセッサアセンブリ
 item.parts_assembly.3.name=並列プロセッサアセンブリ
 item.parts_assembly.4.name=思考プロセッサアセンブリ
 item.ragi_ticket.0.name=らぎチケット
+item.sandpaper.name=サンドペーパー
 
 # Text
 text.gohd_tweaks.decoration_line.name=§l========================================

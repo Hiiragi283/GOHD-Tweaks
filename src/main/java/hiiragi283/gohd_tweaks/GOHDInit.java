@@ -22,6 +22,7 @@ public class GOHDInit {
     public static Item ItemGroutFormed = new ItemGroutFormed();
     public static Item ItemPartsAssembly = new ItemPartsAssembly();
     public static Item ItemRagiTicket = new ItemRagiTicket();
+    public static Item ItemSandPaper = new ItemSandPaper();
 
     //GOHDInit内のメソッドをまとめて登録するメソッド
     public static void Init() {
@@ -51,5 +52,6 @@ public class GOHDInit {
         ForgeRegistries.ITEMS.register(ItemGroutFormed);
         ForgeRegistries.ITEMS.register(ItemPartsAssembly);
         ForgeRegistries.ITEMS.register(ItemRagiTicket);
+        ForgeRegistries.ITEMS.register(ItemSandPaper);
     }
 }

@@ -55,6 +55,8 @@ public class onRightClickBlock {
                     world.setBlockState(pos, block.getStateFromMeta(1));
                     //これだけだと味気ないので音も生やす
                     world.playSound(null, pos, GOHDUtils.getSound("minecraft", "block.waterlily.place"), SoundCategory.BLOCKS, 1.0F, 1.0F);
+                    //苔玉を1つ減らす
+                    stack.shrink(1);
                 }
             }
         }
