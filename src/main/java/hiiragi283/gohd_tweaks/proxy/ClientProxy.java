@@ -37,7 +37,7 @@ public class ClientProxy extends CommonProxy {
     }
 
     //Client側のProxyで行われる処理をまとめたメソッド
-    public void Register() {
+    public void Init() {
         setModels();
     }
 }

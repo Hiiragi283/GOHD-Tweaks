@@ -2,9 +2,13 @@ package hiiragi283.gohd_tweaks;
 
 import hiiragi283.gohd_tweaks.blocks.BlockDust;
 import hiiragi283.gohd_tweaks.blocks.BlockGroutFormed;
+import hiiragi283.gohd_tweaks.evets.onPlayerLoggedIn;
+import hiiragi283.gohd_tweaks.evets.onPlayerTick;
+import hiiragi283.gohd_tweaks.evets.onRightClickBlock;
 import hiiragi283.gohd_tweaks.items.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class GOHDInit {
@@ -19,11 +23,28 @@ public class GOHDInit {
     public static Item ItemPartsAssembly = new ItemPartsAssembly();
     public static Item ItemRagiTicket = new ItemRagiTicket();
 
-    public static void Register() {
-        //Blockの登録
+    //GOHDInit内のメソッドをまとめて登録するメソッド
+    public static void Init() {
+        RegisterBlocks();
+        RegisterEvents();
+        RegisterItems();
+    }
+
+    //Blockを登録するメソッド
+    public static void RegisterBlocks() {
         ForgeRegistries.BLOCKS.register(BlockDust);
         ForgeRegistries.BLOCKS.register(BlockGroutFormed);
-        //Itemの登録
+    }
+
+    //Eventを登録するメソッド
+    public static void RegisterEvents() {
+        MinecraftForge.EVENT_BUS.register(new onPlayerLoggedIn());
+        MinecraftForge.EVENT_BUS.register(new onPlayerTick());
+        MinecraftForge.EVENT_BUS.register(new onRightClickBlock());
+    }
+
+    //Itemを登録するメソッド
+    public static void RegisterItems() {
         ForgeRegistries.ITEMS.register(ItemBlockDust);
         ForgeRegistries.ITEMS.register(ItemBookSpawn);
         ForgeRegistries.ITEMS.register(ItemBookSyntax);
