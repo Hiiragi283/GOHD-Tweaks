@@ -1,4 +1,4 @@
-package hiiragi283.gohd_tweaks.recipes;
+package hiiragi283.gohd_tweaks.integration;
 
 import cofh.thermalexpansion.util.managers.machine.CentrifugeManager;
 import hiiragi283.gohd_tweaks.GOHDInit;
@@ -9,7 +9,7 @@ import java.util.Collections;
 
 import static java.util.Arrays.asList;
 
-public class ThermalRecipe {
+public class ThermalSeries {
 
     //Thermalとの連携レシピをまとめて登録するメソッド
     public static void Init() {

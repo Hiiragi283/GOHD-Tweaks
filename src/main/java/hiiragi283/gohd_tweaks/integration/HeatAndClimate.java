@@ -1,4 +1,4 @@
-package hiiragi283.gohd_tweaks.recipes;
+package hiiragi283.gohd_tweaks.integration;
 
 import defeatedcrow.hac.api.climate.DCAirflow;
 import defeatedcrow.hac.api.climate.DCHeatTier;
@@ -6,10 +6,9 @@ import defeatedcrow.hac.api.climate.DCHumidity;
 import defeatedcrow.hac.api.recipe.RecipeAPI;
 import defeatedcrow.hac.plugin.DCPluginFluid;
 import hiiragi283.gohd_tweaks.util.GOHDUtils;
-import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 
-public class ClimateRecipe {
+public class HeatAndClimate {
 
     //HaCとの連携レシピをまとめて登録するメソッド
     public static void Init() {

@@ -1,4 +1,4 @@
-package hiiragi283.gohd_tweaks.recipes;
+package hiiragi283.gohd_tweaks.integration;
 
 import hellfirepvp.astralsorcery.common.base.WellLiquefaction;
 import hiiragi283.gohd_tweaks.util.GOHDUtils;
@@ -7,7 +7,7 @@ import net.minecraftforge.fluids.Fluid;
 
 import java.awt.*;
 
-public class AstralRecipe {
+public class AstralSorcery {
 
     //ASとの連携レシピをまとめて登録するメソッド
     public static void Init() {
