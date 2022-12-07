@@ -47,37 +47,29 @@ public class ItemSandPaper extends ItemTool {
                 IBlockState state = world.getBlockState(pos);
                 Block block = state.getBlock();
                 //レシピチェック用のbool変数
-                boolean isFinished = false;
+                boolean isPolished = false;
                 //花崗岩・閃緑岩・安山岩の研磨レシピ
                 if (state.getBlock() == GOHDUtils.getBlock("minecraft", "stone") && block.getMetaFromState(state) % 2 == 1) {
-                    //メタデータを1増やす
                     world.setBlockState(pos, block.getStateFromMeta(block.getMetaFromState(state) + 1));
-                    //研磨ヨシ!
-                    isFinished = true;
+                    isPolished = true;
                 }
-                //焼き石・石ハーフの研磨レシピ
-                if (state == GOHDUtils.getBlock("minecraft", "stone").getDefaultState() || state == GOHDUtils.getBlock("minecraft", "double_stone_slab").getStateFromMeta(0)) {
-                    //つなぎ目のない石ハーブブロックに置き換える
+                //焼き石・石ハーフ->つなぎ目のない石ハーブブロック
+                else if (state == GOHDUtils.getBlock("minecraft", "stone").getDefaultState() || state == GOHDUtils.getBlock("minecraft", "double_stone_slab").getStateFromMeta(0)) {
                     world.setBlockState(pos, GOHDUtils.getBlock("minecraft", "double_stone_slab").getStateFromMeta(8));
-                    //研磨ヨシ!
-                    isFinished = true;
+                    isPolished = true;
                 }
-                //砂岩の研磨レシピ
-                if (block == GOHDUtils.getBlock("minecraft", "sandstone") || state == GOHDUtils.getBlock("minecraft", "double_stone_slab").getStateFromMeta(1)) {
-                    //つなぎ目のない砂岩に置き換える
+                //砂岩->つなぎ目のない砂岩
+                else if (block == GOHDUtils.getBlock("minecraft", "sandstone") || state == GOHDUtils.getBlock("minecraft", "double_stone_slab").getStateFromMeta(1)) {
                     world.setBlockState(pos, GOHDUtils.getBlock("minecraft", "double_stone_slab").getStateFromMeta(9));
-                    //研磨ヨシ!
-                    isFinished = true;
+                    isPolished = true;
                 }
-                //赤砂岩の研磨レシピ
-                if (block == GOHDUtils.getBlock("minecraft", "red_sandstone") || block == GOHDUtils.getBlock("minecraft", "double_stone_slab2")) {
-                    //つなぎ目のない赤砂岩に置き換える
+                //赤砂岩->つなぎ目のない赤砂岩
+                else if (block == GOHDUtils.getBlock("minecraft", "red_sandstone") || block == GOHDUtils.getBlock("minecraft", "double_stone_slab2")) {
                     world.setBlockState(pos, GOHDUtils.getBlock("minecraft", "double_stone_slab2").getStateFromMeta(8));
-                    //研磨ヨシ!
-                    isFinished = true;
+                    isPolished = true;
                 }
                 //レシピが完了した場合
-                if (isFinished) {
+                if (isPolished) {
                     //stackの耐久地を1減らす
                     stack.damageItem(1, player);
                     //とりあえず音鳴らすか
