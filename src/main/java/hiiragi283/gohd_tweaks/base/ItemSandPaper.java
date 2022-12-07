@@ -1,4 +1,4 @@
-package hiiragi283.gohd_tweaks.items;
+package hiiragi283.gohd_tweaks.base;
 
 import com.google.common.collect.Sets;
 import hiiragi283.gohd_tweaks.Reference;
@@ -19,17 +19,17 @@ import net.minecraft.world.World;
 
 import java.util.Set;
 
+//Sandpaper系の継承用のクラス
 public class ItemSandPaper extends ItemTool {
 
     public static final Set<Block> BLOCKS = Sets.newHashSet(RagiUtils.getBlock("minecraft", "air"));
-    private final String NameSandPaper = "sandpaper";
 
-    public ItemSandPaper() {
+    public ItemSandPaper(String ID, int maxDamage) {
         super(ToolMaterial.WOOD, BLOCKS); //ToolMaterialはWOODを継承，採掘は行わないので対象のブロックは適当に空気を設定
-        this.setRegistryName(Reference.MOD_ID, NameSandPaper); //IDの設定
+        this.setRegistryName(Reference.MOD_ID, ID); //IDの設定
         this.setCreativeTab(CreativeTabs.TOOLS); //表示するクリエイティブタブの設定
-        this.setMaxDamage(1024); //最大耐久地を1024に設定
-        this.setUnlocalizedName(NameSandPaper); //翻訳キーをIDから取得
+        this.setMaxDamage(maxDamage); //最大耐久地を1024に設定
+        this.setUnlocalizedName(ID); //翻訳キーをIDから取得
     }
 
     //アイテムを右クリックすると呼ばれるイベント

@@ -19,7 +19,8 @@ item.parts_assembly.2.name=Logic Processor Assembly
 item.parts_assembly.3.name=Parallel Processor Assembly
 item.parts_assembly.4.name=Speculative Processor Assembly
 item.ragi_ticket.0.name=Ragi Ticket
-item.sandpaper.name=Sandpaper
+item.sandpaper_almandine.name=Almandine Sandpaper
+item.sandpaper_diamond.name=Diamond Sandpaper
 
 # Text
 text.gohd_tweaks.decoration_line.name=§l========================================
