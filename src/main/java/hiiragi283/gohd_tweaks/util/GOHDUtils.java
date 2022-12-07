@@ -1,6 +1,8 @@
 package hiiragi283.gohd_tweaks.util;
 
+import hiiragi283.gohd_tweaks.Reference;
 import net.minecraft.block.Block;
+import net.minecraft.command.ICommandSender;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
@@ -11,6 +13,11 @@ import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class GOHDUtils {
+
+    //コマンドを実行するメソッド
+    public static void executeCommand(ICommandSender sender, String command) {
+        Reference.server.getCommandManager().executeCommand(sender, command);
+    }
 
     //ResourceLocationからBlockを取得するメソッド
     public static Block getBlock(String domain, String path) {

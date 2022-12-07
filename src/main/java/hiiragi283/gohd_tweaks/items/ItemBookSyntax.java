@@ -1,11 +1,10 @@
 package hiiragi283.gohd_tweaks.items;
 
+import hiiragi283.gohd_tweaks.util.GOHDUtils;
 import hiiragi283.gohd_tweaks.util.ItemCommon;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
@@ -16,25 +15,34 @@ public class ItemBookSyntax extends ItemCommon {
 
     private final int maxMeta;
 
+    //Itemの定義
     public ItemBookSyntax() {
-        super("book_syntax");
-        maxMeta = 0;
+        super("book_syntax"); //IDの設定
+        maxMeta = 0; //メタデータの最大値を0に設定
     }
 
+    //メタデータの最大値を得るメソッド
     public int getMaxMeta() {
+        //maxMetaに代入された値を返す
         return maxMeta;
     }
 
+    //Rarityを得るメソッド
     public EnumRarity getRarity(ItemStack item) {
+        //EPICを返す
         return EnumRarity.EPIC;
     }
 
+    //アイテムを右クリックすると呼ばれるevent
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
+        //各値の取得
         ItemStack stack = player.getHeldItem(hand);
-        MinecraftServer server = Minecraft.getMinecraft().getIntegratedServer();
+        //サーバー側のみで実行
         if (!world.isRemote) {
-            server.getCommandManager().executeCommand(player, "ct syntax");
-            server.getCommandManager().executeCommand(player, "ct reload");
+            //コマンドを実行
+            GOHDUtils.executeCommand(player, "ct syntax");
+            GOHDUtils.executeCommand(player, "ct reload");
+            //チャットにテキストを流す
             player.sendMessage(new TextComponentTranslation("text.gohd_tweaks.decoration_line.name", new Object()));
             player.sendMessage(new TextComponentTranslation("text.gohd_tweaks.syntax.name", new Object()));
             player.sendMessage(new TextComponentTranslation("text.gohd_tweaks.decoration_line.name", new Object()));
