@@ -21,20 +21,20 @@ public class ItemCommon extends Item {
         this.setHasSubtypes(true); //メタデータを使用する
     }
 
-    //メタデータの最大値を返すメソッド
+    //メタデータの最大値を得るメソッド
     public int getMaxMeta() {
         //デフォルトは15が最大値
         return 15;
     }
 
-    //メタデータを取得するメソッド
+    //メタデータを得るメソッド
     @Override
     public int getMetadata(int damage) {
         //代入した値とメタデータの最大値を比較し、小さい方を返す
         return Math.min(damage, getMaxMeta());
     }
 
-    //翻訳キーを取得するメソッド
+    //翻訳キーを得るメソッド
     @Override
     public String getUnlocalizedName(ItemStack stack) {
         //取得した値とメタデータの最大値を比較し、小さい方を返す
@@ -48,11 +48,13 @@ public class ItemCommon extends Item {
     @SideOnly(Side.CLIENT) //Client側のみ
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> subItems) {
         if (this.isInCreativeTab(tab)) {
+            //listの定義
             List<ItemStack> list = Lists.newArrayList();
             //メタデータの最大値まで処理を繰り返す
             for (int i = 0; i < getMaxMeta() + 1; i++) {
                 list.add(new ItemStack(this, 1, i));
             }
+            //list内のすべてのアイテムをクリエイティブタブに登録
             subItems.addAll(list);
         }
     }

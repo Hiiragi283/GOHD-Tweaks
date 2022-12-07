@@ -15,6 +15,11 @@ public class ClientProxy extends CommonProxy {
         ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(item.getRegistryName() + "_" + meta, "inventory"));
     }
 
+    //Client側のProxyで行われる処理をまとめたメソッド
+    public void Init() {
+        setModels();
+    }
+
     //各Itemのモデルファイルのパスを指定するメソッド
     public void setModels() {
         setModel(GOHDInit.ItemBlockDust, 0);
@@ -35,10 +40,5 @@ public class ClientProxy extends CommonProxy {
         setModel(GOHDInit.ItemPartsAssembly, 4);
         setModel(GOHDInit.ItemRagiTicket, 0);
         setModel(GOHDInit.ItemSandPaper, 0);
-    }
-
-    //Client側のProxyで行われる処理をまとめたメソッド
-    public void Init() {
-        setModels();
     }
 }

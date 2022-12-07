@@ -24,34 +24,42 @@ public class BlockClimate extends BlockCommon {
 
     public final boolean forceUpdate = true;
 
+    //Blockを登録するメソッド
     public BlockClimate(Material material, String ID, int max) {
-        super(material, ID, max);
+        super(material, ID, max); //BlockCommonクラスを継承
     }
 
+    //tick更新の頻度を得るメソッド
     @Override
     public int tickRate(World world) {
+        //100を返す
         return 100;
     }
 
+    //canClimateUpdateかどうかを得るメソッド
     public boolean canClimateUpdate(IBlockState state) {
+        //trueを返す
         return true;
     }
 
+    //
     @Override
     public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer,
                                 ItemStack stack) {
+        //isForcedTickUpdateがtrueの場合
         if (this.isForcedTickUpdate()) {
+            //21tick後にブロック更新をはさむ
             world.scheduleUpdate(pos, this, this.tickRate(world) + world.rand.nextInt(21));
         }
     }
 
     @Override
-    public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
-        super.updateTick(worldIn, pos, state, rand);
-        if (!worldIn.isRemote && state != null && state.getBlock() != null && canClimateUpdate(state)) {
-            IClimate clm = this.onUpdateClimate(worldIn, pos, state);
-            if (!this.onClimateChange(worldIn, pos, state, clm) && this.isForcedTickUpdate()) {
-                worldIn.scheduleUpdate(pos, this, this.tickRate(worldIn) + rand.nextInt(21));
+    public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
+        super.updateTick(world, pos, state, rand);
+        if (!world.isRemote && state != null && state.getBlock() != null && canClimateUpdate(state)) {
+            IClimate clm = this.onUpdateClimate(world, pos, state);
+            if (!this.onClimateChange(world, pos, state, clm) && this.isForcedTickUpdate()) {
+                world.scheduleUpdate(pos, this, this.tickRate(world) + rand.nextInt(21));
             }
         }
     }
@@ -89,19 +97,27 @@ public class BlockClimate extends BlockCommon {
         return false;
     }
 
+    //気候精錬した際に流すSEを得るメソッド
     public SoundEvent getSE(int meta) {
+        //溶岩源が固まる音を返す
         return SoundEvents.BLOCK_LAVA_EXTINGUISH;
     }
 
+    //SEを流すかどうかを得るメソッド
     public boolean playSEOnChanging(int meta) {
+        //当然! 再生だッ!
         return true;
     }
 
+    //強制的にtick更新を起こすかどうがを得るメソッド
     public boolean isForcedTickUpdate() {
+        //forceUpdateに代入された値を返す
         return forceUpdate;
     }
 
+    //気候の探索範囲を得るメソッド
     public int[] checkingRange() {
+        //HaC側のコンフィグから指定する
         return CoreConfigDC.ranges;
     }
 }

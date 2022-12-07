@@ -12,27 +12,28 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.List;
 
 public class ItemBlockCommon extends ItemBlock {
-    //BlockからItemを定義するメソッド
+
+    //Itemの定義
     public ItemBlockCommon(Block block) {
-        super(block);
+        super(block); //BlockからItemを生成する
         this.setRegistryName(block.getRegistryName()); //翻訳キーはblockのものから取得
         this.setHasSubtypes(true); //メタデータを使用する
     }
 
-    //メタデータの最大値を返すメソッド
+    //メタデータの最大値を得るメソッド
     public int getMaxMeta() {
         //デフォルトは15が最大値
         return 15;
     }
 
-    //メタデータを取得するメソッド
+    //メタデータを得るメソッド
     @Override
     public int getMetadata(int damage) {
         //ブロックのダメージ値を返す
         return damage;
     }
 
-    //翻訳キーを取得するメソッド
+    //翻訳キーを得るメソッド
     @Override
     public String getUnlocalizedName(ItemStack stack) {
         //取得した値とメタデータの最大値を比較し、小さい方を返す
@@ -46,11 +47,13 @@ public class ItemBlockCommon extends ItemBlock {
     @SideOnly(Side.CLIENT) //Client側のみ
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> subItems) {
         if (this.isInCreativeTab(tab)) {
+            //listの定義
             List<ItemStack> list = Lists.newArrayList();
             //メタデータの最大値まで処理を繰り返す
             for (int i = 0; i < getMaxMeta() + 1; i++) {
                 list.add(new ItemStack(this, 1, i));
             }
+            //list内のすべてのアイテムをクリエイティブタブに登録
             subItems.addAll(list);
         }
     }

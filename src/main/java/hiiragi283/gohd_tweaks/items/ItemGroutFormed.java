@@ -4,11 +4,15 @@ import hiiragi283.gohd_tweaks.GOHDInit;
 import hiiragi283.gohd_tweaks.util.ItemBlockCommon;
 
 public class ItemGroutFormed extends ItemBlockCommon {
+
+    //Itemの定義
     public ItemGroutFormed() {
-        super(GOHDInit.BlockGroutFormed);
+        super(GOHDInit.BlockGroutFormed); //BlockからItemを生成する
     }
 
+    //メタデータの最大値を得るメソッド
     public int getMaxMeta() {
+        //2を返す
         return 2;
     }
 }

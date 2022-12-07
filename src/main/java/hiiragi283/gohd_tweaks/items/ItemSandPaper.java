@@ -7,7 +7,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
 import net.minecraft.util.ActionResult;
@@ -22,21 +21,22 @@ import java.util.Set;
 
 public class ItemSandPaper extends ItemTool {
 
-    public static final Set<Block> BLOCKS = Sets.newHashSet(Blocks.AIR);
+    public static final Set<Block> BLOCKS = Sets.newHashSet(GOHDUtils.getBlock("minecraft", "air"));
     private final String NameSandPaper = "sandpaper";
 
     public ItemSandPaper() {
-        super(ToolMaterial.WOOD, BLOCKS); //ToolMaterialはWOODを継承，採掘は行わないので対象のブロックは適当にAIRを設定
+        super(ToolMaterial.WOOD, BLOCKS); //ToolMaterialはWOODを継承，採掘は行わないので対象のブロックは適当に空気を設定
         this.setRegistryName(Reference.MOD_ID, NameSandPaper); //IDの設定
         this.setCreativeTab(CreativeTabs.TOOLS); //表示するクリエイティブタブの設定
         this.setMaxDamage(1024); //最大耐久地を1024に設定
-        this.setUnlocalizedName(NameSandPaper); //翻訳キーをIDから取得する
+        this.setUnlocalizedName(NameSandPaper); //翻訳キーをIDから取得
     }
 
     //アイテムを右クリックすると呼ばれるイベント
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
         //保持しているアイテムをItemStack型で取得
         ItemStack stack = player.getHeldItem(hand);
+        //サーバー側のみで実行
         if (!world.isRemote) {
             //playerの視線を取得
             RayTraceResult ray = this.rayTrace(world, player, false);

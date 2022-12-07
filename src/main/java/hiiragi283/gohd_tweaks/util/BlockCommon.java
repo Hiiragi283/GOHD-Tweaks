@@ -26,11 +26,11 @@ public class BlockCommon extends Block {
         this.setRegistryName(Reference.MOD_ID, ID); //IDの設定
         this.setCreativeTab(CreativeTabs.DECORATIONS); //表示するクリエイティブタブの設定
         this.setDefaultState(this.blockState.getBaseState().withProperty(type16, 0)); //デフォルトのBlockstateをtype16の0番に設定
-        this.setUnlocalizedName(ID); //翻訳キーをIDから取得する
+        this.setUnlocalizedName(ID); //翻訳キーをIDから取得
         this.maxMeta = max; //メタデータの最大値を代入
     }
 
-    //メタデータの最大値を返すメソッド
+    //メタデータの最大値を得るメソッド
     public int getMaxMeta() {
         //デフォルトは15が最大値
         return 15;
@@ -43,18 +43,18 @@ public class BlockCommon extends Block {
         return new BlockStateContainer(this, type16);
     }
 
-    //Blockstateからメタデータを取得するメソッド
+    //Blockstateからメタデータを得るメソッド
     @Override
     public int getMetaFromState(IBlockState state) {
         int i = 0;
         //type16をもとにBlockstateからメタデータを返す
         i = state.getValue(type16);
-        //メタデータが最大値よりも大きい場合、最大値が代入される
+        //メタデータが最大値よりも大きい場合、最大値を返す
         if (i > maxMeta) i = maxMeta;
         return i;
     }
 
-    //メタデータからBlockstateを返すメソッド
+    //メタデータからBlockstateを得るメソッド
     @Override
     public IBlockState getStateFromMeta(int meta) {
         //ビット演算子でメタデータを0~5までに絞り込む
@@ -69,22 +69,22 @@ public class BlockCommon extends Block {
     public int damageDropped(IBlockState state) {
         //type16をもとにBlockstateからメタデータを返す
         int i = state.getValue(type16);
-        //メタデータが最大値よりも大きい場合、最大値が代入される
+        //メタデータが最大値よりも大きい場合、最大値を返す
         if (i > maxMeta) i = maxMeta;
         return i;
     }
 
-    //ドロップするアイテムを指定するメソッド
+    //ドロップするアイテムを得るメソッド
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        //Blockstateからブロックを取得し、更にそこからアイテムを所得して返す
+        //Blockstateからブロックを取得し、更にそこからアイテムを取得して返す
         return Item.getItemFromBlock(state.getBlock());
     }
 
-    //ドロップする確率を指定するメソッド
+    //ドロップする確率を得るメソッド
     @Override
     public int quantityDropped(Random random) {
-        //常にドロップさせるので1
+        //常にドロップさせるので1を返す
         return 1;
     }
 }
