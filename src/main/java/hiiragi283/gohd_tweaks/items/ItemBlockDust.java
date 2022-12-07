@@ -1,7 +1,7 @@
 package hiiragi283.gohd_tweaks.items;
 
 import hiiragi283.gohd_tweaks.GOHDInit;
-import hiiragi283.gohd_tweaks.util.ItemBlockCommon;
+import hiiragi283.gohd_tweaks.base.ItemBlockCommon;
 
 public class ItemBlockDust extends ItemBlockCommon {
 

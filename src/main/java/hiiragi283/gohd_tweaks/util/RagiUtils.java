@@ -12,7 +12,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
-public class GOHDUtils {
+public class RagiUtils {
 
     //コマンドを実行するメソッド
     public static void executeCommand(ICommandSender sender, String command) {

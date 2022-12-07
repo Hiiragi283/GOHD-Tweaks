@@ -1,4 +1,4 @@
-package hiiragi283.gohd_tweaks.util;
+package hiiragi283.gohd_tweaks.base;
 
 import hiiragi283.gohd_tweaks.Reference;
 import net.minecraft.block.Block;

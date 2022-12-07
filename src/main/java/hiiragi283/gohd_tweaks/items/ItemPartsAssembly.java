@@ -1,6 +1,6 @@
 package hiiragi283.gohd_tweaks.items;
 
-import hiiragi283.gohd_tweaks.util.ItemCommon;
+import hiiragi283.gohd_tweaks.base.ItemCommon;
 
 public class ItemPartsAssembly extends ItemCommon {
 

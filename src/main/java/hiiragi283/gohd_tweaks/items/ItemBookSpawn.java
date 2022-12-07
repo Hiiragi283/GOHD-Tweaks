@@ -1,6 +1,6 @@
 package hiiragi283.gohd_tweaks.items;
 
-import hiiragi283.gohd_tweaks.util.ItemCommon;
+import hiiragi283.gohd_tweaks.base.ItemCommon;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;

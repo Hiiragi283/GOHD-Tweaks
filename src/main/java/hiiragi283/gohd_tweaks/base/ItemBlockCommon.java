@@ -1,4 +1,4 @@
-package hiiragi283.gohd_tweaks.util;
+package hiiragi283.gohd_tweaks.base;
 
 import com.google.common.collect.Lists;
 import net.minecraft.block.Block;

@@ -1,4 +1,4 @@
-package hiiragi283.gohd_tweaks.util;
+package hiiragi283.gohd_tweaks.base;
 
 import defeatedcrow.hac.api.climate.*;
 import defeatedcrow.hac.api.recipe.IClimateSmelting;

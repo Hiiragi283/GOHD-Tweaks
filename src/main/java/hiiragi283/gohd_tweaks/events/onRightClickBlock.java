@@ -1,6 +1,6 @@
 package hiiragi283.gohd_tweaks.events;
 
-import hiiragi283.gohd_tweaks.util.GOHDUtils;
+import hiiragi283.gohd_tweaks.util.RagiUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -50,11 +50,11 @@ public class onRightClickBlock {
             //根ブロックを苔玉で右クリックすると苔を生やすwww
             if (item.getRegistryName().toString().equals("tconstruct:materials") && stack.getMetadata() == 18) {
                 //blockstateが根ブロックに等しい場合
-                if (blockstate == GOHDUtils.getBlock("twilightforest", "root").getStateFromMeta(0)) {
+                if (blockstate == RagiUtils.getBlock("twilightforest", "root").getStateFromMeta(0)) {
                     //blockstateを根ブロック(苔)に差し替える
                     world.setBlockState(pos, block.getStateFromMeta(1));
                     //これだけだと味気ないので音も生やす
-                    world.playSound(null, pos, GOHDUtils.getSound("minecraft", "block.waterlily.place"), SoundCategory.BLOCKS, 1.0F, 1.0F);
+                    world.playSound(null, pos, RagiUtils.getSound("minecraft", "block.waterlily.place"), SoundCategory.BLOCKS, 1.0F, 1.0F);
                     //苔玉を1つ減らす
                     stack.shrink(1);
                 }

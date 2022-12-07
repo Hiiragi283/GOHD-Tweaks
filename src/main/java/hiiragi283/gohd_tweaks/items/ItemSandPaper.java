@@ -2,7 +2,7 @@ package hiiragi283.gohd_tweaks.items;
 
 import com.google.common.collect.Sets;
 import hiiragi283.gohd_tweaks.Reference;
-import hiiragi283.gohd_tweaks.util.GOHDUtils;
+import hiiragi283.gohd_tweaks.util.RagiUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
@@ -21,7 +21,7 @@ import java.util.Set;
 
 public class ItemSandPaper extends ItemTool {
 
-    public static final Set<Block> BLOCKS = Sets.newHashSet(GOHDUtils.getBlock("minecraft", "air"));
+    public static final Set<Block> BLOCKS = Sets.newHashSet(RagiUtils.getBlock("minecraft", "air"));
     private final String NameSandPaper = "sandpaper";
 
     public ItemSandPaper() {
@@ -49,23 +49,23 @@ public class ItemSandPaper extends ItemTool {
                 //レシピチェック用のbool変数
                 boolean isPolished = false;
                 //花崗岩・閃緑岩・安山岩の研磨レシピ
-                if (state.getBlock() == GOHDUtils.getBlock("minecraft", "stone") && block.getMetaFromState(state) % 2 == 1) {
+                if (state.getBlock() == RagiUtils.getBlock("minecraft", "stone") && block.getMetaFromState(state) % 2 == 1) {
                     world.setBlockState(pos, block.getStateFromMeta(block.getMetaFromState(state) + 1));
                     isPolished = true;
                 }
                 //焼き石・石ハーフ->つなぎ目のない石ハーブブロック
-                else if (state == GOHDUtils.getBlock("minecraft", "stone").getDefaultState() || state == GOHDUtils.getBlock("minecraft", "double_stone_slab").getStateFromMeta(0)) {
-                    world.setBlockState(pos, GOHDUtils.getBlock("minecraft", "double_stone_slab").getStateFromMeta(8));
+                else if (state == RagiUtils.getBlock("minecraft", "stone").getDefaultState() || state == RagiUtils.getBlock("minecraft", "double_stone_slab").getStateFromMeta(0)) {
+                    world.setBlockState(pos, RagiUtils.getBlock("minecraft", "double_stone_slab").getStateFromMeta(8));
                     isPolished = true;
                 }
                 //砂岩->つなぎ目のない砂岩
-                else if (block == GOHDUtils.getBlock("minecraft", "sandstone") || state == GOHDUtils.getBlock("minecraft", "double_stone_slab").getStateFromMeta(1)) {
-                    world.setBlockState(pos, GOHDUtils.getBlock("minecraft", "double_stone_slab").getStateFromMeta(9));
+                else if (block == RagiUtils.getBlock("minecraft", "sandstone") || state == RagiUtils.getBlock("minecraft", "double_stone_slab").getStateFromMeta(1)) {
+                    world.setBlockState(pos, RagiUtils.getBlock("minecraft", "double_stone_slab").getStateFromMeta(9));
                     isPolished = true;
                 }
                 //赤砂岩->つなぎ目のない赤砂岩
-                else if (block == GOHDUtils.getBlock("minecraft", "red_sandstone") || block == GOHDUtils.getBlock("minecraft", "double_stone_slab2")) {
-                    world.setBlockState(pos, GOHDUtils.getBlock("minecraft", "double_stone_slab2").getStateFromMeta(8));
+                else if (block == RagiUtils.getBlock("minecraft", "red_sandstone") || block == RagiUtils.getBlock("minecraft", "double_stone_slab2")) {
+                    world.setBlockState(pos, RagiUtils.getBlock("minecraft", "double_stone_slab2").getStateFromMeta(8));
                     isPolished = true;
                 }
                 //レシピが完了した場合
@@ -73,7 +73,7 @@ public class ItemSandPaper extends ItemTool {
                     //stackの耐久地を1減らす
                     stack.damageItem(1, player);
                     //とりあえず音鳴らすか
-                    world.playSound(null, player.getPosition(), GOHDUtils.getSound("minecraft", "block.gravel.hit"), SoundCategory.BLOCKS, 1.0F, 0.1F);
+                    world.playSound(null, player.getPosition(), RagiUtils.getSound("minecraft", "block.gravel.hit"), SoundCategory.BLOCKS, 1.0F, 0.1F);
                 }
             }
             //実験は成功だ!

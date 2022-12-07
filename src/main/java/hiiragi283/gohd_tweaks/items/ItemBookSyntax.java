@@ -1,7 +1,7 @@
 package hiiragi283.gohd_tweaks.items;
 
-import hiiragi283.gohd_tweaks.util.GOHDUtils;
-import hiiragi283.gohd_tweaks.util.ItemCommon;
+import hiiragi283.gohd_tweaks.util.RagiUtils;
+import hiiragi283.gohd_tweaks.base.ItemCommon;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
@@ -40,8 +40,8 @@ public class ItemBookSyntax extends ItemCommon {
         //サーバー側のみで実行
         if (!world.isRemote) {
             //コマンドを実行
-            GOHDUtils.executeCommand(player, "ct syntax");
-            GOHDUtils.executeCommand(player, "ct reload");
+            RagiUtils.executeCommand(player, "ct syntax");
+            RagiUtils.executeCommand(player, "ct reload");
             //チャットにテキストを流す
             player.sendMessage(new TextComponentTranslation("text.gohd_tweaks.decoration_line.name", new Object()));
             player.sendMessage(new TextComponentTranslation("text.gohd_tweaks.syntax.name", new Object()));
