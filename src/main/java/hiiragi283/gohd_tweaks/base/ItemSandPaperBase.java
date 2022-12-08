@@ -22,11 +22,11 @@ import java.util.Objects;
 import java.util.Set;
 
 //Sandpaper系の継承用のクラス
-public class ItemSandPaper extends ItemTool {
+public class ItemSandPaperBase extends ItemTool {
 
     public static final Set<Block> BLOCKS = Sets.newHashSet(RagiUtils.getBlock("minecraft", "air"));
 
-    public ItemSandPaper(String ID, int maxDamage) {
+    public ItemSandPaperBase(String ID, int maxDamage) {
         super(ToolMaterial.WOOD, BLOCKS); //ToolMaterialはWOODを継承，採掘は行わないので対象のブロックは適当に空気を設定
         this.setRegistryName(Reference.MOD_ID, ID); //IDの設定
         this.setCreativeTab(CreativeTabs.TOOLS); //表示するクリエイティブタブの設定
@@ -48,15 +48,10 @@ public class ItemSandPaper extends ItemTool {
                 BlockPos pos = ray.getBlockPos();
                 IBlockState state = world.getBlockState(pos);
                 Block block = state.getBlock();
-                //レシピチェック用のbool変数
-                boolean isFinished = false;
                 //MapSandpaperから対応する組み合わせがある場合
                 if (Objects.nonNull(RagiMap.MapSandpaper.get(state))) {
+                    //対応するstateで置き換える
                     world.setBlockState(pos, RagiMap.MapSandpaper.get(state));
-                    isFinished = true;
-                }
-                //レシピが完了した場合
-                if (isFinished) {
                     //stackの耐久地を1減らす
                     stack.damageItem(1, player);
                     //とりあえず音鳴らすか
