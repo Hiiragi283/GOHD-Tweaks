@@ -2,6 +2,7 @@ package hiiragi283.gohd_tweaks.base;
 
 import com.google.common.collect.Sets;
 import hiiragi283.gohd_tweaks.Reference;
+import hiiragi283.gohd_tweaks.util.RagiMap;
 import hiiragi283.gohd_tweaks.util.RagiUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -17,6 +18,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
+import java.util.Objects;
 import java.util.Set;
 
 //Sandpaper系の継承用のクラス
@@ -47,29 +49,14 @@ public class ItemSandPaper extends ItemTool {
                 IBlockState state = world.getBlockState(pos);
                 Block block = state.getBlock();
                 //レシピチェック用のbool変数
-                boolean isPolished = false;
-                //花崗岩・閃緑岩・安山岩の研磨レシピ
-                if (state.getBlock() == RagiUtils.getBlock("minecraft", "stone") && block.getMetaFromState(state) % 2 == 1) {
-                    world.setBlockState(pos, block.getStateFromMeta(block.getMetaFromState(state) + 1));
-                    isPolished = true;
-                }
-                //焼き石・石ハーフ->つなぎ目のない石ハーブブロック
-                else if (state == RagiUtils.getBlock("minecraft", "stone").getDefaultState() || state == RagiUtils.getBlock("minecraft", "double_stone_slab").getStateFromMeta(0)) {
-                    world.setBlockState(pos, RagiUtils.getBlock("minecraft", "double_stone_slab").getStateFromMeta(8));
-                    isPolished = true;
-                }
-                //砂岩->つなぎ目のない砂岩
-                else if (block == RagiUtils.getBlock("minecraft", "sandstone") || state == RagiUtils.getBlock("minecraft", "double_stone_slab").getStateFromMeta(1)) {
-                    world.setBlockState(pos, RagiUtils.getBlock("minecraft", "double_stone_slab").getStateFromMeta(9));
-                    isPolished = true;
-                }
-                //赤砂岩->つなぎ目のない赤砂岩
-                else if (block == RagiUtils.getBlock("minecraft", "red_sandstone") || block == RagiUtils.getBlock("minecraft", "double_stone_slab2")) {
-                    world.setBlockState(pos, RagiUtils.getBlock("minecraft", "double_stone_slab2").getStateFromMeta(8));
-                    isPolished = true;
+                boolean isFinished = false;
+                //MapSandpaperから対応する組み合わせがある場合
+                if (Objects.nonNull(RagiMap.MapSandpaper.get(state))) {
+                    world.setBlockState(pos, RagiMap.MapSandpaper.get(state));
+                    isFinished = true;
                 }
                 //レシピが完了した場合
-                if (isPolished) {
+                if (isFinished) {
                     //stackの耐久地を1減らす
                     stack.damageItem(1, player);
                     //とりあえず音鳴らすか
