@@ -2,6 +2,7 @@ package hiiragi283.gohd_tweaks.util;
 
 import hiiragi283.gohd_tweaks.Reference;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -37,6 +38,15 @@ public class RagiUtils {
     //ResourceLocationなどからItemStackを取得するメソッド
     public static ItemStack getStack(String domain, String path, int amount, int meta) {
         return new ItemStack(getItem(domain, path), amount, meta);
+    }
+
+    //ResourceLocationなどからIBlockStateを取得するメソッド
+    public static IBlockState getState(String domain, String path, int meta) {
+        return getBlock(domain, path).getStateFromMeta(meta);
+    }
+
+    public static IBlockState getState(Block block, int meta) {
+        return block.getStateFromMeta(meta);
     }
 
     //ResourceLocationからPotionを取得するメソッド

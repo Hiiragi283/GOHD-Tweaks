@@ -57,6 +57,15 @@ public class ItemSandPaperBase extends ItemTool {
                     //とりあえず音鳴らすか
                     world.playSound(null, player.getPosition(), RagiUtils.getSound("minecraft", "block.gravel.hit"), SoundCategory.BLOCKS, 1.0F, 0.1F);
                 }
+                //MapSandpaperBlockから対応する組み合わせがある場合
+                if (Objects.nonNull(RagiMap.MapSandpaperBlock.get(block))) {
+                    //対応するstateで置き換える
+                    world.setBlockState(pos, RagiMap.MapSandpaperBlock.get(block));
+                    //stackの耐久地を1減らす
+                    stack.damageItem(1, player);
+                    //とりあえず音鳴らすか
+                    world.playSound(null, player.getPosition(), RagiUtils.getSound("minecraft", "block.gravel.hit"), SoundCategory.BLOCKS, 1.0F, 0.1F);
+                }
             }
             //実験は成功だ!
             return new ActionResult(EnumActionResult.SUCCESS, stack);
