@@ -29,17 +29,15 @@ public class ItemBlockCommon extends ItemBlock {
     //メタデータを得るメソッド
     @Override
     public int getMetadata(int damage) {
-        //ブロックのダメージ値を返す
-        return damage;
+        //代入した値とメタデータの最大値を比較し、小さい方を返す
+        return Math.min(damage, getMaxMeta());
     }
 
     //翻訳キーを得るメソッド
     @Override
     public String getUnlocalizedName(ItemStack stack) {
-        //取得した値とメタデータの最大値を比較し、小さい方を返す
-        int j = Math.min(stack.getMetadata(), getMaxMeta());
         //メタデータごとに異なる翻訳キーを返す
-        return super.getUnlocalizedName() + "." + j;
+        return super.getUnlocalizedName() + "." + stack.getMetadata();
     }
 
     //メタデータ付きアイテムをクリエイティブタブに登録するメソッド

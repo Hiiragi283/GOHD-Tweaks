@@ -37,10 +37,8 @@ public class ItemCommon extends Item {
     //翻訳キーを得るメソッド
     @Override
     public String getUnlocalizedName(ItemStack stack) {
-        //取得した値とメタデータの最大値を比較し、小さい方を返す
-        int j = Math.min(stack.getMetadata(), getMaxMeta());
         //メタデータごとに異なる翻訳キーを返す
-        return super.getUnlocalizedName() + "." + j;
+        return super.getUnlocalizedName() + "." + stack.getMetadata();
     }
 
     //メタデータ付きアイテムをクリエイティブタブに登録するメソッド
