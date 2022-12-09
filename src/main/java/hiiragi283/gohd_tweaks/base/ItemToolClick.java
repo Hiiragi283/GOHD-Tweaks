@@ -22,16 +22,26 @@ import java.util.Objects;
 import java.util.Set;
 
 //Sandpaper系の継承用のクラス
-public class ItemSandPaperBase extends ItemTool {
+public class ItemToolClick extends ItemTool {
 
     public static final Set<Block> BLOCKS = Sets.newHashSet(RagiUtils.getBlock("minecraft", "air"));
 
-    public ItemSandPaperBase(String ID, int maxDamage) {
+    public ItemToolClick(String ID, int maxDamage) {
         super(ToolMaterial.WOOD, BLOCKS); //ToolMaterialはWOODを継承，採掘は行わないので対象のブロックは適当に空気を設定
         this.setRegistryName(Reference.MOD_ID, ID); //IDの設定
         this.setCreativeTab(CreativeTabs.TOOLS); //表示するクリエイティブタブの設定
-        this.setMaxDamage(maxDamage); //最大耐久地を1024に設定
+        this.setMaxDamage(maxDamage); //最大耐久地をmaxDamageに設定
         this.setUnlocalizedName(ID); //翻訳キーをIDから取得
+    }
+
+    //onItemRightClickに使用するレシピマップを指定するメソッド
+    //あえてメソッドとして記述することで, Overrideできるようにする
+    public static IBlockState RecipeMap(IBlockState state) {
+        return RagiMap.MapSandpaper.get(state);
+    }
+
+    public static IBlockState RecipeMap(Block block) {
+        return RagiMap.MapSandpaperBlock.get(block);
     }
 
     //アイテムを右クリックすると呼ばれるイベント
@@ -48,19 +58,19 @@ public class ItemSandPaperBase extends ItemTool {
                 BlockPos pos = ray.getBlockPos();
                 IBlockState state = world.getBlockState(pos);
                 Block block = state.getBlock();
-                //MapSandpaperから対応する組み合わせがある場合
-                if (Objects.nonNull(RagiMap.MapSandpaper.get(state))) {
+                //stateと対応する組み合わせがある場合
+                if (Objects.nonNull(RecipeMap(state))) {
                     //対応するstateで置き換える
-                    world.setBlockState(pos, RagiMap.MapSandpaper.get(state));
+                    world.setBlockState(pos, RecipeMap(state));
                     //stackの耐久地を1減らす
                     stack.damageItem(1, player);
                     //とりあえず音鳴らすか
                     world.playSound(null, player.getPosition(), RagiUtils.getSound("minecraft", "block.gravel.hit"), SoundCategory.BLOCKS, 1.0F, 0.1F);
                 }
-                //MapSandpaperBlockから対応する組み合わせがある場合
-                if (Objects.nonNull(RagiMap.MapSandpaperBlock.get(block))) {
+                //blockと対応する組み合わせがある場合
+                if (Objects.nonNull(RecipeMap(block))) {
                     //対応するstateで置き換える
-                    world.setBlockState(pos, RagiMap.MapSandpaperBlock.get(block));
+                    world.setBlockState(pos, RecipeMap(block));
                     //stackの耐久地を1減らす
                     stack.damageItem(1, player);
                     //とりあえず音鳴らすか

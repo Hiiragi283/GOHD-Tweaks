@@ -15,13 +15,11 @@ public class ClientProxy extends CommonProxy {
     public static void setModel(Item item) {
         //itemがメタデータを使用する場合
         if (item.getHasSubtypes()) {
-            GOHDTweaks.LoggerGOHD.info(item.getRegistryName() + " uses " + item.getMetadata(32768) + " metadata!");
             //メタデータが最大値になるまで処理を繰り返す
             for (int i = 0; i < item.getMetadata(283) + 1; i++) {
                 ModelLoader.setCustomModelResourceLocation(item, i, new ModelResourceLocation(item.getRegistryName() + "_" + i, "inventory"));
             }
         } else {
-            GOHDTweaks.LoggerGOHD.info(item.getRegistryName() + " doesn't use metadata...");
             //itemが耐久地を持っている場合，メタデータが0番のものだけ設定
             ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName() + "_" + 0, "inventory"));
         }
