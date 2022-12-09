@@ -18,6 +18,7 @@ public class GOHDInit {
     //Itemの定義
     public static Item ItemBlockDust = new ItemBlockDust();
     public static Item ItemBookSpawn = new ItemBookSpawn();
+    public static Item ItemColorIngot = new ItemColorIngot();
     public static Item ItemBookSyntax = new ItemBookSyntax();
     public static Item ItemGroutFormed = new ItemGroutFormed();
     public static Item ItemPartsAssembly = new ItemPartsAssembly();
@@ -50,6 +51,7 @@ public class GOHDInit {
         ForgeRegistries.ITEMS.register(ItemBlockDust);
         ForgeRegistries.ITEMS.register(ItemBookSpawn);
         ForgeRegistries.ITEMS.register(ItemBookSyntax);
+        ForgeRegistries.ITEMS.register(ItemColorIngot);
         ForgeRegistries.ITEMS.register(ItemGroutFormed);
         ForgeRegistries.ITEMS.register(ItemPartsAssembly);
         ForgeRegistries.ITEMS.register(ItemRagiTicket);

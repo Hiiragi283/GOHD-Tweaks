@@ -1,7 +1,6 @@
 package hiiragi283.gohd_tweaks.proxy;
 
 import hiiragi283.gohd_tweaks.GOHDInit;
-import hiiragi283.gohd_tweaks.GOHDTweaks;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
