@@ -10,10 +10,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.SoundCategory;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
@@ -36,12 +33,17 @@ public class ItemToolClick extends ItemTool {
 
     //onItemRightClickに使用するレシピマップを指定するメソッド
     //あえてメソッドとして記述することで, Overrideできるようにする
-    public static IBlockState RecipeMap(IBlockState state) {
-        return RagiMap.MapSandpaper.get(state);
+    public IBlockState RecipeMap(IBlockState state) {
+        return null;
     }
 
-    public static IBlockState RecipeMap(Block block) {
-        return RagiMap.MapSandpaperBlock.get(block);
+    public IBlockState RecipeMap(Block block) {
+        return null;
+    }
+
+    //レシピ完了時に鳴らす音もメソッドにしておく
+    public SoundEvent RecipeSound() {
+        return null;
     }
 
     //アイテムを右クリックすると呼ばれるイベント
@@ -65,7 +67,7 @@ public class ItemToolClick extends ItemTool {
                     //stackの耐久地を1減らす
                     stack.damageItem(1, player);
                     //とりあえず音鳴らすか
-                    world.playSound(null, player.getPosition(), RagiUtils.getSound("minecraft", "block.gravel.hit"), SoundCategory.BLOCKS, 1.0F, 0.1F);
+                    world.playSound(null, pos, RecipeSound(), SoundCategory.BLOCKS, 1.0F, 0.5F);
                 }
                 //blockと対応する組み合わせがある場合
                 if (Objects.nonNull(RecipeMap(block))) {
@@ -74,7 +76,7 @@ public class ItemToolClick extends ItemTool {
                     //stackの耐久地を1減らす
                     stack.damageItem(1, player);
                     //とりあえず音鳴らすか
-                    world.playSound(null, player.getPosition(), RagiUtils.getSound("minecraft", "block.gravel.hit"), SoundCategory.BLOCKS, 1.0F, 0.1F);
+                    world.playSound(null, pos, RecipeSound(), SoundCategory.BLOCKS, 1.0F, 0.5F);
                 }
             }
             //実験は成功だ!
