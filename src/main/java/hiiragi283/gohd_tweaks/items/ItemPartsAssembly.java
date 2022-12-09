@@ -12,7 +12,7 @@ public class ItemPartsAssembly extends ItemBase {
 
     //メタデータの最大値を得るメソッド
     public int getMaxMeta() {
-        //0を返す
-        return 0;
+        //4を返す
+        return 4;
     }
 }
