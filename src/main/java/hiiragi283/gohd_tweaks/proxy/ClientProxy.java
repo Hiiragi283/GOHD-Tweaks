@@ -1,7 +1,9 @@
 package hiiragi283.gohd_tweaks.proxy;
 
 import hiiragi283.gohd_tweaks.GOHDInit;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
@@ -9,9 +11,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ClientProxy extends CommonProxy {
 
-    //代入されたItemとmetaに応じてモデルファイルのパスを登録するメソッド
+    //代入されたItemに応じてモデルファイルのパスを登録するメソッド
     @SideOnly(Side.CLIENT)
-    public static void setModel(Item item) {
+    public static void SetModel(Item item) {
         //itemがメタデータを使用する場合
         if (item.getHasSubtypes()) {
             //メタデータが最大値になるまで処理を繰り返す
@@ -24,20 +26,25 @@ public class ClientProxy extends CommonProxy {
         }
     }
 
-    //Client側のProxyで行われる処理をまとめたメソッド
-    public void Init() {
-        setModels();
+    //代入されたIItemColorをItemに登録するメソッド
+    @SideOnly(Side.CLIENT)
+    public void SetColor(IItemColor color, Item item) {
+        Minecraft.getMinecraft().getItemColors().registerItemColorHandler(color, item);
     }
 
     //各Itemのモデルファイルのパスを指定するメソッド
-    public void setModels() {
-        setModel(GOHDInit.ItemBlockDust);
-        setModel(GOHDInit.ItemBookSpawn);
-        setModel(GOHDInit.ItemBookSyntax);
-        setModel(GOHDInit.ItemGroutFormed);
-        setModel(GOHDInit.ItemPartsAssembly);
-        setModel(GOHDInit.ItemRagiTicket);
-        setModel(GOHDInit.ItemSandPaper);
-        setModel(GOHDInit.ItemSandPaperDiamond);
+    public void SetModels() {
+        SetModel(GOHDInit.ItemBlockDust);
+        SetModel(GOHDInit.ItemBookSpawn);
+        SetModel(GOHDInit.ItemBookSyntax);
+        SetModel(GOHDInit.ItemGroutFormed);
+        SetModel(GOHDInit.ItemPartsAssembly);
+        SetModel(GOHDInit.ItemRagiTicket);
+        SetModel(GOHDInit.ItemSandPaper);
+        SetModel(GOHDInit.ItemSandPaperDiamond);
+    }
+
+    //各Itemの着色を指定するメソッド
+    public void SetColors() {
     }
 }

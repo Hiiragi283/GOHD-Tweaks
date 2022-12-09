@@ -1,9 +1,10 @@
 package hiiragi283.gohd_tweaks;
 
-import hiiragi283.gohd_tweaks.proxy.CommonProxy;
 import hiiragi283.gohd_tweaks.integration.IntegrationCore;
+import hiiragi283.gohd_tweaks.proxy.CommonProxy;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.LogManager;
@@ -28,7 +29,14 @@ public class GOHDTweaks {
         //GOHDInitの登録
         GOHDInit.Init();
         //ItemのModelの登録
-        proxy.Init();
+        proxy.SetModels();
+    }
+
+    //Initializationの段階で呼ばれるevent
+    @Mod.EventHandler
+    public void Init(FMLInitializationEvent event) {
+        //Itemの着色の登録
+        proxy.SetColors();
     }
 
     //Post-Initializationの段階で呼ばれるevent
