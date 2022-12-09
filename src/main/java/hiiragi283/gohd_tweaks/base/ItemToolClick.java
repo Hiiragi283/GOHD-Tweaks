@@ -70,7 +70,7 @@ public class ItemToolClick extends ItemTool {
                     world.playSound(null, pos, RecipeSound(), SoundCategory.BLOCKS, 1.0F, 0.5F);
                 }
                 //blockと対応する組み合わせがある場合
-                if (Objects.nonNull(RecipeMap(block))) {
+                else if (Objects.nonNull(RecipeMap(block))) {
                     //対応するstateで置き換える
                     world.setBlockState(pos, RecipeMap(block));
                     //stackの耐久地を1減らす

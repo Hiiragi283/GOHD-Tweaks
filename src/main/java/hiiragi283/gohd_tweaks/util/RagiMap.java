@@ -27,7 +27,11 @@ public class RagiMap {
     public static Map<Block, IBlockState> MapSandpaperBlock = new HashMap<Block, IBlockState>() {
         {
             //MapSandpaperBlockにレシピを書きこんでいく
+            put(RagiUtils.getBlock("appliedenergistics2", "sky_stone_block"), RagiUtils.getState("appliedenergistics2", "smooth_sky_stone_block", 0));
+            put(RagiUtils.getBlock("biomesoplenty", "hard_ice"), RagiUtils.getState("railcraft", "frostbound", 2));
             put(RagiUtils.getBlock("minecraft", "double_stone_slab2"), RagiUtils.getState("minecraft", "double_stone_slab2", 8));
+            put(RagiUtils.getBlock("minecraft", "nether_brick"), RagiUtils.getState("railcraft", "nether", 2));
+            put(RagiUtils.getBlock("minecraft", "red_nether_brick"), RagiUtils.getState("railcraft", "red_nether", 2));
             put(RagiUtils.getBlock("minecraft", "red_sandstone"), RagiUtils.getState("minecraft", "double_stone_slab2", 8));
             put(RagiUtils.getBlock("minecraft", "sandstone"), RagiUtils.getState("minecraft", "double_stone_slab", 9));
             put(RagiUtils.getBlock("minecraft", "stone"), RagiUtils.getState("minecraft", "double_stone_slab", 8));
