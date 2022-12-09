@@ -20,7 +20,7 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class BlockClimate extends BlockCommon {
+public class BlockClimate extends BlockBase {
 
     public final boolean forceUpdate = true;
 

@@ -11,10 +11,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.List;
 
-public class ItemBlockCommon extends ItemBlock {
+public class ItemBlockBase extends ItemBlock {
 
     //Itemの定義
-    public ItemBlockCommon(Block block) {
+    public ItemBlockBase(Block block) {
         super(block); //BlockからItemを生成する
         this.setRegistryName(block.getRegistryName()); //翻訳キーはblockのものから取得
         this.setHasSubtypes(true); //メタデータを使用する

@@ -1,10 +1,10 @@
 package hiiragi283.gohd_tweaks.items;
 
-import hiiragi283.gohd_tweaks.base.ItemCommon;
+import hiiragi283.gohd_tweaks.base.ItemBase;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 
-public class ItemRagiTicket extends ItemCommon {
+public class ItemRagiTicket extends ItemBase {
 
     //Itemの定義
     public ItemRagiTicket() {
@@ -14,7 +14,7 @@ public class ItemRagiTicket extends ItemCommon {
 
     //メタデータの最大値を得るメソッド
     public int getMaxMeta() {
-        //maxMetaに代入された値を返す
+        //0を返す
         return 0;
     }
 

@@ -1,9 +1,9 @@
 package hiiragi283.gohd_tweaks.items;
 
 import hiiragi283.gohd_tweaks.GOHDInit;
-import hiiragi283.gohd_tweaks.base.ItemBlockCommon;
+import hiiragi283.gohd_tweaks.base.ItemBlockBase;
 
-public class ItemGroutFormed extends ItemBlockCommon {
+public class ItemGroutFormed extends ItemBlockBase {
 
     //Itemの定義
     public ItemGroutFormed() {

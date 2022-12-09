@@ -11,9 +11,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.List;
 
-public class ItemCommon extends Item {
+public class ItemBase extends Item {
     //Itemを定義するメソッド
-    public ItemCommon(String ID) {
+    public ItemBase(String ID) {
         super();
         this.setRegistryName(Reference.MOD_ID, ID); //IDの設定
         this.setCreativeTab(CreativeTabs.MISC); //表示するクリエイティブタブの設定

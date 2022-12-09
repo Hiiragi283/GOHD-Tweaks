@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 
 import java.awt.*;
 
-public class ItemColorBase extends ItemCommon {
+public class ItemColorBase extends ItemBase {
     public ItemColorBase(String ID) {
         super(ID);
     }

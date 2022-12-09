@@ -1,7 +1,7 @@
 package hiiragi283.gohd_tweaks.items;
 
 import hiiragi283.gohd_tweaks.util.RagiUtils;
-import hiiragi283.gohd_tweaks.base.ItemCommon;
+import hiiragi283.gohd_tweaks.base.ItemBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
@@ -11,20 +11,17 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 
-public class ItemBookSyntax extends ItemCommon {
-
-    private final int maxMeta;
+public class ItemBookSyntax extends ItemBase {
 
     //Itemの定義
     public ItemBookSyntax() {
         super("book_syntax"); //IDの設定
-        maxMeta = 0; //メタデータの最大値を0に設定
     }
 
     //メタデータの最大値を得るメソッド
     public int getMaxMeta() {
-        //maxMetaに代入された値を返す
-        return maxMeta;
+        //0を返す
+        return 0;
     }
 
     //Rarityを得るメソッド

@@ -11,7 +11,7 @@ import net.minecraft.item.Item;
 
 import java.util.Random;
 
-public class BlockCommon extends Block {
+public class BlockBase extends Block {
 
     //Blockstateのプロパティの定義
     public static final PropertyInteger type4 = PropertyInteger.create("type", 0, 3);
@@ -21,7 +21,7 @@ public class BlockCommon extends Block {
     public final int maxMeta;
 
     //Blockを登録するメソッド
-    public BlockCommon(Material Material, String ID, int max) {
+    public BlockBase(Material Material, String ID, int max) {
         super(Material); //Materialを設定
         this.setRegistryName(Reference.MOD_ID, ID); //IDの設定
         this.setCreativeTab(CreativeTabs.DECORATIONS); //表示するクリエイティブタブの設定
