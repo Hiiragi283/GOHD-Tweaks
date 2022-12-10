@@ -2,6 +2,7 @@ package hiiragi283.gohd_tweaks;
 
 import hiiragi283.gohd_tweaks.blocks.BlockDust;
 import hiiragi283.gohd_tweaks.blocks.BlockGroutFormed;
+import hiiragi283.gohd_tweaks.events.onPlayerChangedDimension;
 import hiiragi283.gohd_tweaks.events.onPlayerLoggedIn;
 import hiiragi283.gohd_tweaks.events.onPlayerTick;
 import hiiragi283.gohd_tweaks.events.onRightClickBlock;
@@ -40,6 +41,7 @@ public class GOHDInit {
 
     //Eventを登録するメソッド
     public static void RegisterEvents() {
+        MinecraftForge.EVENT_BUS.register(new onPlayerChangedDimension());
         MinecraftForge.EVENT_BUS.register(new onPlayerLoggedIn());
         MinecraftForge.EVENT_BUS.register(new onPlayerTick());
         MinecraftForge.EVENT_BUS.register(new onRightClickBlock());

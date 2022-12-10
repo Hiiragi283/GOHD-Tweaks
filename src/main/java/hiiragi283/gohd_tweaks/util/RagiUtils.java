@@ -4,12 +4,16 @@ import hiiragi283.gohd_tweaks.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.command.ICommandSender;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
@@ -62,5 +66,20 @@ public class RagiUtils {
     //ResourceLocationからSoundEventを取得するメソッド
     public static SoundEvent getSound(String domain, String path) {
         return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(domain, path));
+    }
+
+    //titleコマンドをより簡潔に実行するメソッド
+    public static void setTitle(EntityPlayer player, String title, String subtitle) {
+        //コマンドの実行結果を出力しないようにする
+        RagiUtils.executeCommand(player, "gamerule sendCommandFeedback false");
+        //titleの設定
+        RagiUtils.executeCommand(player, "title @p times 20 60 20");
+        RagiUtils.executeCommand(player, "title @p title [{\"translate\":\"" + title + "\"}]");
+        RagiUtils.executeCommand(player, "title @p subtitle {\"translate\":\"" + subtitle + "\"}");
+    }
+
+    //Hypixelで慣れ親しんだこの音声を再び聞いたとき，感動で泣きそうになりました
+    public static void soundHypixel(World world, BlockPos pos) {
+        world.playSound(null, pos, RagiUtils.getSound("minecraft", "entity.player.levelup"), SoundCategory.BLOCKS, 1.0F, 0.5F);
     }
 }
