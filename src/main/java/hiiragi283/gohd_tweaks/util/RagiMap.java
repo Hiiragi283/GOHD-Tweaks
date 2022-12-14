@@ -2,12 +2,13 @@ package hiiragi283.gohd_tweaks.util;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.item.ItemStack;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class RagiMap {
-    //MapSandpaperの定義
+    //Sandpaperのレシピマップの定義
     public static Map<IBlockState, IBlockState> MapSandpaper = new HashMap<IBlockState, IBlockState>() {
         {
             //MapSandpaperにレシピを書きこんでいく
@@ -23,7 +24,7 @@ public class RagiMap {
         }
     };
 
-    //MapSandpaperBlockの定義 (メタデータ無視用)
+    //Sandpaperのレシピマップの定義 (メタデータ無視用)
     public static Map<Block, IBlockState> MapSandpaperBlock = new HashMap<Block, IBlockState>() {
         {
             //MapSandpaperBlockにレシピを書きこんでいく
@@ -35,6 +36,18 @@ public class RagiMap {
             put(RagiUtils.getBlock("minecraft", "red_sandstone"), RagiUtils.getState("minecraft", "double_stone_slab2", 8));
             put(RagiUtils.getBlock("minecraft", "sandstone"), RagiUtils.getState("minecraft", "double_stone_slab", 9));
             put(RagiUtils.getBlock("minecraft", "stone"), RagiUtils.getState("minecraft", "double_stone_slab", 8));
+        }
+    };
+    //onRightClickEventで利用するレシピマップの定義
+    public static Map<ItemStack, Map<IBlockState, IBlockState>> MapRightClickBlock = new HashMap<ItemStack, Map<IBlockState, IBlockState>>() {
+        {
+            //MapRightClickBlockにレシピを書き込んでいく
+            put(RagiUtils.getStack("tconstruct", "material", 1, 18), new HashMap<IBlockState, IBlockState>() {
+                {
+                    //根ブロックを苔玉で右クリックすると苔を生やすwww
+                    put(RagiUtils.getState("twilightforest", "root", 0), RagiUtils.getState("twilightforest", "root", 1));
+                }
+            });
         }
     };
 }
