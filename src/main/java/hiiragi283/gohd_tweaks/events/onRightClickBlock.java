@@ -13,7 +13,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-import java.util.Map;
 import java.util.Objects;
 
 public class onRightClickBlock {
@@ -28,55 +27,38 @@ public class onRightClickBlock {
         EntityPlayer player = event.getEntityPlayer();
         World world = event.getWorld();
         BlockPos pos = event.getPos();
-        IBlockState blockstate = world.getBlockState(pos);
-        Block block = blockstate.getBlock();
+        IBlockState state = world.getBlockState(pos);
+        Block block = state.getBlock();
         //サーバー側のみで実行
         if (!world.isRemote) {
             //デバッグ用
             if (item.getRegistryName().toString().equals("theoneprobe:creativeprobe")) {
                 player.sendMessage(new TextComponentTranslation("text.gohd_tweaks.decoration_line.name"));
                 //ブロックの翻訳名をチャットに表示
-                player.sendMessage(new TextComponentString("§lName:§r " + block.getPickBlock(blockstate, player.rayTrace(0, 0), world, pos, player).getDisplayName()));
+                player.sendMessage(new TextComponentString("§lName:§r " + block.getPickBlock(state, player.rayTrace(0, 0), world, pos, player).getDisplayName()));
                 //ブロックのIDをチャットに表示
                 player.sendMessage(new TextComponentString("§lID:§r " + block.getRegistryName()));
                 //ブロックのBlockstateをチャットに表示
-                player.sendMessage(new TextComponentString("§lBlockstate:§r " + blockstate));
+                player.sendMessage(new TextComponentString("§lBlockstate:§r " + state));
                 //ブロックのHardnessをチャットに表示
-                player.sendMessage(new TextComponentString("§lHardness:§r " + block.getBlockHardness(blockstate, world, pos)));
+                player.sendMessage(new TextComponentString("§lHardness:§r " + block.getBlockHardness(state, world, pos)));
                 //ブロックのResistanceをチャットに表示
                 player.sendMessage(new TextComponentString("§lResistance:§r " + block.getExplosionResistance(player)));
                 //適正ツールをチャットに表示
-                player.sendMessage(new TextComponentString("§lHarvest Tool:§r " + block.getHarvestTool(blockstate)));
+                player.sendMessage(new TextComponentString("§lHarvest Tool:§r " + block.getHarvestTool(state)));
                 //適正レベルをチャットに表示
-                player.sendMessage(new TextComponentString("§lHarvest Level:§r " + block.getHarvestLevel(blockstate)));
+                player.sendMessage(new TextComponentString("§lHarvest Level:§r " + block.getHarvestLevel(state)));
             }
-            //根ブロックを苔玉で右クリックすると苔を生やすwww
-            /*if (item.getRegistryName().toString().equals("tconstruct:materials") && stack.getMetadata() == 18) {
-                //blockstateが根ブロックに等しい場合
-                if (blockstate == RagiUtils.getBlock("twilightforest", "root").getStateFromMeta(0)) {
-                    //blockstateを根ブロック(苔)に差し替える
-                    world.setBlockState(pos, block.getStateFromMeta(1));
-                    //これだけだと味気ないので音も生やす
-                    world.playSound(null, pos, RagiUtils.getSound("minecraft", "block.waterlily.place"), SoundCategory.BLOCKS, 1.0F, 1.0F);
-                    //苔玉を1つ減らす
-                    stack.shrink(1);
-                }
-            }*/
             //stackCompareと対応する組み合わせがある場合
-            if (Objects.nonNull(RagiMap.MapRightClickBlock.get(stackCompare))) {
-                //対応するMapを取得する
-                Map<IBlockState, IBlockState> recipeMap = RagiMap.MapRightClickBlock.get(stackCompare);
-                //recipeMap内の各keyに対して実行
-                for (IBlockState stateKey : recipeMap.keySet()) {
-                    //stateKeyと対応する組み合わせがある場合
-                    if (Objects.nonNull(recipeMap.get(stateKey))) {
-                        //blockstateを差し替える
-                        world.setBlockState(pos, recipeMap.get(stateKey));
-                        //stackのサイズを1つ減らす
-                        stack.shrink(1);
-                        //負荷軽減のためbreakで無駄な検索を省く
-                        break;
-                    }
+            if (Objects.nonNull(RagiMap.MapRightClickItem.get(stackCompare))) {
+                //対応するIBlockStateを取得する
+                IBlockState stateFrom = RagiMap.MapRightClickItem.get(stackCompare);
+                //stateとstateFromが一致、かつstateFromと対応する組み合わせがある場合
+                if (state.equals(stateFrom) && Objects.nonNull(RagiMap.MapSandpaperBlock.get(stateFrom))) {
+                    //posにあるblockstateを取得した値で上書きする
+                    world.setBlockState(pos, RagiMap.MapRightClickBlock.get(stateFrom));
+                    //stackを1つ減らす
+                    stack.shrink(1);
                 }
             }
         }
