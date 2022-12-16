@@ -25,6 +25,7 @@ public class GOHDInit {
     public static Item ItemGroutFormed = new ItemBlockBase(GOHDInit.BlockGroutFormed, 2);
     public static Item ItemPartsAssembly = new ItemBase("parts_assembly", 4);
     public static Item ItemRagiTicket = new ItemRagiTicket();
+    public static Item ItemRuler = new ItemRuler();
     public static Item ItemSandPaper = new ItemSandPaper();
     public static Item ItemSandPaperDiamond = new ItemSandPaperDiamond();
 
@@ -57,6 +58,7 @@ public class GOHDInit {
         ForgeRegistries.ITEMS.register(ItemGroutFormed);
         ForgeRegistries.ITEMS.register(ItemPartsAssembly);
         ForgeRegistries.ITEMS.register(ItemRagiTicket);
+        ForgeRegistries.ITEMS.register(ItemRuler);
         ForgeRegistries.ITEMS.register(ItemSandPaper);
         ForgeRegistries.ITEMS.register(ItemSandPaperDiamond);
     }

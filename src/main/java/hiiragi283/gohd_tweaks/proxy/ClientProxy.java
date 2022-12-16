@@ -40,6 +40,7 @@ public class ClientProxy extends CommonProxy {
         SetModel(GOHDInit.ItemGroutFormed);
         SetModel(GOHDInit.ItemPartsAssembly);
         SetModel(GOHDInit.ItemRagiTicket);
+        SetModel(GOHDInit.ItemRuler);
         SetModel(GOHDInit.ItemSandPaper);
         SetModel(GOHDInit.ItemSandPaperDiamond);
     }

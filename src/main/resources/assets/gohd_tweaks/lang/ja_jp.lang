@@ -21,10 +21,19 @@ item.parts_assembly.4.name=思考プロセッサアセンブリ
 item.ragi_ticket.0.name=らぎチケット
 item.sandpaper.name=紙やすり
 item.sandpaper_diamond.name=ダイヤモンドの紙やすり
+item.stainless_ruler.0.name=ステンレス定規
 
 # Text
 text.gohd_tweaks.decoration_line.name=§l========================================
-text.gohd_tweaks.spawn.name=§aTeleport you to the spawn point!
-text.gohd_tweaks.syntax.name=§aSyntax and Reload!
+text.gohd_tweaks.spawn.name=§bTeleport you to the spawn point!
+text.gohd_tweaks.syntax.name=§bSyntax and Reload!
+text.gohd_tweaks.travel_end.name=§d§lThe §5§lEnd
+text.gohd_tweaks.travel_end_sub.name=§d§oForgiving §5§oVoid
+text.gohd_tweaks.travel_nether.name=§c§lNether
+text.gohd_tweaks.travel_nether_sub.name=§c§oJust §4§oa§c§o Lava §4§oCaves
+text.gohd_tweaks.travel_overworld.name=§e§lOver§6§lworld
+text.gohd_tweaks.travel_overworld_sub.name=§e§oOur §6§oHome§e§o World
+text.gohd_tweaks.travel_twilight.name=§a§lTwilight §2§lForest
+text.gohd_tweaks.travel_twilight_sub.name=§a§oGood §2§oOld§a§o Magical §2§oForest
 text.gohd_tweaks.welcome.name=§c§l§oGOHD§r§lにようこそ!
 text.gohd_tweaks.welcome_sub.name=§l古き良き一日を♪!
