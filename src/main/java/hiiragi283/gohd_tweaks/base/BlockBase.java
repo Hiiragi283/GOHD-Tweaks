@@ -13,27 +13,26 @@ import java.util.Random;
 
 public class BlockBase extends Block {
 
-    //Blockstateのプロパティの定義
-    public static final PropertyInteger type4 = PropertyInteger.create("type", 0, 3);
-    public static final PropertyInteger type8 = PropertyInteger.create("type", 0, 7);
-    public static final PropertyInteger type16 = PropertyInteger.create("type", 0, 15);
     //メタデータの最大値の定義
-    public final int maxMeta;
+    private int maxMeta;
+    //propertyの定義
+    //これmaxにmaxMeta入れるとクラッシュするからこうするしかなかったらひ
+    public final static PropertyInteger type16 = PropertyInteger.create("type", 0, 15);
 
     //Blockを登録するメソッド
-    public BlockBase(Material Material, String ID, int max) {
+    public BlockBase(Material Material, String ID, int maxMeta) {
         super(Material); //Materialを設定
         this.setRegistryName(Reference.MOD_ID, ID); //IDの設定
         this.setCreativeTab(CreativeTabs.DECORATIONS); //表示するクリエイティブタブの設定
         this.setDefaultState(this.blockState.getBaseState().withProperty(type16, 0)); //デフォルトのBlockstateをtype16の0番に設定
         this.setUnlocalizedName(ID); //翻訳キーをIDから取得
-        this.maxMeta = max; //メタデータの最大値を代入
+        this.maxMeta = maxMeta; //メタデータの最大値を代入
     }
 
     //メタデータの最大値を得るメソッド
     public int getMaxMeta() {
-        //デフォルトは15が最大値
-        return 15;
+        //maxMetaを返す
+        return maxMeta;
     }
 
     //Blockstateの登録をするメソッド
@@ -49,7 +48,7 @@ public class BlockBase extends Block {
         int i = 0;
         //type16をもとにBlockstateからメタデータを返す
         i = state.getValue(type16);
-        //メタデータが最大値よりも大きい場合、最大値を返す
+        //メタデータがmaxMetaよりも大きい場合、最大値を返す
         if (i > maxMeta) i = maxMeta;
         return i;
     }
@@ -57,8 +56,8 @@ public class BlockBase extends Block {
     //メタデータからBlockstateを得るメソッド
     @Override
     public IBlockState getStateFromMeta(int meta) {
-        //ビット演算子でメタデータを0~5までに絞り込む
-        int i = meta & 15;
+        //metaをmaxMeteで割った剰余を求める
+        int i = meta % maxMeta;
         //type16をもとに指定したメタデータからBlockstateを返す
         IBlockState state = this.getDefaultState().withProperty(type16, i);
         return state;
@@ -69,7 +68,7 @@ public class BlockBase extends Block {
     public int damageDropped(IBlockState state) {
         //type16をもとにBlockstateからメタデータを返す
         int i = state.getValue(type16);
-        //メタデータが最大値よりも大きい場合、最大値を返す
+        //メタデータがmaxMetaよりも大きい場合、最大値を返す
         if (i > maxMeta) i = maxMeta;
         return i;
     }

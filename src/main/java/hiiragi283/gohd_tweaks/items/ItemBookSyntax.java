@@ -15,13 +15,7 @@ public class ItemBookSyntax extends ItemBase {
 
     //Itemの定義
     public ItemBookSyntax() {
-        super("book_syntax"); //IDの設定
-    }
-
-    //メタデータの最大値を得るメソッド
-    public int getMaxMeta() {
-        //0を返す
-        return 0;
+        super("book_syntax", 0); //IDの設定
     }
 
     //Rarityを得るメソッド

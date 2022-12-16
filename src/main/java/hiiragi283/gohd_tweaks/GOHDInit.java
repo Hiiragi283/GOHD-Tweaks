@@ -1,5 +1,7 @@
 package hiiragi283.gohd_tweaks;
 
+import hiiragi283.gohd_tweaks.base.ItemBase;
+import hiiragi283.gohd_tweaks.base.ItemBlockBase;
 import hiiragi283.gohd_tweaks.blocks.BlockDust;
 import hiiragi283.gohd_tweaks.blocks.BlockGroutFormed;
 import hiiragi283.gohd_tweaks.events.onPlayerChangedDimension;
@@ -17,11 +19,11 @@ public class GOHDInit {
     public static Block BlockDust = new BlockDust();
     public static Block BlockGroutFormed = new BlockGroutFormed();
     //Itemの定義
-    public static Item ItemBlockDust = new ItemBlockDust();
+    public static Item ItemBlockDust = new ItemBlockBase(GOHDInit.BlockDust, 5);
     public static Item ItemBookSpawn = new ItemBookSpawn();
     public static Item ItemBookSyntax = new ItemBookSyntax();
-    public static Item ItemGroutFormed = new ItemGroutFormed();
-    public static Item ItemPartsAssembly = new ItemPartsAssembly();
+    public static Item ItemGroutFormed = new ItemBlockBase(GOHDInit.BlockGroutFormed, 2);
+    public static Item ItemPartsAssembly = new ItemBase("parts_assembly", 4);
     public static Item ItemRagiTicket = new ItemRagiTicket();
     public static Item ItemSandPaper = new ItemSandPaper();
     public static Item ItemSandPaperDiamond = new ItemSandPaperDiamond();

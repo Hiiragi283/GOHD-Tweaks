@@ -15,13 +15,7 @@ public class ItemBookSpawn extends ItemBase {
 
     //Itemの定義
     public ItemBookSpawn() {
-        super("book_spawn"); //IDの設定
-    }
-
-    //メタデータの最大値を得るメソッド
-    public int getMaxMeta() {
-        //0を返す
-        return 0;
+        super("book_spawn", 0); //IDの設定
     }
 
     //Rarityを得るメソッド

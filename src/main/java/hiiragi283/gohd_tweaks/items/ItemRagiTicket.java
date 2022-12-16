@@ -8,14 +8,7 @@ public class ItemRagiTicket extends ItemBase {
 
     //Itemの定義
     public ItemRagiTicket() {
-        super("ragi_ticket"); //IDの設定
-    }
-
-
-    //メタデータの最大値を得るメソッド
-    public int getMaxMeta() {
-        //0を返す
-        return 0;
+        super("ragi_ticket", 0); //IDの設定
     }
 
     //Rarityを得るメソッド

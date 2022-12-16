@@ -6,8 +6,8 @@ import net.minecraft.item.ItemStack;
 import java.awt.*;
 
 public class ItemColorBase extends ItemBase {
-    public ItemColorBase(String ID) {
-        super(ID);
+    public ItemColorBase(String ID, int maxMeta) {
+        super(ID, maxMeta);
     }
 
     public static class ColorHandler implements IItemColor {

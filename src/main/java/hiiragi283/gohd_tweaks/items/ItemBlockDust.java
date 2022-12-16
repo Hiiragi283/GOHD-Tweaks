@@ -7,12 +7,6 @@ public class ItemBlockDust extends ItemBlockBase {
 
     //Itemの定義
     public ItemBlockDust() {
-        super(GOHDInit.BlockDust); //BlockからItemを生成する
-    }
-
-    //メタデータの最大値を得るメソッド
-    public int getMaxMeta() {
-        //5を返す
-        return 5;
+        super(GOHDInit.BlockDust, 5); //BlockからItemを生成する
     }
 }

@@ -12,19 +12,22 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.List;
 
 public class ItemBase extends Item {
+
+    private int maxMeta;
     //Itemを定義するメソッド
-    public ItemBase(String ID) {
+    public ItemBase(String ID, int maxMeta) {
         super();
         this.setRegistryName(Reference.MOD_ID, ID); //IDの設定
         this.setCreativeTab(CreativeTabs.MISC); //表示するクリエイティブタブの設定
         this.setUnlocalizedName(ID); //翻訳キーをIDから取得する
         this.setHasSubtypes(true); //メタデータを使用する
+        this.maxMeta = maxMeta; //メタデータの代入
     }
 
     //メタデータの最大値を得るメソッド
     public int getMaxMeta() {
-        //デフォルトは15が最大値
-        return 15;
+        //maxMetaを返す
+        return maxMeta;
     }
 
     //メタデータを得るメソッド

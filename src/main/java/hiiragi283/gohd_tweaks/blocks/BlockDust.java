@@ -7,7 +7,7 @@ import net.minecraft.world.World;
 
 public class BlockDust extends BlockClimate {
     public BlockDust() {
-        super(Material.GROUND, "dustblock", 15);
+        super(Material.GROUND, "dustblock", 5);
         this.setHardness(1.5F);
         this.setResistance(15.0F);
         this.setSoundType(SoundType.STONE);
