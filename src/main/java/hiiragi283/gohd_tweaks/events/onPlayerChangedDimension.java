@@ -10,12 +10,12 @@ public class onPlayerChangedDimension {
     //プレイヤーがディメンションを移動すると呼ばれるevent
     @SubscribeEvent
     public void onPlayerChangedDimension(PlayerEvent.PlayerChangedDimensionEvent event) {
-        //各値の取得
-        EntityPlayer player = event.player;
-        World world = player.world;
-        int dimID = event.toDim;
         //サーバー側のみで実行
-        if (!world.isRemote) {
+        if (!event.player.world.isRemote) {
+            //各値の取得
+            EntityPlayer player = event.player;
+            World world = player.world;
+            int dimID = event.toDim;
             //音声を流す
             RagiUtils.soundHypixel(world, player.getPosition());
             //ディメンションのidによって表示するtitleを変える

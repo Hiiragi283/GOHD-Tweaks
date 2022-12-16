@@ -17,14 +17,14 @@ public class onPlayerTick {
     //各tickにおいてプレイヤーを対象に呼ばれるevent
     @SubscribeEvent
     public void onPlayerTick(TickEvent.PlayerTickEvent event) {
-        //各値の取得
-        EntityPlayer player = event.player;
-        World world = player.world;
-        BlockPos pos = player.getPosition();
-        IBlockState blockstate = world.getBlockState(pos);
-        Block block = blockstate.getBlock();
         //20tickに1回実行する (負荷対策) && サーバー側のみで実行
-        if (world.getWorldTime() % 20 == 0 && !world.isRemote) {
+        if (event.player.world.getWorldTime() % 20 == 0 && !event.player.world.isRemote) {
+            //各値の取得
+            EntityPlayer player = event.player;
+            World world = player.world;
+            BlockPos pos = player.getPosition();
+            IBlockState blockstate = world.getBlockState(pos);
+            Block block = blockstate.getBlock();
             //プレイヤーが利き手にアイテムを持っている場合
             if (Objects.isNull(player.getHeldItemMainhand())) {
                 //アイテムの値を取得する

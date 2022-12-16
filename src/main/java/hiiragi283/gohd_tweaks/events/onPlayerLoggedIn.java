@@ -11,11 +11,11 @@ public class onPlayerLoggedIn {
     //プレイヤーがログインすると呼ばれるevent
     @SubscribeEvent
     public void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
-        //各値の取得
-        EntityPlayer player = event.player;
-        World world = player.world;
         //サーバー側のみで実行
-        if (!world.isRemote) {
+        if (!event.player.world.isRemote) {
+            //各値の取得
+            EntityPlayer player = event.player;
+            World world = player.world;
             //音声を流す
             RagiUtils.soundHypixel(world, player.getPosition());
             //さらにHypixelから学んだ結果

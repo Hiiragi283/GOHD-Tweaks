@@ -50,20 +50,6 @@ public class RagiMap {
         }
     };
 
-    //onRightClickEventで利用するレシピマップの定義 (その1)
-    public static Map<ItemStack, IBlockState> MapRightClickItem = new HashMap<ItemStack, IBlockState>() {
-        {
-            put(RagiUtils.getStack("tconstruct", "material", 1, 18), RagiUtils.getState("twilightforest", "root", 0));
-        }
-    };
-
-    //onRightClickEventで利用するレシピマップの定義 (その2)
-    public static Map<IBlockState, IBlockState> MapRightClickBlock = new HashMap<IBlockState, IBlockState>() {
-        {
-            put(RagiUtils.getState("twilightforest", "root", 0), RagiUtils.getState("twilightforest", "root", 1));
-        }
-    };
-
     //Sandpaperのレシピマップの定義
     public static Map<IBlockState, IBlockState> MapSandpaper = new HashMap<IBlockState, IBlockState>() {
         {
