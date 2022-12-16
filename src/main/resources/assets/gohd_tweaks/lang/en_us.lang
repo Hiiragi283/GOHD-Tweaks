@@ -23,9 +23,9 @@ item.sandpaper.name=Sandpaper
 item.sandpaper_diamond.name=Diamond Sandpaper
 
 # Text
-text.gohd_tweaks.decoration_line.name=§l========================================
-text.gohd_tweaks.spawn.name=§aTeleport you to the spawn point!
-text.gohd_tweaks.syntax.name=§aSyntax and Reload!
+text.gohd_tweaks.decoration_line.name=§e§l========================================
+text.gohd_tweaks.spawn.name=§eTeleport you to the spawn point!
+text.gohd_tweaks.syntax.name=§eSyntax and Reload!
 text.gohd_tweaks.travel_end.name=§d§lThe §5§lEnd
 text.gohd_tweaks.travel_end_sub.name=§d§oForgiving §5§oVoid
 text.gohd_tweaks.travel_nether.name=§c§lNether
