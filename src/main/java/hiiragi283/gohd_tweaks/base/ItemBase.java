@@ -2,10 +2,12 @@ package hiiragi283.gohd_tweaks.base;
 
 import com.google.common.collect.Lists;
 import hiiragi283.gohd_tweaks.Reference;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -58,5 +60,12 @@ public class ItemBase extends Item {
             //list内のすべてのアイテムをクリエイティブタブに登録
             subItems.addAll(list);
         }
+    }
+
+    //Itemにtooltipを付与するメソッド
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag flag) {
+        super.addInformation(stack, world, tooltip, ITooltipFlag.TooltipFlags.NORMAL);
     }
 }
