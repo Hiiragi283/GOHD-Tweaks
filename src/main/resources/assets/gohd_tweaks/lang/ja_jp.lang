@@ -13,6 +13,7 @@ tile.grout_formed.2.name=未焼成の鋳造桶
 # Items
 item.book_spawn.0.name=Spawn Book (DEBUG)
 item.book_syntax.0.name=Syntax Book (DEBUG)
+item.mold_titanium.name=チタン製金型
 item.parts_assembly.0.name=発展プロセッサアセンブリ
 item.parts_assembly.1.name=上級プロセッサアセンブリ
 item.parts_assembly.2.name=基本プロセッサアセンブリ
@@ -24,16 +25,16 @@ item.sandpaper_diamond.name=ダイヤモンドの紙やすり
 item.stainless_ruler.0.name=ステンレス定規
 
 # Text
-text.gohd_tweaks.decoration_line.name=§l========================================
+text.gohd_tweaks.decoration_line.name=§e§l========================================
 text.gohd_tweaks.spawn.name=§bTeleport you to the spawn point!
 text.gohd_tweaks.syntax.name=§bSyntax and Reload!
-text.gohd_tweaks.travel_end.name=§d§lThe §5§lEnd
-text.gohd_tweaks.travel_end_sub.name=§d§oForgiving §5§oVoid
-text.gohd_tweaks.travel_nether.name=§c§lNether
-text.gohd_tweaks.travel_nether_sub.name=§c§oJust §4§oa§c§o Lava §4§oCaves
-text.gohd_tweaks.travel_overworld.name=§e§lOver§6§lworld
-text.gohd_tweaks.travel_overworld_sub.name=§e§oOur §6§oHome§e§o World
-text.gohd_tweaks.travel_twilight.name=§a§lTwilight §2§lForest
-text.gohd_tweaks.travel_twilight_sub.name=§a§oGood §2§oOld§a§o Magical §2§oForest
+text.gohd_tweaks.travel_end.name=§d§lジ・§5§lエンド
+text.gohd_tweaks.travel_end_sub.name=§d§o終わりが§5§o始まり，
+text.gohd_tweaks.travel_nether.name=§c§lネザー
+text.gohd_tweaks.travel_nether_sub.name=§c§oただ§4§oの§c§o溶岩§4§o洞窟よ！
+text.gohd_tweaks.travel_overworld.name=§e§lオーバー§6§lワールド
+text.gohd_tweaks.travel_overworld_sub.name=§e§o実家の§6§oような§e§o安心感
+text.gohd_tweaks.travel_twilight.name=§a§l黄昏§2§lの森
+text.gohd_tweaks.travel_twilight_sub.name=§a§o古き§2§o良き§a§o魔法§2§oの森
 text.gohd_tweaks.welcome.name=§c§l§oGOHD§r§lにようこそ!
 text.gohd_tweaks.welcome_sub.name=§l古き良き一日を♪!
