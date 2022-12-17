@@ -55,7 +55,7 @@ public class ItemToolClick extends ItemTool {
             //playerの視線を取得
             RayTraceResult ray = this.rayTrace(world, player, false);
             //視線の先がブロックの場合
-            if (Objects.nonNull(ray.typeOfHit) && ray.typeOfHit == RayTraceResult.Type.BLOCK) {
+            if (ray.typeOfHit == RayTraceResult.Type.BLOCK) {
                 //ブロックまわりの値の取得
                 BlockPos pos = ray.getBlockPos();
                 IBlockState state = world.getBlockState(pos);
