@@ -13,6 +13,7 @@ tile.grout_formed.2.name=Unfired Casting Channel
 # Items
 item.book_spawn.0.name=Spawn Book (DEBUG)
 item.book_syntax.0.name=Syntax Book (DEBUG)
+item.mold_titanium.name=Titanium Mold
 item.parts_assembly.0.name=Calculation Processor Assembly
 item.parts_assembly.1.name=Engineering Processor Assembly
 item.parts_assembly.2.name=Logic Processor Assembly

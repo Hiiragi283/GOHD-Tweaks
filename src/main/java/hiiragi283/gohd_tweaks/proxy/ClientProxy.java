@@ -26,6 +26,15 @@ public class ClientProxy extends CommonProxy {
         }
     }
 
+    //メタデータによらず特定のモデルファイルだけを利用させるメソッド
+    @SideOnly(Side.CLIENT)
+    public static void SetModelSame(Item item) {
+        //メタデータが最大値になるまで処理を繰り返す
+        for (int i = 0; i < item.getMetadata(283) + 1; i++) {
+            ModelLoader.setCustomModelResourceLocation(item, i, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+        }
+    }
+
     //代入されたIItemColorをItemに登録するメソッド
     @SideOnly(Side.CLIENT)
     public void SetColor(IItemColor color, Item item) {
@@ -38,6 +47,7 @@ public class ClientProxy extends CommonProxy {
         SetModel(GOHDInit.ItemBookSpawn);
         SetModel(GOHDInit.ItemBookSyntax);
         SetModel(GOHDInit.ItemGroutFormed);
+        SetModelSame(GOHDInit.ItemMoldTitanium);
         SetModel(GOHDInit.ItemPartsAssembly);
         SetModel(GOHDInit.ItemRagiTicket);
         SetModel(GOHDInit.ItemRuler);
