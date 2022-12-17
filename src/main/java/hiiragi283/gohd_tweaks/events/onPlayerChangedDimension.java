@@ -27,7 +27,7 @@ public class onPlayerChangedDimension {
                     RagiUtils.setTitle(player, "text.gohd_tweaks.travel_overworld.name", "text.gohd_tweaks.travel_overworld_sub.name");
                     break;
                 case 1:
-                    RagiUtils.setTitle(player, "text.gohd_tweaks.travel_end.name", "text.gohd_tweaks.travel_emd_sub.name");
+                    RagiUtils.setTitle(player, "text.gohd_tweaks.travel_end.name", "text.gohd_tweaks.travel_end_sub.name");
                     break;
                 case 7:
                     RagiUtils.setTitle(player, "text.gohd_tweaks.travel_twilight.name", "text.gohd_tweaks.travel_twilight_sub.name");
