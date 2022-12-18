@@ -1,4 +1,4 @@
-package hiiragi283.gohd_tweaks.events;
+package hiiragi283.gohd_tweaks.event;
 
 import hiiragi283.gohd_tweaks.GOHDTweaks;
 import hiiragi283.gohd_tweaks.util.RagiUtils;

@@ -1,4 +1,4 @@
-package hiiragi283.gohd_tweaks.items;
+package hiiragi283.gohd_tweaks.item;
 
 import hiiragi283.gohd_tweaks.base.ItemBase;
 import net.minecraft.item.EnumRarity;

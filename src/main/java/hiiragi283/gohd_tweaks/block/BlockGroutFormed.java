@@ -1,4 +1,4 @@
-package hiiragi283.gohd_tweaks.blocks;
+package hiiragi283.gohd_tweaks.block;
 
 import hiiragi283.gohd_tweaks.base.BlockClimate;
 import net.minecraft.block.SoundType;

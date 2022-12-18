@@ -1,4 +1,4 @@
-package hiiragi283.gohd_tweaks.items;
+package hiiragi283.gohd_tweaks.item;
 
 import defeatedcrow.hac.core.util.DCUtil;
 import defeatedcrow.hac.main.api.IPressMold;
