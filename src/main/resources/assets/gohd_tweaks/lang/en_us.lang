@@ -10,6 +10,9 @@ tile.grout_formed.0.name=Unfired Casting Table
 tile.grout_formed.1.name=Unfired Casting Basin
 tile.grout_formed.2.name=Unfired Casting Channel
 
+# GUI
+gohd_tweaks.sandpaper=Sandpaper
+
 # Items
 item.book_spawn.0.name=Spawn Book (DEBUG)
 item.book_syntax.0.name=Syntax Book (DEBUG)

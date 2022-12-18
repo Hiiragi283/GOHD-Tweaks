@@ -10,6 +10,9 @@ tile.grout_formed.0.name=未焼成の鋳造台
 tile.grout_formed.1.name=未焼成の鋳造鉢
 tile.grout_formed.2.name=未焼成の鋳造桶
 
+# GUI
+gohd_tweaks.sandpaper=紙やすり
+
 # Items
 item.book_spawn.0.name=Spawn Book (DEBUG)
 item.book_syntax.0.name=Syntax Book (DEBUG)
