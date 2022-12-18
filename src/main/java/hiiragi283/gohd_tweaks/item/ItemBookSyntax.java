@@ -31,7 +31,8 @@ public class ItemBookSyntax extends ItemBase {
         //サーバー側のみで実行
         if (!world.isRemote) {
             //コマンドを実行
-            RagiUtils.executeCommand(player, "gs reload");
+            RagiUtils.executeCommand(player, "ct syntax");
+            RagiUtils.executeCommand(player, "ct reload");
             //チャットにテキストを流す
             player.sendMessage(new TextComponentTranslation("text.gohd_tweaks.decoration_line.name", new Object()));
             player.sendMessage(new TextComponentTranslation("text.gohd_tweaks.syntax.name", new Object()));
