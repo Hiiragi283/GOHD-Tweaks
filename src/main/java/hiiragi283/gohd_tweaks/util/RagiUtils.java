@@ -7,6 +7,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
@@ -33,7 +34,7 @@ public class RagiUtils {
     public static Block getBlock(String domain, String path) {
         Block block = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(domain, path));
         if (Objects.nonNull(block)) return block;
-        else return ForgeRegistries.BLOCKS.getValue(new ResourceLocation("mimecraft", "bedrock"));
+        else return Blocks.BEDROCK;
     }
 
     //液体名からFluidを取得するメソッド
@@ -53,26 +54,26 @@ public class RagiUtils {
     }
 
     //ResourceLocationなどからItemStackを取得するメソッド
-    //ItemStackがnullの場合はEMPTY1を返す
+    //ItemStackがnullの場合はバリアブロックを返す
     public static ItemStack getStack(String domain, String path, int amount, int meta) {
         ItemStack stack = new ItemStack(getItem(domain, path), amount, meta);
-        if (DCUtil.isEmpty(stack)) return ItemStack.EMPTY;
-        else return stack;
+        if (!DCUtil.isEmpty(stack)) return stack;
+        else return new ItemStack(getItem("minecraft", "barrier"), 1, 0);
+
     }
 
     //ResourceLocationなどからIBlockStateを取得するメソッド
     //IBLockStateがnullの場合はデフォルトのblockstateを返す
     public static IBlockState getState(String domain, String path, int meta) {
-        Block block = getBlock(domain, path);
-        IBlockState state = block.getStateFromMeta(meta);
+        IBlockState state = getBlock(domain, path).getStateFromMeta(meta);
         if (Objects.nonNull(state)) return state;
-        else return getBlock(domain, path).getDefaultState();
+        else return Blocks.BEDROCK.getDefaultState();
     }
 
     public static IBlockState getState(Block block, int meta) {
         IBlockState state = block.getStateFromMeta(meta);
         if (Objects.nonNull(state)) return state;
-        else return block.getDefaultState();
+        else return Blocks.BEDROCK.getDefaultState();
     }
 
     //ResourceLocationからPotionを取得するメソッド
