@@ -9,7 +9,7 @@ public class Reference {
     //Mod名の定義
     public static final String MOD_NAME = "GOHD Tweaks";
     //Modのバージョンの定義
-    public static final String VERSION = "v0.0.1";
+    public static final String VERSION = "v0.5.0";
     //依存関係の定義
     public static final String DEPENDENCIES = "required-after:dcs_lib;required-after:dcs_climate";
     //対応するMCのバージョンの定義
