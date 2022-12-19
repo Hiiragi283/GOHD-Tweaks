@@ -1,5 +1,7 @@
 package hiiragi283.gohd_tweaks.util;
 
+import defeatedcrow.hac.core.util.DCUtil;
+import hiiragi283.gohd_tweaks.GOHDInit;
 import hiiragi283.gohd_tweaks.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -17,45 +19,68 @@ import net.minecraft.world.World;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
+import java.util.Objects;
+
 public class RagiUtils {
 
     //コマンドを実行するメソッド
     public static void executeCommand(ICommandSender sender, String command) {
-        Reference.server.getCommandManager().executeCommand(sender, command);
+        Objects.requireNonNull(Reference.server).getCommandManager().executeCommand(sender, command);
     }
 
     //ResourceLocationからBlockを取得するメソッド
+    //Blockがnullの場合は岩盤を返す
     public static Block getBlock(String domain, String path) {
-        return ForgeRegistries.BLOCKS.getValue(new ResourceLocation(domain, path));
+        Block block = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(domain, path));
+        if (Objects.nonNull(block)) return block;
+        else return ForgeRegistries.BLOCKS.getValue(new ResourceLocation("mimecraft", "bedrock"));
     }
 
     //液体名からFluidを取得するメソッド
+    //Fluidがnullの場合は水を返す
     public static Fluid getFluid(String name) {
-        return net.minecraftforge.fluids.FluidRegistry.getFluid(name);
+        Fluid fluid = net.minecraftforge.fluids.FluidRegistry.getFluid(name);
+        if (Objects.nonNull(fluid)) return fluid;
+        else return net.minecraftforge.fluids.FluidRegistry.getFluid("water");
     }
 
     //ResourceLocationからItemを取得するメソッド
+    //Itemがnullの場合はらぎチケットを返す
     public static Item getItem(String domain, String path) {
-        return ForgeRegistries.ITEMS.getValue(new ResourceLocation(domain, path));
+        Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(domain, path));
+        if (Objects.nonNull(item)) return item;
+        else return GOHDInit.ItemRagiTicket;
     }
 
     //ResourceLocationなどからItemStackを取得するメソッド
+    //ItemStackがnullの場合はEMPTY1を返す
     public static ItemStack getStack(String domain, String path, int amount, int meta) {
-        return new ItemStack(getItem(domain, path), amount, meta);
+        ItemStack stack = new ItemStack(getItem(domain, path), amount, meta);
+        if (DCUtil.isEmpty(stack)) return ItemStack.EMPTY;
+        else return stack;
     }
 
     //ResourceLocationなどからIBlockStateを取得するメソッド
+    //IBLockStateがnullの場合はデフォルトのblockstateを返す
     public static IBlockState getState(String domain, String path, int meta) {
-        return getBlock(domain, path).getStateFromMeta(meta);
+        Block block = getBlock(domain, path);
+        IBlockState state = block.getStateFromMeta(meta);
+        if (Objects.nonNull(state)) return state;
+        else return getBlock(domain, path).getDefaultState();
     }
 
     public static IBlockState getState(Block block, int meta) {
-        return block.getStateFromMeta(meta);
+        IBlockState state = block.getStateFromMeta(meta);
+        if (Objects.nonNull(state)) return state;
+        else return block.getDefaultState();
     }
 
     //ResourceLocationからPotionを取得するメソッド
+    //Potionがnullの場合は不運を返す
     public static Potion getPotion(String domain, String path) {
-        return ForgeRegistries.POTIONS.getValue(new ResourceLocation(domain, path));
+        Potion potion = ForgeRegistries.POTIONS.getValue(new ResourceLocation(domain, path));
+        if (Objects.nonNull(potion)) return potion;
+        else return ForgeRegistries.POTIONS.getValue(new ResourceLocation("minecraft", "unluck"));
     }
 
     //ResourceLocationなどからPotionEffectを取得するメソッド
@@ -64,8 +89,11 @@ public class RagiUtils {
     }
 
     //ResourceLocationからSoundEventを取得するメソッド
+    //SoundEventがnullの場合はレベルアップの音を返す
     public static SoundEvent getSound(String domain, String path) {
-        return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(domain, path));
+        SoundEvent sound = ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(domain, path));
+        if (Objects.nonNull(sound)) return sound;
+        else return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("minecraft", "entity.player.levelup"));
     }
 
     //titleコマンドをより簡潔に実行するメソッド
