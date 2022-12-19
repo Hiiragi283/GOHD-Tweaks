@@ -2,7 +2,6 @@ package hiiragi283.gohd_tweaks.base;
 
 import com.google.common.collect.Sets;
 import hiiragi283.gohd_tweaks.Reference;
-import hiiragi283.gohd_tweaks.util.RagiMap;
 import hiiragi283.gohd_tweaks.util.RagiUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -15,6 +14,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
+import javax.annotation.Nonnull;
 import java.util.Objects;
 import java.util.Set;
 
@@ -23,6 +23,7 @@ public class ItemToolClick extends ItemTool {
 
     public static final Set<Block> BLOCKS = Sets.newHashSet(RagiUtils.getBlock("minecraft", "air"));
 
+    //コンストラクタの宣言
     public ItemToolClick(String ID, int maxDamage) {
         super(ToolMaterial.WOOD, BLOCKS); //ToolMaterialはWOODを継承，採掘は行わないので対象のブロックは適当に空気を設定
         this.setRegistryName(Reference.MOD_ID, ID); //IDの設定
@@ -47,7 +48,8 @@ public class ItemToolClick extends ItemTool {
     }
 
     //アイテムを右クリックすると呼ばれるイベント
-    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
+    @Nonnull
+    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, @Nonnull EnumHand hand) {
         //保持しているアイテムをItemStack型で取得
         ItemStack stack = player.getHeldItem(hand);
         //サーバー側のみで実行
@@ -80,9 +82,9 @@ public class ItemToolClick extends ItemTool {
                 }
             }
             //実験は成功だ!
-            return new ActionResult(EnumActionResult.SUCCESS, stack);
+            return new ActionResult<>(EnumActionResult.SUCCESS, stack);
         }
         //何がいけなかったのだろうか
-        return new ActionResult(EnumActionResult.FAIL, stack);
+        return new ActionResult<>(EnumActionResult.FAIL, stack);
     }
 }

@@ -11,21 +11,25 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 
+import javax.annotation.Nonnull;
+
 public class ItemBookSpawn extends ItemBase {
 
-    //Itemの定義
+    //コンストラクタの宣言
     public ItemBookSpawn() {
         super("book_spawn", 0); //IDの設定
     }
 
     //Rarityを得るメソッド
-    public EnumRarity getRarity(ItemStack item) {
+    @Nonnull
+    public EnumRarity getRarity(@Nonnull ItemStack item) {
         //EPICを返す
         return EnumRarity.EPIC;
     }
 
     //アイテムを右クリックすると呼ばれるevent
-    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
+    @Nonnull
+    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, @Nonnull EnumHand hand) {
         //各値の取得
         ItemStack stack = player.getHeldItem(hand);
         BlockPos spawnPoint = world.getSpawnPoint();
@@ -41,6 +45,6 @@ public class ItemBookSpawn extends ItemBase {
             player.sendMessage(new TextComponentTranslation("text.gohd_tweaks.spawn.name", new Object()));
             player.sendMessage(new TextComponentTranslation("text.gohd_tweaks.decoration_line.name", new Object()));
         }
-        return new ActionResult(EnumActionResult.SUCCESS, stack);
+        return new ActionResult<>(EnumActionResult.SUCCESS, stack);
     }
 }

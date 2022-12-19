@@ -18,20 +18,23 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 
 public class BlockClimate extends BlockBase {
 
+    //public変数の宣言
     public final boolean forceUpdate = true;
 
-    //Blockを登録するメソッド
+    //コンストラクタの宣言
     public BlockClimate(Material material, String ID, int max) {
         super(material, ID, max); //BlockCommonクラスを継承
     }
 
     //tick更新の頻度を得るメソッド
     @Override
-    public int tickRate(World world) {
+    public int tickRate(@Nonnull World world) {
         //100を返す
         return 100;
     }
@@ -44,6 +47,7 @@ public class BlockClimate extends BlockBase {
 
     //
     @Override
+    @ParametersAreNonnullByDefault
     public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer,
                                 ItemStack stack) {
         //isForcedTickUpdateがtrueの場合
@@ -54,9 +58,10 @@ public class BlockClimate extends BlockBase {
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
         super.updateTick(world, pos, state, rand);
-        if (!world.isRemote && state != null && state.getBlock() != null && canClimateUpdate(state)) {
+        if (!world.isRemote && canClimateUpdate(state)) {
             IClimate clm = this.onUpdateClimate(world, pos, state);
             if (!this.onClimateChange(world, pos, state, clm) && this.isForcedTickUpdate()) {
                 world.scheduleUpdate(pos, this, this.tickRate(world) + rand.nextInt(21));

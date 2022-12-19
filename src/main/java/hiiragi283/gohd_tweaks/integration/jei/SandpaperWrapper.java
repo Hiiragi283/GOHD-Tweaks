@@ -9,6 +9,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
+import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,11 +18,9 @@ public class SandpaperWrapper implements IRecipeWrapper {
     //private変数の宣言
     public final ItemStack before;
     public final ItemStack after;
-    private final SandpaperRecipe recipe;
 
     //コンストラクタの宣言
     public SandpaperWrapper(SandpaperRecipe info) {
-        recipe = info;
         before = info.stackBefore;
         after = info.stackAfter;
     }
@@ -77,7 +76,7 @@ public class SandpaperWrapper implements IRecipeWrapper {
     }
 
     @Override
-    public void drawInfo(Minecraft mc, int wid, int hei, int mouseX, int mouseY) {
+    public void drawInfo(@Nonnull Minecraft mc, int wid, int hei, int mouseX, int mouseY) {
         int baseY = 0;
         //テクスチャをGUI上に乗せる
         //ResourceLocation res = new ResourceLocation("dcs_climate", "textures/gui/c_effective_gui.png");
@@ -95,7 +94,7 @@ public class SandpaperWrapper implements IRecipeWrapper {
 
     //
     @Override
-    public boolean handleClick(Minecraft minecraft, int mouseX, int mouseY, int mouseButton) {
+    public boolean handleClick(@Nonnull Minecraft minecraft, int mouseX, int mouseY, int mouseButton) {
         return false;
     }
 

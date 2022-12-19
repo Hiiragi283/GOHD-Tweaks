@@ -5,6 +5,8 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
 
+import javax.annotation.Nonnull;
+
 public class BlockDust extends BlockClimate {
     public BlockDust() {
         super(Material.GROUND, "dustblock", 5);
@@ -15,7 +17,7 @@ public class BlockDust extends BlockClimate {
     }
 
     @Override
-    public int tickRate(World world) {
+    public int tickRate(@Nonnull World world) {
         return 40;
     }
 }

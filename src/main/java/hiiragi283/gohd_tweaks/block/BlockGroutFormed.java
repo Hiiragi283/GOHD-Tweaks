@@ -5,6 +5,8 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 
+import javax.annotation.Nonnull;
+
 public class BlockGroutFormed extends BlockClimate {
     public BlockGroutFormed() {
         super(Material.GRASS, "grout_formed", 3);
@@ -14,12 +16,12 @@ public class BlockGroutFormed extends BlockClimate {
     }
 
     @Override
-    public boolean isFullCube(IBlockState state) {
+    public boolean isFullCube(@Nonnull IBlockState state) {
         return false;
     }
 
     @Override
-    public boolean isOpaqueCube(IBlockState state) {
+    public boolean isOpaqueCube(@Nonnull IBlockState state) {
         return false;
     }
 }

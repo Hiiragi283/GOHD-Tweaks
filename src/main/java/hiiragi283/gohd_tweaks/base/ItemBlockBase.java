@@ -9,17 +9,20 @@ import net.minecraft.util.NonNullList;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
+import java.util.Objects;
 
 public class ItemBlockBase extends ItemBlock {
 
-    //メタデータの最大値の定義
+    //private変数の宣言
     private final int maxMeta;
 
-    //Itemの定義
+    //コンストラクタの宣言
     public ItemBlockBase(Block block, int maxMeta) {
         super(block); //BlockからItemを生成する
-        this.setRegistryName(block.getRegistryName()); //翻訳キーはblockのものから取得
+        this.setRegistryName(Objects.requireNonNull(block.getRegistryName())); //翻訳キーはblockのものから取得
         this.setHasSubtypes(true); //メタデータを使用する
         this.maxMeta = maxMeta; //メタデータの最大値を代入
     }
@@ -38,6 +41,7 @@ public class ItemBlockBase extends ItemBlock {
     }
 
     //翻訳キーを得るメソッド
+    @Nonnull
     @Override
     public String getUnlocalizedName(ItemStack stack) {
         //メタデータごとに異なる翻訳キーを返す
@@ -46,6 +50,7 @@ public class ItemBlockBase extends ItemBlock {
 
     //メタデータ付きアイテムをクリエイティブタブに登録するメソッド
     @Override
+    @ParametersAreNonnullByDefault
     @SideOnly(Side.CLIENT) //Client側のみ
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> subItems) {
         if (this.isInCreativeTab(tab)) {

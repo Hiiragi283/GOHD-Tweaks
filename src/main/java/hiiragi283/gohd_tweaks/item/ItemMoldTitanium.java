@@ -11,17 +11,20 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ItemMoldTitanium extends ItemBase implements IPressMold {
 
-    //Itemの定義
+    //コンストラクタの宣言
     public ItemMoldTitanium() {
         super("mold_titanium", 3);
     }
 
     //翻訳キーを得るメソッド
+    @Nonnull
     @Override
     public String getUnlocalizedName(ItemStack stack) {
         //メタデータによらず一定の翻訳キーを返す
@@ -30,6 +33,7 @@ public class ItemMoldTitanium extends ItemBase implements IPressMold {
 
     //Itemにtooltipを付与するメソッド
     @Override
+    @ParametersAreNonnullByDefault
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag flag) {
         ItemStack output = this.getOutput(stack);
@@ -52,8 +56,7 @@ public class ItemMoldTitanium extends ItemBase implements IPressMold {
             meta = 3;
         }
         if (meta >= 0) {
-            ItemStack next = new ItemStack(mold.getItem(), mold.getCount(), meta);
-            return next;
+            return new ItemStack(mold.getItem(), mold.getCount(), meta);
         } else return ItemStack.EMPTY;
     }
 
@@ -77,7 +80,7 @@ public class ItemMoldTitanium extends ItemBase implements IPressMold {
     //レシピを設定するメソッド
     @Override
     public List<ItemStack> getInputs(ItemStack mold) {
-        List<ItemStack> list = new ArrayList<ItemStack>();
+        List<ItemStack> list = new ArrayList<>();
         int m = mold.getItemDamage();
         if (m == 0) {
             list.add(RagiUtils.getStack("enderio", "item_alloy_ingot", 2, 3));

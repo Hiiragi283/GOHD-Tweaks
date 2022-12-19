@@ -9,11 +9,13 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import java.util.Objects;
+
 public class ClientProxy extends CommonProxy {
 
     //代入されたItemに応じてモデルファイルのパスを登録するメソッド
     @SideOnly(Side.CLIENT)
-    public static void SetModel(Item item) {
+    public void SetModel(Item item) {
         //itemがメタデータを使用する場合
         if (item.getHasSubtypes()) {
             //メタデータが最大値になるまで処理を繰り返す
@@ -28,10 +30,10 @@ public class ClientProxy extends CommonProxy {
 
     //メタデータによらず特定のモデルファイルだけを利用させるメソッド
     @SideOnly(Side.CLIENT)
-    public static void SetModelSame(Item item) {
+    public void SetModelSame(Item item) {
         //メタデータが最大値になるまで処理を繰り返す
         for (int i = 0; i < item.getMetadata(283) + 1; i++) {
-            ModelLoader.setCustomModelResourceLocation(item, i, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+            ModelLoader.setCustomModelResourceLocation(item, i, new ModelResourceLocation(Objects.requireNonNull(item.getRegistryName()), "inventory"));
         }
     }
 

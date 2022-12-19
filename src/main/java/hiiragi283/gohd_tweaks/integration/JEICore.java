@@ -10,6 +10,8 @@ import mezz.jei.api.ingredients.IModIngredientRegistration;
 import mezz.jei.api.recipe.IRecipeCategoryRegistration;
 import net.minecraft.item.ItemStack;
 
+import javax.annotation.Nonnull;
+
 @JEIPlugin
 public class JEICore implements IModPlugin {
 
@@ -24,7 +26,7 @@ public class JEICore implements IModPlugin {
     public void register(IModRegistry registry) {
         //JEIタブの実装
         final IJeiHelpers jeiHelpers = registry.getJeiHelpers();
-        registry.handleRecipes(SandpaperRecipe.class, recipe -> new SandpaperWrapper(recipe), "gohd_tweaks.sandpaper");
+        registry.handleRecipes(SandpaperRecipe.class, SandpaperWrapper::new, "gohd_tweaks.sandpaper");
         SandpaperMaker.register(registry);
         //catalystの登録
         registry.addRecipeCatalyst(new ItemStack(GOHDInit.ItemSandPaper), "gohd_tweaks.sandpaper");
@@ -32,14 +34,14 @@ public class JEICore implements IModPlugin {
     }
 
     @Override
-    public void registerItemSubtypes(ISubtypeRegistry subtypeRegistry) {
+    public void registerItemSubtypes(@Nonnull ISubtypeRegistry subtypeRegistry) {
     }
 
     @Override
-    public void registerIngredients(IModIngredientRegistration registry) {
+    public void registerIngredients(@Nonnull IModIngredientRegistration registry) {
     }
 
     @Override
-    public void onRuntimeAvailable(IJeiRuntime jeiRuntime) {
+    public void onRuntimeAvailable(@Nonnull IJeiRuntime jeiRuntime) {
     }
 }

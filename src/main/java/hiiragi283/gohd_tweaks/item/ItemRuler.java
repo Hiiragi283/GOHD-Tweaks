@@ -14,29 +14,33 @@ import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 import java.util.Objects;
 
 public class ItemRuler extends ItemBase {
 
-    //private変数の定義
+    //private変数の宣言
     private NBTTagCompound nbtRuler;
     private String fromPos;
     private String toPos;
 
-    //Itemの定義
+    //コンストラクタの宣言
     public ItemRuler() {
         super("stainless_ruler", 0); //IDの設定
     }
 
     //Rarityを得るメソッド
-    public EnumRarity getRarity(ItemStack item) {
+    @Nonnull
+    public EnumRarity getRarity(@Nonnull ItemStack item) {
         //RAREを返す
         return EnumRarity.RARE;
     }
 
     //アイテムを右クリックすると呼ばれるevent
-    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
+    @Nonnull
+    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, @Nonnull EnumHand hand) {
         //各値の取得
         ItemStack stack = player.getHeldItem(hand);
         //サーバー側のみで実行
@@ -76,11 +80,12 @@ public class ItemRuler extends ItemBase {
                 setPosition(stack, pos);
             }
         }
-        return new ActionResult(EnumActionResult.SUCCESS, stack);
+        return new ActionResult<>(EnumActionResult.SUCCESS, stack);
     }
 
     //Itemにtooltipを付与するメソッド
     @Override
+    @ParametersAreNonnullByDefault
     public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag flag) {
         //fromPosがnullでない場合
         //つまり座標が取得できている場合

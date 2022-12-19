@@ -11,12 +11,16 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 
 public class ItemBase extends Item {
 
-    private int maxMeta;
-    //Itemを定義するメソッド
+    //private変数の宣言
+    private final int maxMeta;
+
+    //コンストラクタの宣言
     public ItemBase(String ID, int maxMeta) {
         super();
         this.setRegistryName(Reference.MOD_ID, ID); //IDの設定
@@ -40,6 +44,7 @@ public class ItemBase extends Item {
     }
 
     //翻訳キーを得るメソッド
+    @Nonnull
     @Override
     public String getUnlocalizedName(ItemStack stack) {
         //メタデータごとに異なる翻訳キーを返す
@@ -48,6 +53,7 @@ public class ItemBase extends Item {
 
     //メタデータ付きアイテムをクリエイティブタブに登録するメソッド
     @Override
+    @ParametersAreNonnullByDefault
     @SideOnly(Side.CLIENT) //Client側のみ
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> subItems) {
         if (this.isInCreativeTab(tab)) {
@@ -65,7 +71,7 @@ public class ItemBase extends Item {
     //Itemにtooltipを付与するメソッド
     @Override
     @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag flag) {
+    public void addInformation(@Nonnull ItemStack stack, World world, @Nonnull List<String> tooltip, @Nonnull ITooltipFlag flag) {
         super.addInformation(stack, world, tooltip, ITooltipFlag.TooltipFlags.NORMAL);
     }
 }

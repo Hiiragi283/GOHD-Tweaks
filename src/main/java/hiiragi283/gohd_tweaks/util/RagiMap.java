@@ -2,53 +2,11 @@ package hiiragi283.gohd_tweaks.util;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.item.ItemStack;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class RagiMap {
-
-    //祭壇クラフトのレシピマップの定義
-    public static Map<String, Boolean> MapAltarRemove = new HashMap<String, Boolean>() {
-        {
-            //MapAltarRemoveにレシピを書き込んでいく
-            put("block_black_marble_chiseled_wall", true);
-            put("block_black_marble_engraved_wall", true);
-            put("block_black_marble_runed_wall", true);
-            put("block_black_marble_wall", true);
-            put("block_infused_wood_fence", true);
-            put("block_infused_wood_fence_gate", true);
-            put("block_marble_arch_wall", true);
-            put("block_marble_brick_wall", true);
-            put("block_marble_chiseled_wall", true);
-            put("block_marble_engraved_wall", true);
-            put("block_marble_runed_wall", true);
-            put("block_marble_wall", true);
-            put("block_starmetal", true);
-            put("infused_wood_arch", true);
-            put("infused_wood_column", true);
-            put("infused_wood_engraved", true);
-            put("infused_wood_planks", false);
-            put("ingot_starmetal", true);
-            put("internal/altar/black_marble_arch", true);
-            put("internal/altar/black_marble_bricks", true);
-            put("internal/altar/black_marble_chiseled", true);
-            put("internal/altar/black_marble_engraved", true);
-            put("internal/altar/black_marble_pillar", true);
-            put("internal/altar/black_marble_runed", true);
-            put("internal/altar/marble_arch", true);
-            put("internal/altar/marble_bricks", true);
-            put("internal/altar/marble_chiseled", true);
-            put("internal/altar/marble_engraved", true);
-            put("internal/altar/marble_pillar", true);
-            put("internal/altar/marble_runed", true);
-            put("marble_slab", true);
-            put("marble_stairs", true);
-            put("block_black_marble_arch_wall", true);
-            put("block_black_marble_brick_wall", true);
-        }
-    };
 
     //Sandpaperのレシピマップの定義
     public static Map<IBlockState, IBlockState> MapSandpaper = new HashMap<IBlockState, IBlockState>() {

@@ -11,21 +11,25 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 
+import javax.annotation.Nonnull;
+
 public class ItemBookSyntax extends ItemBase {
 
-    //Itemの定義
+    //コンストラクタの宣言
     public ItemBookSyntax() {
         super("book_syntax", 0); //IDの設定
     }
 
     //Rarityを得るメソッド
-    public EnumRarity getRarity(ItemStack item) {
+    @Nonnull
+    public EnumRarity getRarity(@Nonnull ItemStack item) {
         //EPICを返す
         return EnumRarity.EPIC;
     }
 
     //アイテムを右クリックすると呼ばれるevent
-    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
+    @Nonnull
+    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, @Nonnull EnumHand hand) {
         //各値の取得
         ItemStack stack = player.getHeldItem(hand);
         //サーバー側のみで実行
@@ -38,6 +42,6 @@ public class ItemBookSyntax extends ItemBase {
             player.sendMessage(new TextComponentTranslation("text.gohd_tweaks.syntax.name", new Object()));
             player.sendMessage(new TextComponentTranslation("text.gohd_tweaks.decoration_line.name", new Object()));
         }
-        return new ActionResult(EnumActionResult.SUCCESS, stack);
+        return new ActionResult<>(EnumActionResult.SUCCESS, stack);
     }
 }

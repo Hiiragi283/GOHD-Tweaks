@@ -27,18 +27,21 @@ public class SandpaperCategory implements IRecipeCategory {
     }
 
     //JEiタブのIDを取得するメソッド
+    @Nonnull
     @Override
     public String getUid() {
         return "gohd_tweaks.sandpaper";
     }
 
     //JEiタブの名前を取得するメソッド
+    @Nonnull
     @Override
     public String getTitle() {
         return I18n.format(getUid());
     }
 
     //JEiタブの背景を取得するメソッド
+    @Nonnull
     @Override
     public IDrawable getBackground() {
         return background;
@@ -46,7 +49,7 @@ public class SandpaperCategory implements IRecipeCategory {
 
     //なんかエクストラするメソッド
     @Override
-    public void drawExtras(Minecraft mc) {
+    public void drawExtras(@Nonnull Minecraft mc) {
     }
 
     //JEiタブのアイコンを取得するメソッド?
@@ -76,6 +79,7 @@ public class SandpaperCategory implements IRecipeCategory {
     }
 
     //JEiタブに紐づいたmod名を取得するメソッド
+    @Nonnull
     @Override
     public String getModName() {
         return Reference.MOD_NAME;

@@ -8,6 +8,8 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.SoundEvent;
 
 public class ItemSandPaperDiamond extends ItemToolClick {
+
+    //コンストラクタの宣言
     public ItemSandPaperDiamond() {
         super("sandpaper_diamond", 8192); //ItemSandPaperクラスを継承
     }

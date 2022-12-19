@@ -15,6 +15,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+import java.util.Objects;
+
 public class onRightClickBlock {
 
     //ブロックを右クリックすると呼ばれるevent
@@ -42,10 +44,10 @@ public class onRightClickBlock {
             GOHDTweaks.LoggerGOHD.info(state);
             GOHDTweaks.LoggerGOHD.info(block);
             //デバッグ用
-            if (item.getRegistryName().toString().equals("theoneprobe:creativeprobe")) {
+            if (Objects.requireNonNull(item.getRegistryName()).toString().equals("theoneprobe:creativeprobe")) {
                 player.sendMessage(new TextComponentTranslation("text.gohd_tweaks.decoration_line.name"));
                 //ブロックの翻訳名をチャットに表示
-                player.sendMessage(new TextComponentString("§lName:§r " + block.getPickBlock(state, player.rayTrace(0, 0), world, pos, player).getDisplayName()));
+                player.sendMessage(new TextComponentString("§lName:§r " + block.getPickBlock(state, Objects.requireNonNull(player.rayTrace(0, 0)), world, pos, player).getDisplayName()));
                 //ブロックのIDをチャットに表示
                 player.sendMessage(new TextComponentString("§lID:§r " + block.getRegistryName()));
                 //ブロックのBlockstateをチャットに表示
