@@ -1,8 +1,12 @@
 package hiiragi283.gohd_tweaks.proxy;
 
 import hiiragi283.gohd_tweaks.GOHDInit;
+import hiiragi283.gohd_tweaks.block.BlockDust;
+import hiiragi283.gohd_tweaks.item.ItemBlockDust;
+import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
@@ -37,6 +41,12 @@ public class ClientProxy extends CommonProxy {
         }
     }
 
+    //代入されたIBlockColorをBlockに登録するメソッド
+    @SideOnly(Side.CLIENT)
+    public void SetColor(IBlockColor color, Block block) {
+        Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(color, block);
+    }
+
     //代入されたIItemColorをItemに登録するメソッド
     @SideOnly(Side.CLIENT)
     public void SetColor(IItemColor color, Item item) {
@@ -58,5 +68,7 @@ public class ClientProxy extends CommonProxy {
 
     //各Itemの着色を指定するメソッド
     public void SetColors() {
+        SetColor(new BlockDust.ColorBlockDust(), GOHDInit.BlockDust);
+        SetColor(new ItemBlockDust.ColorBlockDust(), GOHDInit.ItemBlockDust);
     }
 }

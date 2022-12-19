@@ -4,6 +4,9 @@ import java.awt.*;
 
 public class RagiColor {
 
+    //ひいらぎさんのテーマカラー
+    public static Color RagiRed = new Color(255, 0, 31);
+
     //2つの色の中間色を取得するメソッド
     public Color mixColor(Color color1, Color color2) {
         //color1とcolor2の各RGB値の平均値を計算

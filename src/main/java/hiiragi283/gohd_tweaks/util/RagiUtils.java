@@ -1,7 +1,6 @@
 package hiiragi283.gohd_tweaks.util;
 
 import defeatedcrow.hac.core.util.DCUtil;
-import hiiragi283.gohd_tweaks.GOHDInit;
 import hiiragi283.gohd_tweaks.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -9,6 +8,7 @@ import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -30,11 +30,11 @@ public class RagiUtils {
     }
 
     //ResourceLocationからBlockを取得するメソッド
-    //Blockがnullの場合は岩盤を返す
+    //Blockがnullの場合はバリアブロックを返す
     public static Block getBlock(String domain, String path) {
         Block block = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(domain, path));
         if (Objects.nonNull(block)) return block;
-        else return Blocks.BEDROCK;
+        else return Blocks.BARRIER;
     }
 
     //液体名からFluidを取得するメソッド
@@ -46,11 +46,11 @@ public class RagiUtils {
     }
 
     //ResourceLocationからItemを取得するメソッド
-    //Itemがnullの場合はらぎチケットを返す
+    //Itemがnullの場合はバリアブロックを返す
     public static Item getItem(String domain, String path) {
         Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(domain, path));
         if (Objects.nonNull(item)) return item;
-        else return GOHDInit.ItemRagiTicket;
+        else return new ItemBlock(Blocks.BARRIER);
     }
 
     //ResourceLocationなどからItemStackを取得するメソッド
@@ -63,17 +63,17 @@ public class RagiUtils {
     }
 
     //ResourceLocationなどからIBlockStateを取得するメソッド
-    //IBLockStateがnullの場合はデフォルトのblockstateを返す
+    //IBlockStateがnullの場合はバリアブロックを返す
     public static IBlockState getState(String domain, String path, int meta) {
         IBlockState state = getBlock(domain, path).getStateFromMeta(meta);
         if (Objects.nonNull(state)) return state;
-        else return Blocks.BEDROCK.getDefaultState();
+        else return Blocks.BARRIER.getDefaultState();
     }
 
     public static IBlockState getState(Block block, int meta) {
         IBlockState state = block.getStateFromMeta(meta);
         if (Objects.nonNull(state)) return state;
-        else return Blocks.BEDROCK.getDefaultState();
+        else return Blocks.BARRIER.getDefaultState();
     }
 
     //ResourceLocationからPotionを取得するメソッド

@@ -19,9 +19,8 @@ public class GOHDInit {
     public static Block BlockDust = new BlockDust();
     public static Block BlockGroutFormed = new BlockGroutFormed();
     //Itemの定義
-    public static Item ItemBlockDust = new ItemBlockBase(GOHDInit.BlockDust, 5);
-    public static Item ItemBookSpawn = new ItemBookSpawn();
-    public static Item ItemBookSyntax = new ItemBookSyntax();
+    public static Item ItemBlockDust = new ItemBlockDust();
+    public static Item ItemBookDebug = new ItemBookDebug();
     public static Item ItemGroutFormed = new ItemBlockBase(GOHDInit.BlockGroutFormed, 2);
     public static Item ItemMoldTitanium = new ItemMoldTitanium();
     public static Item ItemPartsAssembly = new ItemBase("parts_assembly", 4);
@@ -54,8 +53,7 @@ public class GOHDInit {
     //Itemを登録するメソッド
     public static void RegisterItems() {
         ForgeRegistries.ITEMS.register(ItemBlockDust);
-        ForgeRegistries.ITEMS.register(ItemBookSpawn);
-        ForgeRegistries.ITEMS.register(ItemBookSyntax);
+        ForgeRegistries.ITEMS.register(ItemBookDebug);
         ForgeRegistries.ITEMS.register(ItemGroutFormed);
         ForgeRegistries.ITEMS.register(ItemMoldTitanium);
         ForgeRegistries.ITEMS.register(ItemPartsAssembly);
