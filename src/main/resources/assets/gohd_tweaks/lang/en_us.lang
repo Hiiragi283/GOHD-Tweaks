@@ -14,18 +14,18 @@ tile.grout_formed.2.name=Unfired Casting Channel
 gohd_tweaks.sandpaper=Sandpaper
 
 # Items
-item.book_spawn.0.name=Spawn Book (DEBUG)
-item.book_syntax.0.name=Syntax Book (DEBUG)
+item.book_debug.0.name=Spawn Book (DEBUG)
+item.book_debug.1.name=Syntax Book (DEBUG)
 item.mold_titanium.name=Titanium Mold
 item.parts_assembly.0.name=Calculation Processor Assembly
 item.parts_assembly.1.name=Engineering Processor Assembly
 item.parts_assembly.2.name=Logic Processor Assembly
 item.parts_assembly.3.name=Parallel Processor Assembly
 item.parts_assembly.4.name=Speculative Processor Assembly
-item.ragi_ticket.0.name=Ragi Ticket
+item.ragi_ticket.name=Ragi Ticket
 item.sandpaper.name=Sandpaper
 item.sandpaper_diamond.name=Diamond Sandpaper
-item.stainless_ruler.0.name=Stainless Ruler
+item.stainless_ruler.name=Stainless Ruler
 
 # Text
 text.gohd_tweaks.decoration_line.name=§e§l========================================

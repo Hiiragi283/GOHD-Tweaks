@@ -14,18 +14,18 @@ tile.grout_formed.2.name=未焼成の鋳造桶
 gohd_tweaks.sandpaper=紙やすり
 
 # Items
-item.book_spawn.0.name=Spawn Book (DEBUG)
-item.book_syntax.0.name=Syntax Book (DEBUG)
+item.book_debug.0.name=Spawn Book (DEBUG)
+item.book_debug.1.name=Syntax Book (DEBUG)
 item.mold_titanium.name=チタン製金型
 item.parts_assembly.0.name=発展プロセッサアセンブリ
 item.parts_assembly.1.name=上級プロセッサアセンブリ
 item.parts_assembly.2.name=基本プロセッサアセンブリ
 item.parts_assembly.3.name=並列プロセッサアセンブリ
 item.parts_assembly.4.name=思考プロセッサアセンブリ
-item.ragi_ticket.0.name=らぎチケット
+item.ragi_ticket.name=らぎチケット
 item.sandpaper.name=紙やすり
 item.sandpaper_diamond.name=ダイヤモンドの紙やすり
-item.stainless_ruler.0.name=ステンレス定規
+item.stainless_ruler.name=ステンレス定規
 
 # Text
 text.gohd_tweaks.decoration_line.name=§e§l========================================

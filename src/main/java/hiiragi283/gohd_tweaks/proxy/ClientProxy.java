@@ -45,16 +45,15 @@ public class ClientProxy extends CommonProxy {
 
     //各Itemのモデルファイルのパスを指定するメソッド
     public void SetModels() {
-        SetModel(GOHDInit.ItemBlockDust);
-        SetModel(GOHDInit.ItemBookSpawn);
-        SetModel(GOHDInit.ItemBookSyntax);
+        SetModel(GOHDInit.ItemBookDebug);
         SetModel(GOHDInit.ItemGroutFormed);
-        SetModelSame(GOHDInit.ItemMoldTitanium);
         SetModel(GOHDInit.ItemPartsAssembly);
-        SetModel(GOHDInit.ItemRagiTicket);
-        SetModel(GOHDInit.ItemRuler);
-        SetModel(GOHDInit.ItemSandPaper);
-        SetModel(GOHDInit.ItemSandPaperDiamond);
+        SetModelSame(GOHDInit.ItemBlockDust);
+        SetModelSame(GOHDInit.ItemMoldTitanium);
+        SetModelSame(GOHDInit.ItemRagiTicket);
+        SetModelSame(GOHDInit.ItemRuler);
+        SetModelSame(GOHDInit.ItemSandPaper);
+        SetModelSame(GOHDInit.ItemSandPaperDiamond);
     }
 
     //各Itemの着色を指定するメソッド

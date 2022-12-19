@@ -46,9 +46,11 @@ public class ItemBase extends Item {
     //翻訳キーを得るメソッド
     @Nonnull
     @Override
-    public String getUnlocalizedName(ItemStack stack) {
-        //メタデータごとに異なる翻訳キーを返す
-        return super.getUnlocalizedName() + "." + stack.getMetadata();
+    public String getUnlocalizedName(@Nonnull ItemStack stack) {
+        //メタデータが0のみの場合、なにもしない
+        if (maxMeta == 0) return super.getUnlocalizedName();
+        //メタデータを使う場合、メタデータごとに異なる翻訳キーを返す
+        else return super.getUnlocalizedName() + "." + stack.getMetadata();
     }
 
     //メタデータ付きアイテムをクリエイティブタブに登録するメソッド

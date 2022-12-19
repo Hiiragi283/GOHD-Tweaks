@@ -26,7 +26,7 @@ public class ItemMoldTitanium extends ItemBase implements IPressMold {
     //翻訳キーを得るメソッド
     @Nonnull
     @Override
-    public String getUnlocalizedName(ItemStack stack) {
+    public String getUnlocalizedName(@Nonnull ItemStack stack) {
         //メタデータによらず一定の翻訳キーを返す
         return super.getUnlocalizedName();
     }

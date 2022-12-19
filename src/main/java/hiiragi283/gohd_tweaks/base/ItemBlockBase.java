@@ -2,10 +2,12 @@ package hiiragi283.gohd_tweaks.base;
 
 import com.google.common.collect.Lists;
 import net.minecraft.block.Block;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -43,9 +45,11 @@ public class ItemBlockBase extends ItemBlock {
     //翻訳キーを得るメソッド
     @Nonnull
     @Override
-    public String getUnlocalizedName(ItemStack stack) {
-        //メタデータごとに異なる翻訳キーを返す
-        return super.getUnlocalizedName() + "." + stack.getMetadata();
+    public String getUnlocalizedName(@Nonnull ItemStack stack) {
+        //メタデータが0のみの場合、なにもしない
+        if (maxMeta == 0) return super.getUnlocalizedName();
+            //メタデータを使う場合、メタデータごとに異なる翻訳キーを返す
+        else return super.getUnlocalizedName() + "." + stack.getMetadata();
     }
 
     //メタデータ付きアイテムをクリエイティブタブに登録するメソッド
@@ -56,12 +60,19 @@ public class ItemBlockBase extends ItemBlock {
         if (this.isInCreativeTab(tab)) {
             //listの定義
             List<ItemStack> list = Lists.newArrayList();
-            //maxMetaまで処理を繰り返す
+            //メタデータの最大値まで処理を繰り返す
             for (int i = 0; i < getMaxMeta() + 1; i++) {
                 list.add(new ItemStack(this, 1, i));
             }
             //list内のすべてのアイテムをクリエイティブタブに登録
             subItems.addAll(list);
         }
+    }
+
+    //Itemにtooltipを付与するメソッド
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void addInformation(@Nonnull ItemStack stack, World world, @Nonnull List<String> tooltip, @Nonnull ITooltipFlag flag) {
+        super.addInformation(stack, world, tooltip, ITooltipFlag.TooltipFlags.NORMAL);
     }
 }
