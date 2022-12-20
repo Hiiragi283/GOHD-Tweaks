@@ -8,7 +8,6 @@ import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -50,7 +49,7 @@ public class RagiUtils {
     public static Item getItem(String domain, String path) {
         Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(domain, path));
         if (Objects.nonNull(item)) return item;
-        else return new ItemBlock(Blocks.BARRIER);
+        else return getItem("minecraft", "barrier");
     }
 
     //ResourceLocationなどからItemStackを取得するメソッド
@@ -65,14 +64,15 @@ public class RagiUtils {
     //ResourceLocationなどからIBlockStateを取得するメソッド
     //IBlockStateがnullの場合はバリアブロックを返す
     public static IBlockState getState(String domain, String path, int meta) {
-        IBlockState state = getBlock(domain, path).getStateFromMeta(meta);
-        if (Objects.nonNull(state)) return state;
+        Block block = getBlock(domain, path);
+        IBlockState state = block.getStateFromMeta(meta);
+        if (block != Blocks.BARRIER && Objects.nonNull(state)) return state;
         else return Blocks.BARRIER.getDefaultState();
     }
 
     public static IBlockState getState(Block block, int meta) {
         IBlockState state = block.getStateFromMeta(meta);
-        if (Objects.nonNull(state)) return state;
+        if (block != Blocks.BARRIER && Objects.nonNull(state)) return state;
         else return Blocks.BARRIER.getDefaultState();
     }
 
