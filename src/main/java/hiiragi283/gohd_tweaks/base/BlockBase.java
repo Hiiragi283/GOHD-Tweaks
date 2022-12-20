@@ -56,8 +56,9 @@ public class BlockBase extends Block {
     @Nonnull
     @Override
     public IBlockState getStateFromMeta(int meta) {
-        //metaをmaxMeteで割った剰余を求める
-        int i = meta % maxMeta;
+        //metaをmaxMete+1で割った剰余を求める
+        //これmaxMeta % maxMeta = 0になるからわざと+1してます
+        int i = meta % (maxMeta + 1);
         //TYPE16をもとに指定したメタデータからBlockstateを返す
         IBlockState state = this.getDefaultState().withProperty(DCState.TYPE16, i);
         return state;
