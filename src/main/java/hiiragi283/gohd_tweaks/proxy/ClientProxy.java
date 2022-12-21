@@ -3,6 +3,7 @@ package hiiragi283.gohd_tweaks.proxy;
 import hiiragi283.gohd_tweaks.GOHDInit;
 import hiiragi283.gohd_tweaks.block.BlockDust;
 import hiiragi283.gohd_tweaks.item.ItemBlockDust;
+import hiiragi283.gohd_tweaks.item.ItemDust;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -59,6 +60,7 @@ public class ClientProxy extends CommonProxy {
         SetModel(GOHDInit.ItemGroutFormed);
         SetModel(GOHDInit.ItemPartsAssembly);
         SetModelSame(GOHDInit.ItemBlockDust);
+        SetModelSame(GOHDInit.ItemDust);
         SetModelSame(GOHDInit.ItemMoldTitanium);
         SetModelSame(GOHDInit.ItemRagiTicket);
         SetModelSame(GOHDInit.ItemRuler);
@@ -68,7 +70,8 @@ public class ClientProxy extends CommonProxy {
 
     //各Itemの着色を指定するメソッド
     public void SetColors() {
-        SetColor(new BlockDust.ColorBlockDust(), GOHDInit.BlockDust);
-        SetColor(new ItemBlockDust.ColorBlockDust(), GOHDInit.ItemBlockDust);
+        SetColor(new BlockDust(), GOHDInit.BlockDust);
+        SetColor(new ItemBlockDust(), GOHDInit.ItemBlockDust);
+        SetColor(new ItemDust(), GOHDInit.ItemDust);
     }
 }

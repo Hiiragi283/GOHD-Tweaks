@@ -6,7 +6,6 @@ public class RagiColor {
 
     //ひいらぎさんのテーマカラー
     public static Color RagiRed = new Color(255, 0, 31);
-    public static int RagiRedHex = new Color(255, 0, 31).getRGB();
 
     //2つの色の中間色を取得するメソッド
     public static Color mixColor(Color color1, Color color2) {
@@ -28,15 +27,15 @@ public class RagiColor {
         return new Color(red2, green2, blue2);
     }
 
-    //Dustblockの色を返すメソッド
-    public static int setColorDustblock(int meta, int tintindex) {
+    //Dustの色を返すメソッド
+    public static int setColorDust(int meta, int tintindex) {
         if (tintindex == 0) {
-            if (meta == 0) return new Color(98,209,243).getRGB(); //Platinum
-            else if (meta == 1) return new Color(197,195,221).getRGB(); //iridium
-            else if (meta == 2) return new Color(90,131,151).getRGB(); //Mana Infused
-            else if (meta == 3) return new Color(200,176,74).getRGB(); //Electrum
-            else if (meta == 4) return new Color(153,163,153).getRGB(); //Invar
-            else if (meta == 5) return new Color(211,159,72).getRGB(); //Constantan
+            if (meta == 0) return RagiMaterialEnum.PLATINUM.getColorHex(); //Platinum
+            else if (meta == 1) return RagiMaterialEnum.IRIDIUM.getColorHex(); //iridium
+            else if (meta == 2) return RagiMaterialEnum.MANA_INFUSED.getColorHex(); //Mana Infused
+            else if (meta == 3) return RagiMaterialEnum.ELECTRUM.getColorHex(); //Electrum
+            else if (meta == 4) return RagiMaterialEnum.INVAR.getColorHex(); //Invar
+            else if (meta == 5) return RagiMaterialEnum.CONSTANTAN.getColorHex(); //Constantan
             else return RagiColor.RagiRed.getRGB();
         } else return RagiColor.RagiRed.getRGB();
     }

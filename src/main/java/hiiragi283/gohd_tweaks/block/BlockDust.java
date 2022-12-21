@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nonnull;
 
-public class BlockDust extends BlockClimate {
+public class BlockDust extends BlockClimate implements IBlockColor{
     public BlockDust() {
         super(Material.GROUND, "dustblock", 5);
         this.setHardness(1.5F);
@@ -26,13 +26,10 @@ public class BlockDust extends BlockClimate {
         return 40;
     }
 
-    public static class ColorBlockDust implements IBlockColor {
-
-        //着色の仕方を定義するメソッド
-        @Override
-        public int colorMultiplier(@Nonnull IBlockState state, IBlockAccess access, BlockPos pos, int tintindex) {
-            int meta = state.getBlock().getMetaFromState(state);
-            return RagiColor.setColorDustblock(meta, tintindex);
-        }
+    //着色の仕方を定義するメソッド
+    @Override
+    public int colorMultiplier(@Nonnull IBlockState state, IBlockAccess access, BlockPos pos, int tintindex) {
+        int meta = state.getBlock().getMetaFromState(state);
+        return RagiColor.setColorDust(meta, tintindex);
     }
 }
