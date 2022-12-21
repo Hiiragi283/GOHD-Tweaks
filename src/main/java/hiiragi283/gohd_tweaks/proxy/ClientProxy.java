@@ -2,7 +2,9 @@ package hiiragi283.gohd_tweaks.proxy;
 
 import hiiragi283.gohd_tweaks.GOHDInit;
 import hiiragi283.gohd_tweaks.block.BlockDust;
+import hiiragi283.gohd_tweaks.block.BlockHeating;
 import hiiragi283.gohd_tweaks.item.ItemBlockDust;
+import hiiragi283.gohd_tweaks.item.ItemBlockHeating;
 import hiiragi283.gohd_tweaks.item.ItemDust;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -28,8 +30,8 @@ public class ClientProxy extends CommonProxy {
                 ModelLoader.setCustomModelResourceLocation(item, i, new ModelResourceLocation(item.getRegistryName() + "_" + i, "inventory"));
             }
         } else {
-            //itemが耐久地を持っている場合，メタデータが0番のものだけ設定
-            ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName() + "_" + 0, "inventory"));
+            //itemが耐久地を持っている場合，IDから設定
+            ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(Objects.requireNonNull(item.getRegistryName()), "inventory"));
         }
     }
 
@@ -56,6 +58,7 @@ public class ClientProxy extends CommonProxy {
 
     //各Itemのモデルファイルのパスを指定するメソッド
     public void SetModels() {
+        SetModel(GOHDInit.ItemBlockHeating);
         SetModel(GOHDInit.ItemBookDebug);
         SetModel(GOHDInit.ItemGroutFormed);
         SetModel(GOHDInit.ItemPartsAssembly);
@@ -71,7 +74,9 @@ public class ClientProxy extends CommonProxy {
     //各Itemの着色を指定するメソッド
     public void SetColors() {
         SetColor(new BlockDust(), GOHDInit.BlockDust);
+        SetColor(new BlockHeating(), GOHDInit.BlockHeating);
         SetColor(new ItemBlockDust(), GOHDInit.ItemBlockDust);
+        SetColor(new ItemBlockHeating(), GOHDInit.ItemBlockHeating);
         SetColor(new ItemDust(), GOHDInit.ItemDust);
     }
 }

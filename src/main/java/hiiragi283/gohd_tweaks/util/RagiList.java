@@ -14,14 +14,14 @@ public class RagiList {
             add(RagiMaterialEnum.ELECTRUM);
             add(RagiMaterialEnum.INVAR);
             add(RagiMaterialEnum.CONSTANTAN);
-            add(RagiMaterialEnum.CONDUCTIVE_IRON);
-            add(RagiMaterialEnum.DARK_STEEL);
             add(RagiMaterialEnum.ELECTRICAL_STEEL);
             add(RagiMaterialEnum.ENERGETIC_ALLOY);
-            add(RagiMaterialEnum.PULSATING_IRON);
-            add(RagiMaterialEnum.REDSTONE_ALLOY);
-            add(RagiMaterialEnum.SOULARIUM);
             add(RagiMaterialEnum.VIBRANT_ALLOY);
+            add(RagiMaterialEnum.REDSTONE_ALLOY);
+            add(RagiMaterialEnum.CONDUCTIVE_IRON);
+            add(RagiMaterialEnum.PULSATING_IRON);
+            add(RagiMaterialEnum.DARK_STEEL);
+            add(RagiMaterialEnum.SOULARIUM);
             add(RagiMaterialEnum.END_STEEL);
         }
     };

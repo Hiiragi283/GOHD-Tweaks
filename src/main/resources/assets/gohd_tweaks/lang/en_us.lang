@@ -6,9 +6,24 @@ tile.dustblock.2.name=Mana Infused Metal Dust Block
 tile.dustblock.3.name=Electrum Dust Block
 tile.dustblock.4.name=Invar Dust Block
 tile.dustblock.5.name=Constantan Dust Block
+tile.dustblock.6.name=Electrical Steel Dust Block
+tile.dustblock.7.name=Energetic Alloy Dust Block
+tile.dustblock.8.name=Vibrant Alloy Dust Block
+tile.dustblock.9.name=Redstone Alloy Dust Block
+tile.dustblock.10.name=Conductive Iron Dust Block
+tile.dustblock.11.name=Pulsating Iron Dust Block
+tile.dustblock.12.name=Dark Steel Dust Block
+tile.dustblock.13.name=Soularium Dust Block
+tile.dustblock.14.name=End Steel Dust Block
 tile.grout_formed.0.name=Unfired Casting Table
 tile.grout_formed.1.name=Unfired Casting Basin
 tile.grout_formed.2.name=Unfired Casting Channel
+tile.heating_metal.0.name=Hot Dark Steel Block
+tile.heating_metal.1.name=Cooled Dark Steel Block
+tile.heating_metal.2.name=Brittle Dark Steel Block
+tile.heating_metal.3.name=Hot End Steel Block
+tile.heating_metal.4.name=Cooled End Steel Block
+tile.heating_metal.5.name=brittle End Steel Block
 
 # GUI
 gohd_tweaks.sandpaper=Sandpaper

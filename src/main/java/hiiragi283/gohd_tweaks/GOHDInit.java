@@ -4,6 +4,7 @@ import hiiragi283.gohd_tweaks.base.ItemBase;
 import hiiragi283.gohd_tweaks.base.ItemBlockBase;
 import hiiragi283.gohd_tweaks.block.BlockDust;
 import hiiragi283.gohd_tweaks.block.BlockGroutFormed;
+import hiiragi283.gohd_tweaks.block.BlockHeating;
 import hiiragi283.gohd_tweaks.event.onPlayerChangedDimension;
 import hiiragi283.gohd_tweaks.event.onPlayerLoggedIn;
 import hiiragi283.gohd_tweaks.event.onPlayerTick;
@@ -18,8 +19,10 @@ public class GOHDInit {
     //Blockの定義
     public static Block BlockDust = new BlockDust();
     public static Block BlockGroutFormed = new BlockGroutFormed();
+    public static Block BlockHeating = new BlockHeating();
     //Itemの定義
     public static Item ItemBlockDust = new ItemBlockDust();
+    public static Item ItemBlockHeating = new ItemBlockHeating();
     public static Item ItemBookDebug = new ItemBookDebug();
     public static Item ItemDust = new ItemDust();
     public static Item ItemGroutFormed = new ItemBlockBase(GOHDInit.BlockGroutFormed, 2);
@@ -41,6 +44,7 @@ public class GOHDInit {
     public static void RegisterBlocks() {
         ForgeRegistries.BLOCKS.register(BlockDust);
         ForgeRegistries.BLOCKS.register(BlockGroutFormed);
+        ForgeRegistries.BLOCKS.register(BlockHeating);
     }
 
     //Eventを登録するメソッド
@@ -54,6 +58,7 @@ public class GOHDInit {
     //Itemを登録するメソッド
     public static void RegisterItems() {
         ForgeRegistries.ITEMS.register(ItemBlockDust);
+        ForgeRegistries.ITEMS.register(ItemBlockHeating);
         ForgeRegistries.ITEMS.register(ItemBookDebug);
         ForgeRegistries.ITEMS.register(ItemDust);
         ForgeRegistries.ITEMS.register(ItemGroutFormed);

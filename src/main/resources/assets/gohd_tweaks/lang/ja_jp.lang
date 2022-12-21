@@ -6,9 +6,24 @@ tile.dustblock.2.name=ミスリル粉末ブロック
 tile.dustblock.3.name=エレクトラム粉末ブロック
 tile.dustblock.4.name=インバー粉末ブロック
 tile.dustblock.5.name=コンスタンタン粉末ブロック
+tile.dustblock.6.name=電炉鋼粉末ブロック
+tile.dustblock.7.name=エナジェティック合金粉末ブロック
+tile.dustblock.8.name=ヴァイブラント合金粉末ブロック
+tile.dustblock.9.name=レッドストーン合金粉末ブロック
+tile.dustblock.10.name=導電鉄粉末ブロック
+tile.dustblock.11.name=脈動鉄粉末ブロック
+tile.dustblock.12.name=ダークスチール粉末ブロック
+tile.dustblock.13.name=ソウラリウム粉末ブロック
+tile.dustblock.14.name=エンドスチール粉末ブロック
 tile.grout_formed.0.name=未焼成の鋳造台
 tile.grout_formed.1.name=未焼成の鋳造鉢
 tile.grout_formed.2.name=未焼成の鋳造桶
+tile.heating_metal.0.name=赤熱したダークスチールブロック
+tile.heating_metal.1.name=冷却されたダークスチールブロック
+tile.heating_metal.2.name=脆いダークスチールブロック
+tile.heating_metal.3.name=赤熱したエンドスチールブロック
+tile.heating_metal.4.name=冷却されたエンドスチールブロック
+tile.heating_metal.5.name=脆いエンドスチールブロック
 
 # GUI
 gohd_tweaks.sandpaper=紙やすり

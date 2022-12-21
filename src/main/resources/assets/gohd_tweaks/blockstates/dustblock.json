@@ -1,20 +1,20 @@
 {
   "variants": {
-    "type=0": [{"model": "gohd_tweaks:dustblock_base"}],
-    "type=1": [{"model": "gohd_tweaks:dustblock_base"}],
-    "type=2": [{"model": "gohd_tweaks:dustblock_base"}],
-    "type=3": [{"model": "gohd_tweaks:dustblock_base"}],
-    "type=4": [{"model": "gohd_tweaks:dustblock_base"}],
-    "type=5": [{"model": "gohd_tweaks:dustblock_base"}],
-    "type=6": [{"model": "gohd_tweaks:dustblock_base"}],
-    "type=7": [{"model": "gohd_tweaks:dustblock_base"}],
-    "type=8": [{"model": "gohd_tweaks:dustblock_base"}],
-    "type=9": [{"model": "gohd_tweaks:dustblock_base"}],
-    "type=10": [{"model": "gohd_tweaks:dustblock_base"}],
-    "type=11": [{"model": "gohd_tweaks:dustblock_base"}],
-    "type=12": [{"model": "gohd_tweaks:dustblock_base"}],
-    "type=13": [{"model": "gohd_tweaks:dustblock_base"}],
-    "type=14": [{"model": "gohd_tweaks:dustblock_base"}],
-    "type=15": [{"model": "gohd_tweaks:dustblock_base"}]
+    "type=0": [{"model": "gohd_tweaks:dustblock"}],
+    "type=1": [{"model": "gohd_tweaks:dustblock"}],
+    "type=2": [{"model": "gohd_tweaks:dustblock"}],
+    "type=3": [{"model": "gohd_tweaks:dustblock"}],
+    "type=4": [{"model": "gohd_tweaks:dustblock"}],
+    "type=5": [{"model": "gohd_tweaks:dustblock"}],
+    "type=6": [{"model": "gohd_tweaks:dustblock"}],
+    "type=7": [{"model": "gohd_tweaks:dustblock"}],
+    "type=8": [{"model": "gohd_tweaks:dustblock"}],
+    "type=9": [{"model": "gohd_tweaks:dustblock"}],
+    "type=10": [{"model": "gohd_tweaks:dustblock"}],
+    "type=11": [{"model": "gohd_tweaks:dustblock"}],
+    "type=12": [{"model": "gohd_tweaks:dustblock"}],
+    "type=13": [{"model": "gohd_tweaks:dustblock"}],
+    "type=14": [{"model": "gohd_tweaks:dustblock"}],
+    "type=15": [{"model": "gohd_tweaks:dustblock"}]
   }
 }

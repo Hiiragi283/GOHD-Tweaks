@@ -6,6 +6,7 @@ public class RagiColor {
 
     //ひいらぎさんのテーマカラー
     public static Color RagiRed = new Color(255, 0, 31);
+    public static Color Clear = new Color(255, 255, 255, 0);
 
     //2つの色の中間色を取得するメソッド
     public static Color mixColor(Color color1, Color color2) {
@@ -41,9 +42,33 @@ public class RagiColor {
                 return material.getColorHex();
             }
             //metaが範囲外の場合
-            else return RagiColor.RagiRed.getRGB();
+            else return Clear.getRGB();
         }
         //tintindexが0以外の場合
-        else return RagiColor.RagiRed.getRGB();
+        else return Clear.getRGB();
+    }
+
+    //Heating Metalの色を返すメソッド
+    public static int setColorHeating(int meta, int tintindex) {
+        //tintindexが0の場合
+        if (tintindex == 0) {
+            //metaを3で割ったあまりが0でない場合
+            if (meta % 3 != 0) {
+                //metaを3で割った商が0の場合
+                if (meta / 3 == 0) {
+                    return RagiMaterialEnum.DARK_STEEL.getColorHex();
+                }
+                //metaを3で割った商が1の場合
+                else if (meta / 3 == 1) {
+                    return RagiMaterialEnum.END_STEEL.getColorHex();
+                }
+                //それ以外の場合
+                else return Clear.getRGB();
+            }
+            //それ以外の場合
+            else return Clear.getRGB();
+        }
+        //それ以外の場合
+        else return Clear.getRGB();
     }
 }

@@ -1,8 +1,6 @@
 package hiiragi283.gohd_tweaks.util;
 
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public enum RagiMaterialEnum {
 
@@ -14,15 +12,16 @@ public enum RagiMaterialEnum {
     ELECTRUM(3, "electrum", new Color(200, 176, 74)),
     INVAR(4, "invar", new Color(153, 163, 153)),
     CONSTANTAN(5, "constantan", new Color(211, 159, 72)),
-    CONDUCTIVE_IRON(6, "conductive_iron", new Color(217, 178, 171)),
-    DARK_STEEL(7, "dark_steel", new Color(99, 99, 99)),
+    //
     ELECTRICAL_STEEL(8, "electrical_steel", new Color(201, 201, 201)),
     ENERGETIC_ALLOY(9, "energetic_alloy", new Color(255, 166, 56)),
-    PULSATING_IRON(10, "pulsating_iron", new Color(145, 235, 167)),
-    REDSTONE_ALLOY(11, "redstone_alloy", new Color(229, 86, 86)),
-    SOULARIUM(12, "soularium", new Color(132, 112, 85)),
     VIBRANT_ALLOY(13, "vibrant_alloy", new Color(207, 244, 116)),
-    END_STEEL(14, "end_steel", new Color(241, 235, 184));
+    REDSTONE_ALLOY(11, "redstone_alloy", new Color(229, 86, 86)),
+    CONDUCTIVE_IRON(6, "conductive_iron", new Color(217, 178, 171)),
+    PULSATING_IRON(10, "pulsating_iron", new Color(145, 235, 167)),
+    DARK_STEEL(7, "dark_steel", new Color(99, 99, 99)),
+    SOULARIUM(12, "soularium", new Color(132, 112, 85)),
+    END_STEEL(14, "end_steel", new Color(236, 229, 187));
 
     //public変数の宣言
     public final int index;

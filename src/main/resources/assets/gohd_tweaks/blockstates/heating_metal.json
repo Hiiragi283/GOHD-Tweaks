@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "type=0": [{"model": "gohd_tweaks:heating_metal_hot"}],
+    "type=1": [{"model": "gohd_tweaks:heating_metal_cool"}],
+    "type=2": [{"model": "gohd_tweaks:heating_metal_fail"}],
+    "type=3": [{"model": "gohd_tweaks:heating_metal_hot"}],
+    "type=4": [{"model": "gohd_tweaks:heating_metal_cool"}],
+    "type=5": [{"model": "gohd_tweaks:heating_metal_fail"}],
+    "type=6": [{"model": "gohd_tweaks:heating_metal_hot"}],
+    "type=7": [{"model": "gohd_tweaks:heating_metal_hot"}],
+    "type=8": [{"model": "gohd_tweaks:heating_metal_hot"}],
+    "type=9": [{"model": "gohd_tweaks:heating_metal_hot"}],
+    "type=10": [{"model": "gohd_tweaks:heating_metal_hot"}],
+    "type=11": [{"model": "gohd_tweaks:heating_metal_hot"}],
+    "type=12": [{"model": "gohd_tweaks:heating_metal_hot"}],
+    "type=13": [{"model": "gohd_tweaks:heating_metal_hot"}],
+    "type=14": [{"model": "gohd_tweaks:heating_metal_hot"}],
+    "type=15": [{"model": "gohd_tweaks:heating_metal_hot"}]
+  }
+}
