@@ -35,4 +35,19 @@ public class SandpaperRecipe {
         stackAfter = new ItemStack(blockAfter, 1, metaAfter);
         nameAfter = stackAfter.getDisplayName();
     }
+
+    public SandpaperRecipe(Block recipe) {
+        //変化前のblockからItemStackなどを生成
+        stateBefore = recipe.getDefaultState();
+        blockBefore = recipe;
+        metaBefore = 0;
+        stackBefore = new ItemStack(blockBefore);
+        nameBefore = stackBefore.getDisplayName();
+        //変化後のstateからItemStackなどを生成
+        stateAfter = RagiMap.MapSandpaperBlock.get(blockBefore);
+        blockAfter = stateAfter.getBlock();
+        metaAfter = blockAfter.getMetaFromState(stateAfter);
+        stackAfter = new ItemStack(blockAfter, 1, metaAfter);
+        nameAfter = stackAfter.getDisplayName();
+    }
 }
