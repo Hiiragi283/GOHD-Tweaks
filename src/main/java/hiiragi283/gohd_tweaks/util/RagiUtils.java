@@ -1,6 +1,5 @@
 package hiiragi283.gohd_tweaks.util;
 
-import defeatedcrow.hac.core.util.DCUtil;
 import hiiragi283.gohd_tweaks.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -55,10 +54,9 @@ public class RagiUtils {
     //ResourceLocationなどからItemStackを取得するメソッド
     //ItemStackがnullの場合はバリアブロックを返す
     public static ItemStack getStack(String domain, String path, int amount, int meta) {
-        ItemStack stack = new ItemStack(getItem(domain, path), amount, meta);
-        if (!DCUtil.isEmpty(stack)) return stack;
-        else return new ItemStack(getItem("minecraft", "barrier"), 1, 0);
-
+        Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(domain, path));
+        if (Objects.nonNull(item)) return new ItemStack(item, amount, meta);
+        else return new ItemStack(getItem("minecraft", "barrier"), amount, 0);
     }
 
     //ResourceLocationなどからIBlockStateを取得するメソッド
