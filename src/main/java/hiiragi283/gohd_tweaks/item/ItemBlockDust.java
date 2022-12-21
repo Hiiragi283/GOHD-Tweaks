@@ -12,7 +12,7 @@ public class ItemBlockDust extends ItemBlockBase implements IItemColor {
 
     //コンストラクタの宣言
     public ItemBlockDust() {
-        super(GOHDInit.BlockDust, 5);
+        super(GOHDInit.BlockDust, 14);
     }
 
     //着色の仕方を定義するメソッド

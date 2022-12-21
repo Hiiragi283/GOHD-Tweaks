@@ -14,7 +14,7 @@ import javax.annotation.Nonnull;
 
 public class BlockDust extends BlockClimate implements IBlockColor{
     public BlockDust() {
-        super(Material.GROUND, "dustblock", 5);
+        super(Material.GROUND, "dustblock", 14);
         this.setHardness(1.5F);
         this.setResistance(15.0F);
         this.setSoundType(SoundType.STONE);

@@ -29,14 +29,21 @@ public class RagiColor {
 
     //Dustの色を返すメソッド
     public static int setColorDust(int meta, int tintindex) {
+        //tintindexが0の場合
         if (tintindex == 0) {
-            if (meta == 0) return RagiMaterialEnum.PLATINUM.getColorHex(); //Platinum
-            else if (meta == 1) return RagiMaterialEnum.IRIDIUM.getColorHex(); //iridium
-            else if (meta == 2) return RagiMaterialEnum.MANA_INFUSED.getColorHex(); //Mana Infused
-            else if (meta == 3) return RagiMaterialEnum.ELECTRUM.getColorHex(); //Electrum
-            else if (meta == 4) return RagiMaterialEnum.INVAR.getColorHex(); //Invar
-            else if (meta == 5) return RagiMaterialEnum.CONSTANTAN.getColorHex(); //Constantan
+            //listMaterialの長さを取得
+            int length = RagiList.listMaterial.size();
+            //metaが0以上length未満の場合
+            if (meta >= 0 && meta < length) {
+                //listMaterialからenumを取得
+                RagiMaterialEnum material = RagiList.listMaterial.get(meta);
+                //enumから色を取得
+                return material.getColorHex();
+            }
+            //metaが範囲外の場合
             else return RagiColor.RagiRed.getRGB();
-        } else return RagiColor.RagiRed.getRGB();
+        }
+        //tintindexが0以外の場合
+        else return RagiColor.RagiRed.getRGB();
     }
 }
