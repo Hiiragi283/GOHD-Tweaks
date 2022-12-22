@@ -16,12 +16,12 @@ public class ItemSandPaper extends ItemToolClick {
 
     @Override
     public IBlockState RecipeMap(IBlockState state) {
-        return RagiMap.MapSandpaper.get(state);
+        return RagiMap.MAP_SANDPAPER.get(state);
     }
 
     @Override
     public IBlockState RecipeMap(Block block) {
-        return RagiMap.MapSandpaperBlock.get(block);
+        return RagiMap.MAP_SANDPAPER_BLOCK.get(block);
     }
 
     @Override

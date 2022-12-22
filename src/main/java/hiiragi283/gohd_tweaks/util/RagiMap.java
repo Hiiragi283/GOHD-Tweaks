@@ -9,9 +9,9 @@ import java.util.Map;
 public class RagiMap {
 
     //Sandpaperのレシピマップの定義
-    public static Map<IBlockState, IBlockState> MapSandpaper = new HashMap<IBlockState, IBlockState>() {
+    public static final Map<IBlockState, IBlockState> MAP_SANDPAPER = new HashMap<IBlockState, IBlockState>() {
         {
-            //MapSandpaperにレシピを書きこんでいく
+            //MAP_SANDPAPERにレシピを書きこんでいく
             put(RagiUtils.getState("minecraft", "double_stone_slab", 0), RagiUtils.getState("minecraft", "double_stone_slab", 8));
             put(RagiUtils.getState("minecraft", "double_stone_slab", 1), RagiUtils.getState("minecraft", "double_stone_slab", 9));
             put(RagiUtils.getState("minecraft", "stone", 1), RagiUtils.getState("minecraft", "stone", 2));
@@ -25,7 +25,7 @@ public class RagiMap {
     };
 
     //Sandpaperのレシピマップの定義 (メタデータ無視用)
-    public static Map<Block, IBlockState> MapSandpaperBlock = new HashMap<Block, IBlockState>() {
+    public static Map<Block, IBlockState> MAP_SANDPAPER_BLOCK = new HashMap<Block, IBlockState>() {
         {
             //MapSandpaperBlockにレシピを書きこんでいく
             put(RagiUtils.getBlock("appliedenergistics2", "sky_stone_block"), RagiUtils.getState("appliedenergistics2", "smooth_sky_stone_block", 0));

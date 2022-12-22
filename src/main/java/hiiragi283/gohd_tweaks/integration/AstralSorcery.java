@@ -16,17 +16,17 @@ public class AstralSorcery {
 
     //ASとの連携レシピをまとめて登録するメソッド
     public static void Init() {
-        RemoveAltarRecipes();
-        RegisterLiquefaction();
+        removeAltarRecipes();
+        registerLiquefaction();
     }
 
     //Starlight WellのレシピをWellLiquefaction経由で登録するメソッド
-    public static void RegisterLiquefaction() {
-        WellLiquefaction(RagiUtils.getStack("tconstruct", "edible", 1, 1), "blueslime", 1.0F, 20);
+    public static void registerLiquefaction() {
+        wellLiquefaction(RagiUtils.getStack("tconstruct", "edible", 1, 1), "blueslime", 1.0F, 20);
     }
 
     //祭壇クラフトのレシピをまとめたメソッド
-    public static void RemoveAltarRecipes() {
+    public static void removeAltarRecipes() {
 
         //祭壇クラフトのレシピマップの定義
         Map<String, Boolean> MapAltarRemove = new HashMap<String, Boolean>() {
@@ -72,12 +72,12 @@ public class AstralSorcery {
         //MapAltarRemove内の各keyに対して実行
         for (String key : MapAltarRemove.keySet()) {
             //祭壇クラフトのレシピを削除
-            RemoveAltarRecipe(key, MapAltarRemove.get(key));
+            removeAltarRecipe(key, MapAltarRemove.get(key));
         }
     }
 
     //祭壇クラフトのレシピを削除するメソッド
-    public static void RemoveAltarRecipe(String name, boolean isShaped) {
+    public static void removeAltarRecipe(String name, boolean isShaped) {
         //定形レシピの場合
         if (isShaped) {
             //レシピ名を生成する
@@ -91,7 +91,7 @@ public class AstralSorcery {
     }
 
     //Starlight Wellのレシピをより簡単に登録するメソッド
-    public static void WellLiquefaction(ItemStack stack, String name, float produce, int shatter) {
+    public static void wellLiquefaction(ItemStack stack, String name, float produce, int shatter) {
         WellLiquefaction.registerLiquefaction(stack, RagiUtils.getFluid(name), produce, shatter, new Color(RagiUtils.getFluid(name).getColor()));
     }
 }

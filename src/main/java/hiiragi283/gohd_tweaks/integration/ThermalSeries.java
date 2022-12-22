@@ -13,11 +13,11 @@ public class ThermalSeries {
 
     //Thermalとの連携レシピをまとめて登録するメソッド
     public static void Init() {
-        Centrifuge();
+        registerCentrifuge();
     }
 
     //遠心分離機のレシピの登録をするメソッド
-    public static void Centrifuge() {
+    public static void registerCentrifuge() {
         //Mobの処理レシピの登録
         CentrifugeManager.addDefaultMobRecipe("artifacts:mimic", Collections.singletonList(new ItemStack(GOHDInit.ItemRagiTicket, 1, 0)), Collections.singletonList(100), 8);
         CentrifugeManager.addDefaultMobRecipe("tconstruct:blueslime", Collections.singletonList(RagiUtils.getStack("tconstruct", "edible", 2, 1)), Collections.singletonList(50), 4);

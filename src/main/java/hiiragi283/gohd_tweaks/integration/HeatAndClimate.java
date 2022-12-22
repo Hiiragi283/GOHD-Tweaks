@@ -17,15 +17,15 @@ public class HeatAndClimate {
 
     //HaCとの連携レシピをまとめて登録するメソッド
     public static void Init() {
-        ClimateSmelting();
-        HeatTreatment();
-        FluidDic();
-        FluidFuel();
-        FluidPotion();
+        registerClimateSmelting();
+        registerHeatTreatment();
+        registerFluidDic();
+        registerFluidFuel();
+        registerFluidPotion();
     }
 
     //気候精錬のレシピを登録するメソッド
-    public static void ClimateSmelting() {
+    public static void registerClimateSmelting() {
         RecipeAPI.registerSmelting.addRecipe(RagiUtils.getStack("enderio", "block_alloy", 1, 0), DCHeatTier.SMELTING, null, DCAirflow.TIGHT, RagiUtils.getStack("gohd_tweaks", "dustblock", 1, 6));
         RecipeAPI.registerSmelting.addRecipe(RagiUtils.getStack("enderio", "block_alloy", 1, 1), DCHeatTier.SMELTING, null, DCAirflow.TIGHT, RagiUtils.getStack("gohd_tweaks", "dustblock", 1, 7));
         RecipeAPI.registerSmelting.addRecipe(RagiUtils.getStack("enderio", "block_alloy", 1, 2), DCHeatTier.UHT, null, DCAirflow.TIGHT, RagiUtils.getStack("gohd_tweaks", "dustblock", 1, 8));
@@ -45,7 +45,7 @@ public class HeatAndClimate {
     }
 
     //金属熱処理を追加するメソッド
-    public static void HeatTreatment() {
+    public static void registerHeatTreatment() {
         //基本となる気候条件の宣言
         IClimate c1 = ClimateAPI.register.getClimateFromParam(DCHeatTier.SMELTING, DCHumidity.NORMAL, DCAirflow.TIGHT);
         IClimate c2 = ClimateAPI.register.getClimateFromParam(DCHeatTier.NORMAL, DCHumidity.UNDERWATER, DCAirflow.TIGHT);
@@ -95,18 +95,18 @@ public class HeatAndClimate {
     }
 
     //HaC独自の液体辞書を登録するメソッド
-    public static void FluidDic() {
+    public static void registerFluidDic() {
         DCPluginFluid.registerFluidDic("experience", "exp");
         DCPluginFluid.registerFluidDic("xpjuice", "exp");
     }
 
     //HaCの液体燃料を登録するメソッド
-    public static void FluidFuel() {
+    public static void registerFluidFuel() {
         //DCPluginFluid.registerFuel("dcs.hydrogen", "hydrogen", 100);
     }
 
     //液体をHaC経由で飲んだ際に特定のポーション効果を付与するメソッド
-    public static void FluidPotion() {
+    public static void registerFluidPotion() {
         DCPluginFluid.registerPotion("astralsorcery.liquidstarlight", Potion.getPotionFromResourceLocation("minecraft:night_vision"));
         DCPluginFluid.registerPotion("beetroot_soup", Potion.getPotionFromResourceLocation("minecraft:instant_health"));
         DCPluginFluid.registerPotion("blueslime", Potion.getPotionFromResourceLocation("minecraft:jump_boost"));

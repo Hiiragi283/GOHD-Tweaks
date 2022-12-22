@@ -22,7 +22,7 @@ public class ClientProxy extends CommonProxy {
 
     //代入されたItemに応じてモデルファイルのパスを登録するメソッド
     @SideOnly(Side.CLIENT)
-    public void SetModel(Item item) {
+    public void setModel(Item item) {
         //itemがメタデータを使用する場合
         if (item.getHasSubtypes()) {
             //メタデータが最大値になるまで処理を繰り返す
@@ -37,7 +37,7 @@ public class ClientProxy extends CommonProxy {
 
     //メタデータによらず特定のモデルファイルだけを利用させるメソッド
     @SideOnly(Side.CLIENT)
-    public void SetModelSame(Item item) {
+    public void setModelSame(Item item) {
         //メタデータが最大値になるまで処理を繰り返す
         for (int i = 0; i < item.getMetadata(283) + 1; i++) {
             ModelLoader.setCustomModelResourceLocation(item, i, new ModelResourceLocation(Objects.requireNonNull(item.getRegistryName()), "inventory"));
@@ -46,37 +46,37 @@ public class ClientProxy extends CommonProxy {
 
     //代入されたIBlockColorをBlockに登録するメソッド
     @SideOnly(Side.CLIENT)
-    public void SetColor(IBlockColor color, Block block) {
+    public void setColor(IBlockColor color, Block block) {
         Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(color, block);
     }
 
     //代入されたIItemColorをItemに登録するメソッド
     @SideOnly(Side.CLIENT)
-    public void SetColor(IItemColor color, Item item) {
+    public void setColor(IItemColor color, Item item) {
         Minecraft.getMinecraft().getItemColors().registerItemColorHandler(color, item);
     }
 
     //各Itemのモデルファイルのパスを指定するメソッド
-    public void SetModels() {
-        SetModel(GOHDInit.ItemBlockHeating);
-        SetModel(GOHDInit.ItemBookDebug);
-        SetModel(GOHDInit.ItemGroutFormed);
-        SetModel(GOHDInit.ItemPartsAssembly);
-        SetModelSame(GOHDInit.ItemBlockDust);
-        SetModelSame(GOHDInit.ItemDust);
-        SetModelSame(GOHDInit.ItemMoldTitanium);
-        SetModelSame(GOHDInit.ItemRagiTicket);
-        SetModelSame(GOHDInit.ItemRuler);
-        SetModelSame(GOHDInit.ItemSandPaper);
-        SetModelSame(GOHDInit.ItemSandPaperDiamond);
+    public void setModels() {
+        setModel(GOHDInit.ItemBlockHeating);
+        setModel(GOHDInit.ItemBookDebug);
+        setModel(GOHDInit.ItemGroutFormed);
+        setModel(GOHDInit.ItemPartsAssembly);
+        setModelSame(GOHDInit.ItemBlockDust);
+        setModelSame(GOHDInit.ItemDust);
+        setModelSame(GOHDInit.ItemMoldTitanium);
+        setModelSame(GOHDInit.ItemRagiTicket);
+        setModelSame(GOHDInit.ItemRuler);
+        setModelSame(GOHDInit.ItemSandPaper);
+        setModelSame(GOHDInit.ItemSandPaperDiamond);
     }
 
     //各Itemの着色を指定するメソッド
-    public void SetColors() {
-        SetColor(new BlockDust(), GOHDInit.BlockDust);
-        SetColor(new BlockHeating(), GOHDInit.BlockHeating);
-        SetColor(new ItemBlockDust(), GOHDInit.ItemBlockDust);
-        SetColor(new ItemBlockHeating(), GOHDInit.ItemBlockHeating);
-        SetColor(new ItemDust(), GOHDInit.ItemDust);
+    public void setColors() {
+        setColor(new BlockDust(), GOHDInit.BlockDust);
+        setColor(new BlockHeating(), GOHDInit.BlockHeating);
+        setColor(new ItemBlockDust(), GOHDInit.ItemBlockDust);
+        setColor(new ItemBlockHeating(), GOHDInit.ItemBlockHeating);
+        setColor(new ItemDust(), GOHDInit.ItemDust);
     }
 }

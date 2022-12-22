@@ -17,7 +17,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.Objects;
 
-public class onRightClickBlock {
+public class RightClickBlock {
 
     //ブロックを右クリックすると呼ばれるevent
     @SubscribeEvent

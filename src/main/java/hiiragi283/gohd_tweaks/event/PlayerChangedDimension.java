@@ -6,7 +6,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 
-public class onPlayerChangedDimension {
+public class PlayerChangedDimension {
     //プレイヤーがディメンションを移動すると呼ばれるevent
     @SubscribeEvent
     public void onPlayerChangedDimension(PlayerEvent.PlayerChangedDimensionEvent event) {

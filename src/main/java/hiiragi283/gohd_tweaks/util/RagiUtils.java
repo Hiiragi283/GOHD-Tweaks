@@ -24,7 +24,7 @@ public class RagiUtils {
 
     //コマンドを実行するメソッド
     public static void executeCommand(ICommandSender sender, String command) {
-        Objects.requireNonNull(Reference.server).getCommandManager().executeCommand(sender, command);
+        Objects.requireNonNull(Reference.SERVER).getCommandManager().executeCommand(sender, command);
     }
 
     //ResourceLocationからBlockを取得するメソッド
@@ -39,16 +39,18 @@ public class RagiUtils {
     //Fluidがnullの場合は水を返す
     public static Fluid getFluid(String name) {
         Fluid fluid = net.minecraftforge.fluids.FluidRegistry.getFluid(name);
+        Fluid water = net.minecraftforge.fluids.FluidRegistry.getFluid("water");
         if (Objects.nonNull(fluid)) return fluid;
-        else return net.minecraftforge.fluids.FluidRegistry.getFluid("water");
+        else return water;
     }
 
     //ResourceLocationからItemを取得するメソッド
     //Itemがnullの場合はバリアブロックを返す
     public static Item getItem(String domain, String path) {
         Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(domain, path));
+        Item barrier = ForgeRegistries.ITEMS.getValue(new ResourceLocation("minecraft", "barrier"));
         if (Objects.nonNull(item)) return item;
-        else return getItem("minecraft", "barrier");
+        else return barrier;
     }
 
     //ResourceLocationなどからItemStackを取得するメソッド
@@ -64,13 +66,13 @@ public class RagiUtils {
     public static IBlockState getState(String domain, String path, int meta) {
         Block block = getBlock(domain, path);
         IBlockState state = block.getStateFromMeta(meta);
-        if (block != Blocks.BARRIER && Objects.nonNull(state)) return state;
+        if (block != Blocks.BARRIER) return state;
         else return Blocks.BARRIER.getDefaultState();
     }
 
     public static IBlockState getState(Block block, int meta) {
         IBlockState state = block.getStateFromMeta(meta);
-        if (block != Blocks.BARRIER && Objects.nonNull(state)) return state;
+        if (block != Blocks.BARRIER) return state;
         else return Blocks.BARRIER.getDefaultState();
     }
 
@@ -78,8 +80,9 @@ public class RagiUtils {
     //Potionがnullの場合は不運を返す
     public static Potion getPotion(String domain, String path) {
         Potion potion = ForgeRegistries.POTIONS.getValue(new ResourceLocation(domain, path));
+        Potion unluck = ForgeRegistries.POTIONS.getValue(new ResourceLocation("minecraft", "unluck"));
         if (Objects.nonNull(potion)) return potion;
-        else return ForgeRegistries.POTIONS.getValue(new ResourceLocation("minecraft", "unluck"));
+        else return unluck;
     }
 
     //ResourceLocationなどからPotionEffectを取得するメソッド
@@ -91,8 +94,9 @@ public class RagiUtils {
     //SoundEventがnullの場合はレベルアップの音を返す
     public static SoundEvent getSound(String domain, String path) {
         SoundEvent sound = ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(domain, path));
+        SoundEvent levelUp = ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("minecraft", "entity.player.levelup"));
         if (Objects.nonNull(sound)) return sound;
-        else return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("minecraft", "entity.player.levelup"));
+        else return levelUp;
     }
 
     //titleコマンドをより簡潔に実行するメソッド

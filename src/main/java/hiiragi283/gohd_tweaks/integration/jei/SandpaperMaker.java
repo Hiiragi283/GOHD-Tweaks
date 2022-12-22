@@ -19,7 +19,7 @@ public class SandpaperMaker {
         //listの宣言
         List<SandpaperRecipe> list = Lists.newArrayList();
         //MapSandpaperの各keyに対して実行
-        for (IBlockState before : RagiMap.MapSandpaper.keySet()) {
+        for (IBlockState before : RagiMap.MAP_SANDPAPER.keySet()) {
             //beforeがnllでない場合
             if (Objects.nonNull(before)) {
                 //レシピを生成
@@ -32,7 +32,7 @@ public class SandpaperMaker {
             }
         }
         //MapSandpaperBlockの各keyに対して実行
-        for (Block before : RagiMap.MapSandpaperBlock.keySet()) {
+        for (Block before : RagiMap.MAP_SANDPAPER_BLOCK.keySet()) {
             //beforeがnllでない場合
             if (Objects.nonNull(before)) {
                 //レシピを生成

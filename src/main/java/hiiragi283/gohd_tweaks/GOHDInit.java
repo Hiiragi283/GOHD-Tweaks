@@ -5,10 +5,10 @@ import hiiragi283.gohd_tweaks.base.ItemBlockBase;
 import hiiragi283.gohd_tweaks.block.BlockDust;
 import hiiragi283.gohd_tweaks.block.BlockGroutFormed;
 import hiiragi283.gohd_tweaks.block.BlockHeating;
-import hiiragi283.gohd_tweaks.event.onPlayerChangedDimension;
-import hiiragi283.gohd_tweaks.event.onPlayerLoggedIn;
-import hiiragi283.gohd_tweaks.event.onPlayerTick;
-import hiiragi283.gohd_tweaks.event.onRightClickBlock;
+import hiiragi283.gohd_tweaks.event.PlayerChangedDimension;
+import hiiragi283.gohd_tweaks.event.PlayerLoggedIn;
+import hiiragi283.gohd_tweaks.event.PlayerTick;
+import hiiragi283.gohd_tweaks.event.RightClickBlock;
 import hiiragi283.gohd_tweaks.item.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -34,7 +34,7 @@ public class GOHDInit {
     public static Item ItemSandPaperDiamond = new ItemSandPaperDiamond();
 
     //GOHDInit内のメソッドをまとめて登録するメソッド
-    public static void Init() {
+    public static void loadInit() {
         RegisterBlocks();
         RegisterEvents();
         RegisterItems();
@@ -49,10 +49,10 @@ public class GOHDInit {
 
     //Eventを登録するメソッド
     public static void RegisterEvents() {
-        MinecraftForge.EVENT_BUS.register(new onPlayerChangedDimension());
-        MinecraftForge.EVENT_BUS.register(new onPlayerLoggedIn());
-        MinecraftForge.EVENT_BUS.register(new onPlayerTick());
-        MinecraftForge.EVENT_BUS.register(new onRightClickBlock());
+        MinecraftForge.EVENT_BUS.register(new PlayerChangedDimension());
+        MinecraftForge.EVENT_BUS.register(new PlayerLoggedIn());
+        MinecraftForge.EVENT_BUS.register(new PlayerTick());
+        MinecraftForge.EVENT_BUS.register(new RightClickBlock());
     }
 
     //Itemを登録するメソッド

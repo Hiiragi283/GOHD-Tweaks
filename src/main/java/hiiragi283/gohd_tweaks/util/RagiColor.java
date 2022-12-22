@@ -5,11 +5,11 @@ import java.awt.*;
 public class RagiColor {
 
     //ひいらぎさんのテーマカラー
-    public static Color RagiRed = new Color(255, 0, 31);
-    public static Color Clear = new Color(255, 255, 255, 0);
+    public static final Color RAGI_RED = new Color(255, 0, 31);
+    public static final Color CLEAR = new Color(255, 255, 255, 0);
 
     //2つの色の中間色を取得するメソッド
-    public static Color mixColor(Color color1, Color color2) {
+    public static Color getColorAve(Color color1, Color color2) {
         //color1とcolor2の各RGB値の平均値を計算
         int aveR = (color1.getRed() + color2.getRed()) / 2;
         int aveG = (color1.getGreen() + color2.getGreen()) / 2;
@@ -19,7 +19,7 @@ public class RagiColor {
     }
 
     //混合色から元の色を取得するメソッド
-    public static Color getBaseColor(Color colorMixed, Color colorBase1) {
+    public static Color getColorDif(Color colorMixed, Color colorBase1) {
         //colorMixedとcolorBase1の各RGB値の差分を計算
         int red2 = colorMixed.getRed() * 2 - colorBase1.getRed();
         int green2 = colorMixed.getGreen() * 2 - colorBase1.getGreen();
@@ -33,19 +33,19 @@ public class RagiColor {
         //tintindexが0の場合
         if (tintindex == 0) {
             //listMaterialの長さを取得
-            int length = RagiList.listMaterial.size();
+            int length = RagiList.LIST_MATERIAL.size();
             //metaが0以上length未満の場合
             if (meta >= 0 && meta < length) {
-                //listMaterialからenumを取得
-                RagiMaterialEnum material = RagiList.listMaterial.get(meta);
+                //LIST_MATERIALからenumを取得
+                RagiMaterialEnum material = RagiList.LIST_MATERIAL.get(meta);
                 //enumから色を取得
                 return material.getColorHex();
             }
             //metaが範囲外の場合
-            else return Clear.getRGB();
+            else return CLEAR.getRGB();
         }
         //tintindexが0以外の場合
-        else return Clear.getRGB();
+        else return CLEAR.getRGB();
     }
 
     //Heating Metalの色を返すメソッド
@@ -63,12 +63,12 @@ public class RagiColor {
                     return RagiMaterialEnum.END_STEEL.getColorHex();
                 }
                 //それ以外の場合
-                else return Clear.getRGB();
+                else return CLEAR.getRGB();
             }
             //それ以外の場合
-            else return Clear.getRGB();
+            else return CLEAR.getRGB();
         }
         //それ以外の場合
-        else return Clear.getRGB();
+        else return CLEAR.getRGB();
     }
 }

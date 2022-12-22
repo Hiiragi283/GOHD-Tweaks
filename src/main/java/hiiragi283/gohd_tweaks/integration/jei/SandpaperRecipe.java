@@ -29,7 +29,7 @@ public class SandpaperRecipe {
         stackBefore = new ItemStack(blockBefore, 1, metaBefore);
         nameBefore = stackBefore.getDisplayName();
         //変化後のstateからItemStackなどを生成
-        stateAfter = RagiMap.MapSandpaper.get(stateBefore);
+        stateAfter = RagiMap.MAP_SANDPAPER.get(stateBefore);
         blockAfter = stateAfter.getBlock();
         metaAfter = blockAfter.getMetaFromState(stateAfter);
         stackAfter = new ItemStack(blockAfter, 1, metaAfter);
@@ -44,7 +44,7 @@ public class SandpaperRecipe {
         stackBefore = new ItemStack(blockBefore);
         nameBefore = stackBefore.getDisplayName();
         //変化後のstateからItemStackなどを生成
-        stateAfter = RagiMap.MapSandpaperBlock.get(blockBefore);
+        stateAfter = RagiMap.MAP_SANDPAPER_BLOCK.get(blockBefore);
         blockAfter = stateAfter.getBlock();
         metaAfter = blockAfter.getMetaFromState(stateAfter);
         stackAfter = new ItemStack(blockAfter, 1, metaAfter);

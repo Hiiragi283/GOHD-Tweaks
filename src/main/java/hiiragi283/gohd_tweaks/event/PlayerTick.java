@@ -12,7 +12,7 @@ import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 import java.util.Objects;
 
-public class onPlayerTick {
+public class PlayerTick {
 
     //各tickにおいてプレイヤーを対象に呼ばれるevent
     @SubscribeEvent

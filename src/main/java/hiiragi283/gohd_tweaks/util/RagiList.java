@@ -6,7 +6,7 @@ import java.util.List;
 public class RagiList {
 
     //素材のリスト
-    public static final List<RagiMaterialEnum> listMaterial = new ArrayList<RagiMaterialEnum>() {
+    public static final List<RagiMaterialEnum> LIST_MATERIAL = new ArrayList<RagiMaterialEnum>() {
         {
             add(RagiMaterialEnum.PLATINUM);
             add(RagiMaterialEnum.IRIDIUM);
