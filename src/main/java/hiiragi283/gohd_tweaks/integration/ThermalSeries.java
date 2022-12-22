@@ -1,13 +1,13 @@
 package hiiragi283.gohd_tweaks.integration;
 
 import cofh.thermalexpansion.util.managers.machine.CentrifugeManager;
-import cofh.thermalexpansion.util.managers.machine.PulverizerManager;
 import hiiragi283.gohd_tweaks.GOHDInit;
 import hiiragi283.gohd_tweaks.util.RagiUtils;
 import net.minecraft.item.ItemStack;
 
 import java.util.Collections;
 
+import static cofh.api.util.ThermalExpansionHelper.addPulverizerRecipe;
 import static java.util.Arrays.asList;
 
 public class ThermalSeries {
@@ -30,7 +30,7 @@ public class ThermalSeries {
 
     //
     public static void registerPulverizer() {
-        PulverizerManager.addRecipe(2000, RagiUtils.getStack("minecraft", "soul_sand", 1 ,0), RagiUtils.getStack("gohd_tweaks", "dust", 1 ,0));
-        PulverizerManager.addRecipe(2000, RagiUtils.getStack("minecraft", "end_stone", 1 ,0), RagiUtils.getStack("gohd_tweaks", "dust", 1 ,1));
+        addPulverizerRecipe(2000, RagiUtils.getStack("minecraft", "soul_sand", 1, 0), RagiUtils.getStack("gohd_tweaks", "dust", 1, 0));
+        addPulverizerRecipe(2000, RagiUtils.getStack("minecraft", "end_stone", 1, 0), RagiUtils.getStack("gohd_tweaks", "dust", 1, 1));
     }
 }
