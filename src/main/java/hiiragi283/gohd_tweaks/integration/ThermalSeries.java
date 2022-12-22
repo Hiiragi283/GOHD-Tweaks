@@ -12,7 +12,7 @@ import static java.util.Arrays.asList;
 public class ThermalSeries {
 
     //Thermalとの連携レシピをまとめて登録するメソッド
-    public static void Init() {
+    public static void loadInit() {
         registerCentrifuge();
     }
 

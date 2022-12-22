@@ -16,7 +16,7 @@ import java.util.List;
 public class HeatAndClimate {
 
     //HaCとの連携レシピをまとめて登録するメソッド
-    public static void Init() {
+    public static void loadInit() {
         registerClimateSmelting();
         registerHeatTreatment();
         registerFluidDic();

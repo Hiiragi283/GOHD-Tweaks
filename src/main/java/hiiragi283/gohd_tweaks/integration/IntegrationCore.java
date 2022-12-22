@@ -1,6 +1,5 @@
 package hiiragi283.gohd_tweaks.integration;
 
-import hiiragi283.gohd_tweaks.GOHDTweaks;
 import hiiragi283.gohd_tweaks.Reference;
 import net.minecraftforge.fml.common.Loader;
 
@@ -10,7 +9,7 @@ public class IntegrationCore {
         if (Loader.isModLoaded("astralsorcery")) {
             try {
                 //ASとの連携レシピの登録
-                AstralSorcery.Init();
+                AstralSorcery.loadInit();
             } catch (Exception e) {
                 //失敗した場合、エラーをログに吐く
                 Reference.LOGGER_GOHD.info("Loading AstralSorcery is failed!");
@@ -20,7 +19,7 @@ public class IntegrationCore {
         if (Loader.isModLoaded("dcs_climate")) {
             try {
                 //HaCとの連携レシピの登録
-                HeatAndClimate.Init();
+                HeatAndClimate.loadInit();
             } catch (Exception e) {
                 //失敗した場合、エラーをログに吐く
                 Reference.LOGGER_GOHD.info("Loading HeatAndClimate is failed!");
@@ -30,7 +29,7 @@ public class IntegrationCore {
         if (Loader.isModLoaded("thermal_expansion")) {
             try {
                 //Thermalとの連携レシピの登録
-                ThermalSeries.Init();
+                ThermalSeries.loadInit();
             } catch (Exception e) {
                 //失敗した場合、エラーをログに吐く
                 Reference.LOGGER_GOHD.info("Loading ThermalSeries is failed!");

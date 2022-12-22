@@ -15,7 +15,7 @@ public class AstralSorcery {
     static ResourceLocation recipeName;
 
     //ASとの連携レシピをまとめて登録するメソッド
-    public static void Init() {
+    public static void loadInit() {
         removeAltarRecipes();
         registerLiquefaction();
     }

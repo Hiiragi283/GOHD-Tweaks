@@ -1,6 +1,6 @@
 package hiiragi283.gohd_tweaks.event;
 
-import hiiragi283.gohd_tweaks.GOHDTweaks;
+import hiiragi283.gohd_tweaks.Reference;
 import hiiragi283.gohd_tweaks.util.RagiUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -34,15 +34,15 @@ public class RightClickBlock {
             IBlockState state = world.getBlockState(pos);
             Block block = state.getBlock();
             //取得した値をログに出力
-            GOHDTweaks.LoggerGOHD.info("============");
-            GOHDTweaks.LoggerGOHD.info(stack);
-            GOHDTweaks.LoggerGOHD.info(item);
-            GOHDTweaks.LoggerGOHD.info(stackCompare);
-            GOHDTweaks.LoggerGOHD.info(player);
-            GOHDTweaks.LoggerGOHD.info(world);
-            GOHDTweaks.LoggerGOHD.info(pos);
-            GOHDTweaks.LoggerGOHD.info(state);
-            GOHDTweaks.LoggerGOHD.info(block);
+            Reference.LOGGER_GOHD.info("============");
+            Reference.LOGGER_GOHD.info(stack);
+            Reference.LOGGER_GOHD.info(item);
+            Reference.LOGGER_GOHD.info(stackCompare);
+            Reference.LOGGER_GOHD.info(player);
+            Reference.LOGGER_GOHD.info(world);
+            Reference.LOGGER_GOHD.info(pos);
+            Reference.LOGGER_GOHD.info(state);
+            Reference.LOGGER_GOHD.info(block);
             //デバッグ用
             if (Objects.requireNonNull(item.getRegistryName()).toString().equals("theoneprobe:creativeprobe")) {
                 player.sendMessage(new TextComponentTranslation("text.gohd_tweaks.decoration_line.name"));
