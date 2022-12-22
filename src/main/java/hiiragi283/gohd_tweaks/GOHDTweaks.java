@@ -20,24 +20,22 @@ public class GOHDTweaks {
     //Pre-Initializationの段階で呼ばれるevent
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        //GOHDInitの登録
-        GOHDInit.loadInit();
-        //ItemのModelの登録
-        proxy.setModels();
+        GOHDInit.RegisterBlocks();
+        GOHDInit.RegisterEvents();
+        GOHDInit.RegisterItems();
+        proxy.loadPreInit();
     }
 
     //Initializationの段階で呼ばれるevent
     @Mod.EventHandler
     public void Init(FMLInitializationEvent event) {
-        //Itemの着色の登録
-        proxy.setColors();
-        //
+        proxy.loadInit();
     }
 
     //Post-Initializationの段階で呼ばれるevent
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-        //他modとの連携レシピの登録
         IntegrationCore.loadInit();
+        proxy.loadPostInit();
     }
 }

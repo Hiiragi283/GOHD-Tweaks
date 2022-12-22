@@ -2,9 +2,16 @@ package hiiragi283.gohd_tweaks.proxy;
 
 public class CommonProxy {
     //Server側のProxyで行う処理をまとめたメソッド
-    public void setModels() {
+
+    //Pre-Initializationで読み込むメソッド
+    public void loadPreInit() {
     }
 
-    public void setColors() {
+    //Initializationで読み込むメソッド
+    public void loadInit() {
+    }
+
+    //Post-Initializationで読み込むメソッド
+    public void loadPostInit() {
     }
 }

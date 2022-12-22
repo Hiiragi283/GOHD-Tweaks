@@ -33,13 +33,6 @@ public class GOHDInit {
     public static Item ItemSandPaper = new ItemSandPaper();
     public static Item ItemSandPaperDiamond = new ItemSandPaperDiamond();
 
-    //GOHDInit内のメソッドをまとめて登録するメソッド
-    public static void loadInit() {
-        RegisterBlocks();
-        RegisterEvents();
-        RegisterItems();
-    }
-
     //Blockを登録するメソッド
     public static void RegisterBlocks() {
         ForgeRegistries.BLOCKS.register(BlockDust);

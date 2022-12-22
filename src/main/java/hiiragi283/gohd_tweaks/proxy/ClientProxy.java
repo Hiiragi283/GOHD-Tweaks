@@ -20,6 +20,19 @@ import java.util.Objects;
 
 public class ClientProxy extends CommonProxy {
 
+    //Pre-Initializationで読み込むメソッド
+    public void loadPreInit() {
+        setModels();
+    }
+
+    //Initializationで読み込むメソッド
+    public void loadInit() {
+        setColors();
+    }
+
+    //Post-Initializationで読み込むメソッド
+    public void loadPostInit() {}
+
     //代入されたItemに応じてモデルファイルのパスを登録するメソッド
     @SideOnly(Side.CLIENT)
     public void setModel(Item item) {
