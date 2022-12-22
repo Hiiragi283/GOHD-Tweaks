@@ -17,14 +17,18 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.oredict.OreDictionary;
 
+import java.util.List;
 import java.util.Objects;
 
 public class RagiUtils {
 
     //コマンドを実行するメソッド
     public static void executeCommand(ICommandSender sender, String command) {
-        Objects.requireNonNull(Reference.SERVER).getCommandManager().executeCommand(sender, command);
+        if (Objects.nonNull(Reference.SERVER)) {
+            Reference.SERVER.getCommandManager().executeCommand(sender, command);
+        }
     }
 
     //ResourceLocationからBlockを取得するメソッド
@@ -99,9 +103,20 @@ public class RagiUtils {
         else return levelUp;
     }
 
-    //鉱石辞書を書き換えるメソッド
-    public static void setOreDict () {
+    //鉱石辞書を追加するメソッド
+    public static void addOreDict(String oreDict, ItemStack stack) {
+        OreDictionary.registerOre(oreDict, stack);
+    }
 
+    //鉱石辞書を削除するメソッド
+    public static void removeOreDict(String oreDict, ItemStack stack) {
+        //oreDictRemoveに紐づいたItemStackのリストを取得
+        List<ItemStack> listStack = OreDictionary.getOres(oreDict);
+        for (ItemStack stackListed : listStack) {
+            Reference.LOGGER_GOHD.info("the list has " + stackListed.getDisplayName());
+        }
+        //listStackからstackを削除
+        listStack.remove(stack);
     }
 
     //titleコマンドをより簡潔に実行するメソッド

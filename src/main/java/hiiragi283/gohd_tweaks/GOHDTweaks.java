@@ -2,6 +2,7 @@ package hiiragi283.gohd_tweaks;
 
 import hiiragi283.gohd_tweaks.integration.IntegrationCore;
 import hiiragi283.gohd_tweaks.proxy.CommonProxy;
+import hiiragi283.gohd_tweaks.util.RagiOreDict;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -29,6 +30,7 @@ public class GOHDTweaks {
     //Initializationの段階で呼ばれるevent
     @Mod.EventHandler
     public void Init(FMLInitializationEvent event) {
+        RagiOreDict.registerOreDict();
         proxy.loadInit();
     }
 
