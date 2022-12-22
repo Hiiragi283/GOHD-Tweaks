@@ -31,6 +31,8 @@ gohd_tweaks.sandpaper=Sandpaper
 # Items
 item.book_debug.0.name=Spawn Book (DEBUG)
 item.book_debug.1.name=Syntax Book (DEBUG)
+item.dust.0.name=Soul Sand Dust
+item.dust.1.name=End Stone Dust
 item.mold_titanium.name=Titanium Mold
 item.parts_assembly.0.name=Calculation Processor Assembly
 item.parts_assembly.1.name=Engineering Processor Assembly

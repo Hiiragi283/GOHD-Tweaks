@@ -99,6 +99,11 @@ public class RagiUtils {
         else return levelUp;
     }
 
+    //鉱石辞書を書き換えるメソッド
+    public static void setOreDict () {
+
+    }
+
     //titleコマンドをより簡潔に実行するメソッド
     public static void setTitle(EntityPlayer player, String title, String subtitle) {
         //コマンドの実行結果を出力しないようにする

@@ -31,6 +31,8 @@ gohd_tweaks.sandpaper=紙やすり
 # Items
 item.book_debug.0.name=Spawn Book (DEBUG)
 item.book_debug.1.name=Syntax Book (DEBUG)
+item.dust.0.name=ソウルサンドの粉
+item.dust.1.name=エンドストーンの粉
 item.mold_titanium.name=チタン製金型
 item.parts_assembly.0.name=発展プロセッサアセンブリ
 item.parts_assembly.1.name=上級プロセッサアセンブリ
