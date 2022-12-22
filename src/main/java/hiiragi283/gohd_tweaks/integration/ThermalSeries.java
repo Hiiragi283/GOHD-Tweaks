@@ -1,6 +1,7 @@
 package hiiragi283.gohd_tweaks.integration;
 
 import cofh.thermalexpansion.util.managers.machine.CentrifugeManager;
+import cofh.thermalexpansion.util.managers.machine.PulverizerManager;
 import hiiragi283.gohd_tweaks.GOHDInit;
 import hiiragi283.gohd_tweaks.util.RagiUtils;
 import net.minecraft.item.ItemStack;
@@ -14,6 +15,7 @@ public class ThermalSeries {
     //Thermalとの連携レシピをまとめて登録するメソッド
     public static void loadInit() {
         registerCentrifuge();
+        registerPulverizer();
     }
 
     //遠心分離機のレシピの登録をするメソッド
@@ -24,5 +26,11 @@ public class ThermalSeries {
         CentrifugeManager.addDefaultMobRecipe("twilightforest:adherent", Collections.singletonList(RagiUtils.getStack("dcs_climate", "dcs_cube_ice", 1, 0)), Collections.singletonList(25), 10);
         CentrifugeManager.addDefaultMobRecipe("twilightforest:maze_slime", asList(RagiUtils.getStack("twilightforest", "maze_stone", 1, 1), RagiUtils.getStack("twilightforest", "maze_wafer", 1, 0)), asList(100, 25), 4);
         CentrifugeManager.addDefaultMobRecipe("twilightforest:harbinger_cube", Collections.singletonList(RagiUtils.getStack("dcs_climate", "dcs_cube_flame", 1, 0)), Collections.singletonList(25), 10);
+    }
+
+    //
+    public static void registerPulverizer() {
+        PulverizerManager.addRecipe(2000, RagiUtils.getStack("minecraft", "soul_sand", 1 ,0), RagiUtils.getStack("gohd_tweaks", "dust", 1 ,0));
+        PulverizerManager.addRecipe(2000, RagiUtils.getStack("minecraft", "end_stone", 1 ,0), RagiUtils.getStack("gohd_tweaks", "dust", 1 ,1));
     }
 }
