@@ -1,6 +1,6 @@
 package hiiragi283.gohd_tweaks.integration;
 
-import hiiragi283.gohd_tweaks.GOHDInit;
+import hiiragi283.gohd_tweaks.init.GOHDRegistry;
 import hiiragi283.gohd_tweaks.integration.jei.SandpaperCategory;
 import hiiragi283.gohd_tweaks.integration.jei.SandpaperMaker;
 import hiiragi283.gohd_tweaks.integration.jei.SandpaperRecipe;
@@ -29,8 +29,8 @@ public class JEICore implements IModPlugin {
         registry.handleRecipes(SandpaperRecipe.class, SandpaperWrapper::new, "gohd_tweaks.sandpaper");
         SandpaperMaker.register(registry);
         //catalystの登録
-        registry.addRecipeCatalyst(new ItemStack(GOHDInit.ItemSandPaper), "gohd_tweaks.sandpaper");
-        registry.addRecipeCatalyst(new ItemStack(GOHDInit.ItemSandPaperDiamond), "gohd_tweaks.sandpaper");
+        registry.addRecipeCatalyst(new ItemStack(GOHDRegistry.ItemSandPaper), "gohd_tweaks.sandpaper");
+        registry.addRecipeCatalyst(new ItemStack(GOHDRegistry.ItemSandPaperDiamond), "gohd_tweaks.sandpaper");
     }
 
     @Override

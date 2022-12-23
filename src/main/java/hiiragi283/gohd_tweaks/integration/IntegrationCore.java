@@ -10,6 +10,7 @@ public class IntegrationCore {
             try {
                 //ASとの連携レシピの登録
                 AstralSorcery.loadInit();
+                Reference.LOGGER_GOHD.info("AstralSorcery has loaded!");
             } catch (Exception e) {
                 //失敗した場合、エラーをログに吐く
                 Reference.LOGGER_GOHD.info("Loading AstralSorcery is failed!");
@@ -20,6 +21,7 @@ public class IntegrationCore {
             try {
                 //HaCとの連携レシピの登録
                 HeatAndClimate.loadInit();
+                Reference.LOGGER_GOHD.info("HeatAndClimate has loaded!");
             } catch (Exception e) {
                 //失敗した場合、エラーをログに吐く
                 Reference.LOGGER_GOHD.info("Loading HeatAndClimate is failed!");
@@ -30,6 +32,7 @@ public class IntegrationCore {
             try {
                 //Thermalとの連携レシピの登録
                 ThermalSeries.loadInit();
+                Reference.LOGGER_GOHD.info("ThermalSeries has loaded!");
             } catch (Exception e) {
                 //失敗した場合、エラーをログに吐く
                 Reference.LOGGER_GOHD.info("Loading ThermalSeries is failed!");

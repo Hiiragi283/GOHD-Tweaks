@@ -1,4 +1,4 @@
-package hiiragi283.gohd_tweaks;
+package hiiragi283.gohd_tweaks.init;
 
 import hiiragi283.gohd_tweaks.base.ItemBase;
 import hiiragi283.gohd_tweaks.base.ItemBlockBase;
@@ -10,12 +10,14 @@ import hiiragi283.gohd_tweaks.event.PlayerLoggedIn;
 import hiiragi283.gohd_tweaks.event.PlayerTick;
 import hiiragi283.gohd_tweaks.event.RightClickBlock;
 import hiiragi283.gohd_tweaks.item.*;
+import hiiragi283.gohd_tweaks.util.RagiUtils;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
-public class GOHDInit {
+public class GOHDRegistry {
     //Blockの定義
     public static Block BlockDust = new BlockDust();
     public static Block BlockGroutFormed = new BlockGroutFormed();
@@ -25,7 +27,7 @@ public class GOHDInit {
     public static Item ItemBlockHeating = new ItemBlockHeating();
     public static Item ItemBookDebug = new ItemBookDebug();
     public static Item ItemDust = new ItemDust();
-    public static Item ItemGroutFormed = new ItemBlockBase(GOHDInit.BlockGroutFormed, 2);
+    public static Item ItemGroutFormed = new ItemBlockBase(GOHDRegistry.BlockGroutFormed, 2);
     public static Item ItemMoldTitanium = new ItemMoldTitanium();
     public static Item ItemPartsAssembly = new ItemBase("parts_assembly", 4);
     public static Item ItemRagiTicket = new ItemRagiTicket();
@@ -61,5 +63,10 @@ public class GOHDInit {
         ForgeRegistries.ITEMS.register(ItemRuler);
         ForgeRegistries.ITEMS.register(ItemSandPaper);
         ForgeRegistries.ITEMS.register(ItemSandPaperDiamond);
+    }
+
+    //Recipeを登録するメソッド
+    public static void RegisterRecipes() {
+        RagiUtils.removeCrafting(new ResourceLocation("minecraft", "furnace"));
     }
 }

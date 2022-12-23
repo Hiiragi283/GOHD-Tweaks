@@ -1,6 +1,6 @@
 package hiiragi283.gohd_tweaks.proxy;
 
-import hiiragi283.gohd_tweaks.GOHDInit;
+import hiiragi283.gohd_tweaks.init.GOHDRegistry;
 import hiiragi283.gohd_tweaks.block.BlockDust;
 import hiiragi283.gohd_tweaks.block.BlockHeating;
 import hiiragi283.gohd_tweaks.item.ItemBlockDust;
@@ -71,25 +71,25 @@ public class ClientProxy extends CommonProxy {
 
     //各Itemのモデルファイルのパスを指定するメソッド
     public void setModels() {
-        setModel(GOHDInit.ItemBlockHeating);
-        setModel(GOHDInit.ItemBookDebug);
-        setModel(GOHDInit.ItemGroutFormed);
-        setModel(GOHDInit.ItemPartsAssembly);
-        setModelSame(GOHDInit.ItemBlockDust);
-        setModelSame(GOHDInit.ItemDust);
-        setModelSame(GOHDInit.ItemMoldTitanium);
-        setModelSame(GOHDInit.ItemRagiTicket);
-        setModelSame(GOHDInit.ItemRuler);
-        setModelSame(GOHDInit.ItemSandPaper);
-        setModelSame(GOHDInit.ItemSandPaperDiamond);
+        setModel(GOHDRegistry.ItemBlockHeating);
+        setModel(GOHDRegistry.ItemBookDebug);
+        setModel(GOHDRegistry.ItemGroutFormed);
+        setModel(GOHDRegistry.ItemPartsAssembly);
+        setModelSame(GOHDRegistry.ItemBlockDust);
+        setModelSame(GOHDRegistry.ItemDust);
+        setModelSame(GOHDRegistry.ItemMoldTitanium);
+        setModelSame(GOHDRegistry.ItemRagiTicket);
+        setModelSame(GOHDRegistry.ItemRuler);
+        setModelSame(GOHDRegistry.ItemSandPaper);
+        setModelSame(GOHDRegistry.ItemSandPaperDiamond);
     }
 
     //各Itemの着色を指定するメソッド
     public void setColors() {
-        setColor(new BlockDust(), GOHDInit.BlockDust);
-        setColor(new BlockHeating(), GOHDInit.BlockHeating);
-        setColor(new ItemBlockDust(), GOHDInit.ItemBlockDust);
-        setColor(new ItemBlockHeating(), GOHDInit.ItemBlockHeating);
-        setColor(new ItemDust(), GOHDInit.ItemDust);
+        setColor(new BlockDust(), GOHDRegistry.BlockDust);
+        setColor(new BlockHeating(), GOHDRegistry.BlockHeating);
+        setColor(new ItemBlockDust(), GOHDRegistry.ItemBlockDust);
+        setColor(new ItemBlockHeating(), GOHDRegistry.ItemBlockHeating);
+        setColor(new ItemDust(), GOHDRegistry.ItemDust);
     }
 }

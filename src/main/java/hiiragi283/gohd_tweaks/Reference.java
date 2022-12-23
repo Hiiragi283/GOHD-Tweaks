@@ -19,7 +19,7 @@ public class Reference {
     //Client側のProxyの定義
     public static final String CLIENT_PROXY_CLASS = "hiiragi283.gohd_tweaks.proxy.ClientProxy";
     //Server側のProxyの定義
-    public static final String SERVER_PROXY_CLASS = "hiiragi283.gohd_tweaks.proxy.CommonProxy";
+    public static final String SERVER_PROXY_CLASS = "hiiragi283.gohd_tweaks.proxy.ServerProxy";
     //ログ出力用
     public static final Logger LOGGER_GOHD = LogManager.getLogger(Reference.MOD_ID);
     //Serverの定義 (コマンド実行用)

@@ -1,12 +1,12 @@
 package hiiragi283.gohd_tweaks.util;
 
-import hiiragi283.gohd_tweaks.GOHDInit;
+import hiiragi283.gohd_tweaks.init.GOHDRegistry;
 import net.minecraft.item.ItemStack;
 
 public class RagiOreDict {
 
     public static void registerOreDict() {
-        RagiUtils.addOreDict("dustSoulSand", new ItemStack(GOHDInit.ItemDust, 1, 0));
-        RagiUtils.addOreDict("dustEndstone", new ItemStack(GOHDInit.ItemDust, 1, 1));
+        RagiUtils.setOreDict("dustSoulSand", new ItemStack(GOHDRegistry.ItemDust, 1, 0));
+        RagiUtils.setOreDict("dustEndstone", new ItemStack(GOHDRegistry.ItemDust, 1, 1));
     }
 }

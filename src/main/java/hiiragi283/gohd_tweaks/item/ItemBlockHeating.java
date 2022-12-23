@@ -1,6 +1,6 @@
 package hiiragi283.gohd_tweaks.item;
 
-import hiiragi283.gohd_tweaks.GOHDInit;
+import hiiragi283.gohd_tweaks.init.GOHDRegistry;
 import hiiragi283.gohd_tweaks.base.ItemBlockBase;
 import hiiragi283.gohd_tweaks.util.RagiColor;
 import net.minecraft.client.renderer.color.IItemColor;
@@ -12,7 +12,7 @@ public class ItemBlockHeating extends ItemBlockBase  implements IItemColor {
 
     //コンストラクタの宣言
     public ItemBlockHeating() {
-        super(GOHDInit.BlockHeating, 5);
+        super(GOHDRegistry.BlockHeating, 5);
     }
 
     //着色の仕方を定義するメソッド

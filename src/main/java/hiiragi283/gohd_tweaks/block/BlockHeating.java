@@ -3,7 +3,7 @@ package hiiragi283.gohd_tweaks.block;
 import defeatedcrow.hac.api.blockstate.DCState;
 import defeatedcrow.hac.api.climate.BlockSet;
 import defeatedcrow.hac.api.climate.IClimate;
-import hiiragi283.gohd_tweaks.GOHDInit;
+import hiiragi283.gohd_tweaks.init.GOHDRegistry;
 import hiiragi283.gohd_tweaks.base.BlockClimate;
 import hiiragi283.gohd_tweaks.util.RagiColor;
 import net.minecraft.block.SoundType;
@@ -58,10 +58,10 @@ public class BlockHeating extends BlockClimate implements IBlockColor {
         switch (i) {
             case 0:
             case 1:
-                return new BlockSet(GOHDInit.BlockHeating, 2);
+                return new BlockSet(GOHDRegistry.BlockHeating, 2);
             case 3:
             case 4:
-                return new BlockSet(GOHDInit.BlockHeating, 5);
+                return new BlockSet(GOHDRegistry.BlockHeating, 5);
         }
         return null;
     }
