@@ -1,5 +1,6 @@
 package hiiragi283.gohd_tweaks;
 
+import hiiragi283.gohd_tweaks.init.GOHDRegistry;
 import hiiragi283.gohd_tweaks.integration.IntegrationCore;
 import hiiragi283.gohd_tweaks.proxy.CommonProxy;
 import hiiragi283.gohd_tweaks.util.RagiOreDict;
@@ -21,9 +22,10 @@ public class GOHDTweaks {
     //Pre-Initializationの段階で呼ばれるevent
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        GOHDInit.RegisterBlocks();
-        GOHDInit.RegisterEvents();
-        GOHDInit.RegisterItems();
+        GOHDRegistry.RegisterBlocks();
+        GOHDRegistry.RegisterEvents();
+        GOHDRegistry.RegisterItems();
+        GOHDRegistry.RegisterRecipes();
         proxy.loadPreInit();
     }
 

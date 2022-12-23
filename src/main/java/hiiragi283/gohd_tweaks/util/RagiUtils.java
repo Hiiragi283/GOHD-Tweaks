@@ -8,8 +8,13 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.CraftingManager;
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
@@ -19,7 +24,6 @@ import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.oredict.OreDictionary;
 
-import java.util.List;
 import java.util.Objects;
 
 public class RagiUtils {
@@ -103,20 +107,23 @@ public class RagiUtils {
         else return levelUp;
     }
 
-    //鉱石辞書を追加するメソッド
-    public static void addOreDict(String oreDict, ItemStack stack) {
-        OreDictionary.registerOre(oreDict, stack);
+    //クラフトレシピを削除するメソッド (うまくいかぬ)
+    public static void removeCrafting(ResourceLocation location) {
+        //locationからレシピを取得
+        IRecipe recipeBefore = CraftingManager.getRecipe(location);
+        //recipeBeforeから素材のリストを取得
+        NonNullList<Ingredient> ingBefore = recipeBefore.getIngredients();
+        //ingBeforeの中身を消す
+        ingBefore.clear();
+        //置き換え後のレシピを作成
+        IRecipe recipeAfter = new ShapedRecipes(location.toString(), 1, 1, ingBefore, ItemStack.EMPTY);
+        //レシピを置き換える
+        ForgeRegistries.RECIPES.register(recipeAfter);
     }
 
-    //鉱石辞書を削除するメソッド
-    public static void removeOreDict(String oreDict, ItemStack stack) {
-        //oreDictRemoveに紐づいたItemStackのリストを取得
-        List<ItemStack> listStack = OreDictionary.getOres(oreDict);
-        for (ItemStack stackListed : listStack) {
-            Reference.LOGGER_GOHD.info("the list has " + stackListed.getDisplayName());
-        }
-        //listStackからstackを削除
-        listStack.remove(stack);
+    //鉱石辞書を追加するメソッド
+    public static void setOreDict(String oreDict, ItemStack stack) {
+        OreDictionary.registerOre(oreDict, stack);
     }
 
     //titleコマンドをより簡潔に実行するメソッド
