@@ -22,7 +22,7 @@ public class AstralSorcery {
 
     //Starlight WellのレシピをWellLiquefaction経由で登録するメソッド
     public static void registerLiquefaction() {
-        wellLiquefaction(RagiUtils.getStack("tconstruct", "edible", 1, 1), "blueslime", 1.0F, 20);
+        wellLiquefaction(RagiUtils.getStack("tconstruct:edible", 1, 1), "blueslime", 1.0F, 20);
     }
 
     //祭壇クラフトのレシピをまとめたメソッド

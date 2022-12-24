@@ -37,14 +37,17 @@ public class RagiUtils {
 
     //ResourceLocationからBlockを取得するメソッド
     //Blockがnullの場合はバリアブロックを返す
-    public static Block getBlock(String domain, String path) {
-        ResourceLocation location = new ResourceLocation(domain, path);
-        Block block = ForgeRegistries.BLOCKS.getValue(location);
+    public static Block getBlock(String registryName) {
+        Block block = ForgeRegistries.BLOCKS.getValue(getResource(registryName));
         if (Objects.nonNull(block)) return block;
         else {
-            Reference.LOGGER_GOHD.warn("The block <" + location + "> was not found!");
+            Reference.LOGGER_GOHD.warn("The block <" + registryName + "> was not found...");
             return Blocks.BARRIER;
         }
+    }
+
+    public static Block getBlock(String domain, String path) {
+        return getBlock(domain + ":" + path);
     }
 
     //液体名からFluidを取得するメソッド
@@ -54,68 +57,81 @@ public class RagiUtils {
         Fluid water = net.minecraftforge.fluids.FluidRegistry.getFluid("water");
         if (Objects.nonNull(fluid)) return fluid;
         else {
-            Reference.LOGGER_GOHD.warn("The fluid <fluid:" + name + "> was not found!");
+            Reference.LOGGER_GOHD.warn("The fluid <fluid:" + name + "> was not found...");
             return water;
         }
     }
 
     //ResourceLocationからItemを取得するメソッド
     //Itemがnullの場合はバリアブロックを返す
-    public static Item getItem(String domain, String path) {
-        ResourceLocation location = new ResourceLocation(domain, path);
-        Item item = ForgeRegistries.ITEMS.getValue(location);
+    public static Item getItem(String registryName) {
+        Item item = ForgeRegistries.ITEMS.getValue(getResource(registryName));
         Item barrier = ForgeRegistries.ITEMS.getValue(new ResourceLocation("minecraft", "barrier"));
         if (Objects.nonNull(item)) return item;
         else {
-            Reference.LOGGER_GOHD.warn("The item <" + location + "> was not found!");
+            Reference.LOGGER_GOHD.warn("The item <" + registryName + "> was not found...");
             return barrier;
         }
     }
 
+    public static Item getItem(String domain, String path) {
+        return getItem(domain + ":" + path);
+    }
+
     //ResourceLocationなどからItemStackを取得するメソッド
     //ItemStackがnullの場合はバリアブロックを返す
-    public static ItemStack getStack(String domain, String path, int amount, int meta) {
-        ResourceLocation location = new ResourceLocation(domain, path);
-        Item item = ForgeRegistries.ITEMS.getValue(location);
+    public static ItemStack getStack(String registryName, int amount, int meta) {
+        Item item = ForgeRegistries.ITEMS.getValue(getResource(registryName));
         if (Objects.nonNull(item)) return new ItemStack(item, amount, meta);
         else {
-            Reference.LOGGER_GOHD.warn("The item stack <" + location + ":" + meta + "> * " + amount + " was not found!");
+            Reference.LOGGER_GOHD.warn("The item stack <" + registryName + ":" + meta + "> * " + amount + " was not found...");
             return new ItemStack(getItem("minecraft", "barrier"), amount, 0);
         }
     }
 
+    public static ItemStack getStack(String domain, String path, int amount, int meta) {
+        return getStack(domain + ":" + path, amount, meta);
+    }
+
     //ResourceLocationなどからIBlockStateを取得するメソッド
     //IBlockStateがnullの場合はバリアブロックを返す
-    public static IBlockState getState(String domain, String path, int meta) {
-        Block block = getBlock(domain, path);
+    public static IBlockState getState(String registryName, int meta) {
+        Block block = getBlock(registryName);
         IBlockState state = block.getStateFromMeta(meta);
         if (block != Blocks.BARRIER) return state;
         else {
-            Reference.LOGGER_GOHD.warn("The blockstate <blockstate:" + block + ":" + meta + "> was not found!");
+            Reference.LOGGER_GOHD.warn("The blockstate <blockstate:" + block + ":" + meta + "> was not found...");
             return Blocks.BARRIER.getDefaultState();
         }
+    }
+
+    public static IBlockState getState(String domain, String path, int meta) {
+        return getState(domain + ":" + path, meta);
     }
 
     public static IBlockState getState(Block block, int meta) {
         IBlockState state = block.getStateFromMeta(meta);
         if (block != Blocks.BARRIER) return state;
         else {
-            Reference.LOGGER_GOHD.warn("The blockstate <blockstate:" + block + ":" + meta + "> was not found!");
+            Reference.LOGGER_GOHD.warn("The blockstate <blockstate:" + block + ":" + meta + "> was not found...");
             return Blocks.BARRIER.getDefaultState();
         }
     }
 
     //ResourceLocationからPotionを取得するメソッド
     //Potionがnullの場合は不運を返す
-    public static Potion getPotion(String domain, String path) {
-        ResourceLocation location = new ResourceLocation(domain, path);
-        Potion potion = ForgeRegistries.POTIONS.getValue(location);
+    public static Potion getPotion(String registryName) {
+        Potion potion = ForgeRegistries.POTIONS.getValue(getResource(registryName));
         Potion unluck = ForgeRegistries.POTIONS.getValue(new ResourceLocation("minecraft", "unluck"));
         if (Objects.nonNull(potion)) return potion;
         else {
-            Reference.LOGGER_GOHD.warn("The potion <potion:" + location + "> was not found!");
+            Reference.LOGGER_GOHD.warn("The potion <potion:" + registryName + "> was not found...");
             return unluck;
         }
+    }
+
+    public static Potion getPotion(String domain, String path) {
+        return getPotion(domain + ":" + path);
     }
 
     //ResourceLocationなどからPotionEffectを取得するメソッド
@@ -123,35 +139,52 @@ public class RagiUtils {
         return new PotionEffect(getPotion(domain, path), time, level);
     }
 
+    //StringからResource Locationを取得するメソッド
+    public static ResourceLocation getResource(String location) {
+        return new ResourceLocation(location.split(":")[0], location.split(":")[1]);
+    }
+
     //ResourceLocationからSoundEventを取得するメソッド
     //SoundEventがnullの場合はレベルアップの音を返す
-    public static SoundEvent getSound(String domain, String path) {
-        ResourceLocation location = new ResourceLocation(domain, path);
+    public static SoundEvent getSound(String registryName) {
+        ResourceLocation location = getResource(registryName);
         SoundEvent sound = ForgeRegistries.SOUND_EVENTS.getValue(location);
         SoundEvent levelUp = ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("minecraft", "entity.player.levelup"));
         if (Objects.nonNull(sound)) return sound;
         else {
-            Reference.LOGGER_GOHD.warn("The sound <soundevent:" + location + "> was not found!");
+            Reference.LOGGER_GOHD.warn("The sound <soundevent:" + location + "> was not found...");
             return levelUp;
         }
     }
 
+    public static SoundEvent getSound(String domain, String path) {
+        return getSound(domain + ":" + path);
+    }
+
     //クラフトレシピを削除するメソッド
-    public static void removeCrafting(ResourceLocation location) {
+    public static void removeCrafting(String registryName) {
+        //registryNameからResource Locationを生成
+        ResourceLocation location = getResource(registryName);
         //locationからレシピを取得
         IRecipe recipeBefore = CraftingManager.getRecipe(location);
-        //recipeBeforeから素材のリストを取得
-        NonNullList<Ingredient> ingBefore = recipeBefore.getIngredients();
-        //ingBeforeの中身を消す
-        ingBefore.clear();
-        //置き換え後のレシピを作成
-        IRecipe recipeAfter = new ShapedRecipes(location.toString(), 1, 1, ingBefore, ItemStack.EMPTY);
-        //recipeAfterに名前を設定
-        recipeAfter.setRegistryName(location);
-        //レシピを置き換える
-        ForgeRegistries.RECIPES.register(recipeAfter);
-        //
-        Reference.LOGGER_GOHD.info("The recipe <recipe:" + location + "> was removed successfully!");
+        //取得したレシピがnullでない場合
+        if(Objects.nonNull(recipeBefore)) {
+            //recipeBeforeから素材のリストを取得
+            NonNullList<Ingredient> ingBefore = recipeBefore.getIngredients();
+            //ingBeforeの中身を消す
+            ingBefore.clear();
+            //置き換え後のレシピを作成
+            IRecipe recipeAfter = new ShapedRecipes(location.toString(), 1, 1, ingBefore, ItemStack.EMPTY);
+            //recipeAfterに名前を設定
+            recipeAfter.setRegistryName(location);
+            //レシピを置き換える
+            ForgeRegistries.RECIPES.register(recipeAfter);
+            Reference.LOGGER_GOHD.info("The recipe <recipe:" + location + "> was removed successfully!");
+        }
+        //取得したレシピがnullの場合
+        else {
+            Reference.LOGGER_GOHD.warn("The recipe <recipe:" + location + "> was not found...");
+        }
     }
 
     //鉱石辞書を追加するメソッド

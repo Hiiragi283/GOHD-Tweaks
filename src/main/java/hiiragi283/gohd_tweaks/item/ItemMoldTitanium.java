@@ -46,13 +46,13 @@ public class ItemMoldTitanium extends ItemBase implements IPressMold {
     @Override
     public ItemStack setOutput(ItemStack mold, ItemStack output, int num) {
         int meta = -1;
-        if (DCUtil.isSameItem(output, RagiUtils.getStack("thermalfoundation", "material", 4, 512), false)) {
+        if (DCUtil.isSameItem(output, RagiUtils.getStack("thermalfoundation:material", 4, 512), false)) {
             meta = 0;
-        } else if (DCUtil.isSameItem(output, RagiUtils.getStack("thermalfoundation", "material", 4, 513), false)) {
+        } else if (DCUtil.isSameItem(output, RagiUtils.getStack("thermalfoundation:material", 4, 513), false)) {
             meta = 1;
-        } else if (DCUtil.isSameItem(output, RagiUtils.getStack("thermalfoundation", "material", 4, 514), false)) {
+        } else if (DCUtil.isSameItem(output, RagiUtils.getStack("thermalfoundation:material", 4, 514), false)) {
             meta = 2;
-        } else if (DCUtil.isSameItem(output, RagiUtils.getStack("thermalfoundation", "material", 4, 515), false)) {
+        } else if (DCUtil.isSameItem(output, RagiUtils.getStack("thermalfoundation:material", 4, 515), false)) {
             meta = 3;
         }
         if (meta >= 0) {
@@ -64,10 +64,10 @@ public class ItemMoldTitanium extends ItemBase implements IPressMold {
     @Override
     public ItemStack getOutput(ItemStack mold) {
         int m = mold.getItemDamage();
-        if (m == 0) return RagiUtils.getStack("thermalfoundation", "material", 4, 512);
-        else if (m == 1) return RagiUtils.getStack("thermalfoundation", "material", 4, 513);
-        else if (m == 2) return RagiUtils.getStack("thermalfoundation", "material", 4, 514);
-        else if (m == 3) return RagiUtils.getStack("thermalfoundation", "material", 4, 515);
+        if (m == 0) return RagiUtils.getStack("thermalfoundation:material", 4, 512);
+        else if (m == 1) return RagiUtils.getStack("thermalfoundation:material", 4, 513);
+        else if (m == 2) return RagiUtils.getStack("thermalfoundation:material", 4, 514);
+        else if (m == 3) return RagiUtils.getStack("thermalfoundation:material", 4, 515);
         return null;
     }
 
@@ -83,17 +83,17 @@ public class ItemMoldTitanium extends ItemBase implements IPressMold {
         List<ItemStack> list = new ArrayList<>();
         int m = mold.getItemDamage();
         if (m == 0) {
-            list.add(RagiUtils.getStack("enderio", "item_alloy_ingot", 2, 3));
-            list.add(RagiUtils.getStack("thermalfoundation", "material", 1, 352));
+            list.add(RagiUtils.getStack("enderio:item_alloy_ingot", 2, 3));
+            list.add(RagiUtils.getStack("thermalfoundation:material", 1, 352));
         } else if (m == 1) {
-            list.add(RagiUtils.getStack("enderio", "item_alloy_ingot", 2, 3));
-            list.add(RagiUtils.getStack("thermalfoundation", "material", 1, 33));
+            list.add(RagiUtils.getStack("enderio:item_alloy_ingot", 2, 3));
+            list.add(RagiUtils.getStack("thermalfoundation:material", 1, 33));
         } else if (m == 2) {
-            list.add(RagiUtils.getStack("enderio", "item_alloy_ingot", 2, 3));
-            list.add(RagiUtils.getStack("thermalfoundation", "material", 1, 322));
+            list.add(RagiUtils.getStack("enderio:item_alloy_ingot", 2, 3));
+            list.add(RagiUtils.getStack("thermalfoundation:material", 1, 322));
         } else if (m == 3) {
-            list.add(RagiUtils.getStack("enderio", "item_alloy_ingot", 2, 3));
-            list.add(RagiUtils.getStack("thermalfoundation", "material", 1, 353));
+            list.add(RagiUtils.getStack("enderio:item_alloy_ingot", 2, 3));
+            list.add(RagiUtils.getStack("thermalfoundation:material", 1, 353));
         }
         return list;
     }
