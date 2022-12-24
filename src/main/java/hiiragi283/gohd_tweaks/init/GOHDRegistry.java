@@ -10,10 +10,10 @@ import hiiragi283.gohd_tweaks.event.PlayerLoggedIn;
 import hiiragi283.gohd_tweaks.event.PlayerTick;
 import hiiragi283.gohd_tweaks.event.RightClickBlock;
 import hiiragi283.gohd_tweaks.item.*;
+import hiiragi283.gohd_tweaks.util.RagiList;
 import hiiragi283.gohd_tweaks.util.RagiUtils;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
@@ -67,6 +67,39 @@ public class GOHDRegistry {
 
     //Recipeを登録するメソッド
     public static void RegisterRecipes() {
-        RagiUtils.removeCrafting(new ResourceLocation("minecraft", "furnace"));
+        //LIST_CRAFTING_REMOVE内のレシピを削除する
+        for (String registryName : RagiList.LIST_CRAFTING_REMOVE) {
+            RagiUtils.removeCrafting(registryName);
+        }
+        //BotaniaのAzulejoのレシピを削除する
+        for (int i = 1; i < 15; i++) {
+            RagiUtils.removeCrafting("botania:custombrick_" + i);
+        }
+        //HaCのDesktop Accessoryのレシピを削除する
+        for (int i = 1; i < 9; i++) {
+            RagiUtils.removeCrafting("dcs_climate:main_build/dcs_desktop_accessories_" + i);
+        }
+        //Railcraftの金属素材のレシピを削除する
+        for (int i = 0; i < 10; i++) {
+            RagiUtils.removeCrafting("railcraft:metal#" + i + "$1");
+            RagiUtils.removeCrafting("railcraft:ingot#" + i + "$1");
+            RagiUtils.removeCrafting("railcraft:ingot#" + i + "$2");
+            RagiUtils.removeCrafting("railcraft:nugget#" + i + "$1");
+        }
+        //Railcraftの建材のレシピを削除する
+        for (String decoration : RagiList.LIST_RC_DECORATION) {
+            for (String meta : RagiList.LIST_RC_META) {
+                RagiUtils.removeCrafting("railcraft:" + decoration + meta);
+            }
+        }
+        //Thermal Foundationのブロックのレシピを削除する
+        for (int i = 1; i < 9; i++) {
+            RagiUtils.removeCrafting("thermalfoundation:storage_" + i);
+            RagiUtils.removeCrafting("thermalfoundation:storage_alloy_" + i);
+        }
+        //Thermal Foundationの素材のレシピを削除する
+        for (int i = 8; i < 80; i++) {
+            RagiUtils.removeCrafting("thermalfoundation:material_" + i);
+        }
     }
 }

@@ -25,7 +25,6 @@ public class GOHDTweaks {
         GOHDRegistry.RegisterBlocks();
         GOHDRegistry.RegisterEvents();
         GOHDRegistry.RegisterItems();
-        GOHDRegistry.RegisterRecipes();
         proxy.loadPreInit();
     }
 
@@ -40,6 +39,7 @@ public class GOHDTweaks {
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {
         IntegrationCore.loadInit();
+        GOHDRegistry.RegisterRecipes();
         proxy.loadPostInit();
     }
 }

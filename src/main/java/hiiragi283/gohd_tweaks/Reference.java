@@ -24,4 +24,5 @@ public class Reference {
     public static final Logger LOGGER_GOHD = LogManager.getLogger(Reference.MOD_ID);
     //Serverの定義 (コマンド実行用)
     public static final MinecraftServer SERVER = Minecraft.getMinecraft().getIntegratedServer();
+
 }
