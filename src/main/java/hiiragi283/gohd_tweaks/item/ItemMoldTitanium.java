@@ -31,6 +31,13 @@ public class ItemMoldTitanium extends ItemBase implements IPressMold {
         return super.getUnlocalizedName();
     }
 
+    //エンチャント効果を乗せるかどうかを決めるメソッド
+    @Override
+    @SideOnly(Side.CLIENT)
+    public boolean hasEffect(@Nonnull ItemStack stack) {
+        return true;
+    }
+
     //Itemにtooltipを付与するメソッド
     @Override
     @ParametersAreNonnullByDefault
