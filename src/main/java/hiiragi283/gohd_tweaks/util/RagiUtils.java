@@ -151,13 +151,13 @@ public class RagiUtils {
         //レシピを置き換える
         ForgeRegistries.RECIPES.register(recipeAfter);
         //
-        Reference.LOGGER_GOHD.info("The recipe <recipe" + location + "> was removed successfully!");
+        Reference.LOGGER_GOHD.info("The recipe <recipe:" + location + "> was removed successfully!");
     }
 
     //鉱石辞書を追加するメソッド
     public static void setOreDict(String oreDict, ItemStack stack) {
         OreDictionary.registerOre(oreDict, stack);
-        Reference.LOGGER_GOHD.info("New ore dictionary <ore:" + oreDict + "> was added to" + stackToBracket(stack));
+        Reference.LOGGER_GOHD.info("New ore dictionary <ore:" + oreDict + "> was added to " + stackToBracket(stack));
     }
 
     //titleコマンドをより簡潔に実行するメソッド
