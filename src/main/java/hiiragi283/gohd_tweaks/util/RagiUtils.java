@@ -126,13 +126,17 @@ public class RagiUtils {
     //ResourceLocationからSoundEventを取得するメソッド
     //SoundEventがnullの場合はレベルアップの音を返す
     public static SoundEvent getSound(String domain, String path) {
-        SoundEvent sound = ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(domain, path));
+        ResourceLocation location = new ResourceLocation(domain, path);
+        SoundEvent sound = ForgeRegistries.SOUND_EVENTS.getValue(location);
         SoundEvent levelUp = ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("minecraft", "entity.player.levelup"));
         if (Objects.nonNull(sound)) return sound;
-        else return levelUp;
+        else {
+            Reference.LOGGER_GOHD.warn("The sound <soundevent:" + location + "> was not found!");
+            return levelUp;
+        }
     }
 
-    //クラフトレシピを削除するメソッド (うまくいかぬ)
+    //クラフトレシピを削除するメソッド
     public static void removeCrafting(ResourceLocation location) {
         //locationからレシピを取得
         IRecipe recipeBefore = CraftingManager.getRecipe(location);
@@ -142,8 +146,12 @@ public class RagiUtils {
         ingBefore.clear();
         //置き換え後のレシピを作成
         IRecipe recipeAfter = new ShapedRecipes(location.toString(), 1, 1, ingBefore, ItemStack.EMPTY);
+        //recipeAfterに名前を設定
+        recipeAfter.setRegistryName(location);
         //レシピを置き換える
         ForgeRegistries.RECIPES.register(recipeAfter);
+        //
+        Reference.LOGGER_GOHD.info("The recipe <recipe" + location + "> was removed successfully!");
     }
 
     //鉱石辞書を追加するメソッド
