@@ -38,9 +38,13 @@ public class RagiUtils {
     //ResourceLocationからBlockを取得するメソッド
     //Blockがnullの場合はバリアブロックを返す
     public static Block getBlock(String domain, String path) {
-        Block block = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(domain, path));
+        ResourceLocation location = new ResourceLocation(domain, path);
+        Block block = ForgeRegistries.BLOCKS.getValue(location);
         if (Objects.nonNull(block)) return block;
-        else return Blocks.BARRIER;
+        else {
+            Reference.LOGGER_GOHD.warn("The block <" + location + "> was not found!");
+            return Blocks.BARRIER;
+        }
     }
 
     //液体名からFluidを取得するメソッド
@@ -49,24 +53,35 @@ public class RagiUtils {
         Fluid fluid = net.minecraftforge.fluids.FluidRegistry.getFluid(name);
         Fluid water = net.minecraftforge.fluids.FluidRegistry.getFluid("water");
         if (Objects.nonNull(fluid)) return fluid;
-        else return water;
+        else {
+            Reference.LOGGER_GOHD.warn("The fluid <fluid:" + name + "> was not found!");
+            return water;
+        }
     }
 
     //ResourceLocationからItemを取得するメソッド
     //Itemがnullの場合はバリアブロックを返す
     public static Item getItem(String domain, String path) {
-        Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(domain, path));
+        ResourceLocation location = new ResourceLocation(domain, path);
+        Item item = ForgeRegistries.ITEMS.getValue(location);
         Item barrier = ForgeRegistries.ITEMS.getValue(new ResourceLocation("minecraft", "barrier"));
         if (Objects.nonNull(item)) return item;
-        else return barrier;
+        else {
+            Reference.LOGGER_GOHD.warn("The item <" + location + "> was not found!");
+            return barrier;
+        }
     }
 
     //ResourceLocationなどからItemStackを取得するメソッド
     //ItemStackがnullの場合はバリアブロックを返す
     public static ItemStack getStack(String domain, String path, int amount, int meta) {
-        Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(domain, path));
+        ResourceLocation location = new ResourceLocation(domain, path);
+        Item item = ForgeRegistries.ITEMS.getValue(location);
         if (Objects.nonNull(item)) return new ItemStack(item, amount, meta);
-        else return new ItemStack(getItem("minecraft", "barrier"), amount, 0);
+        else {
+            Reference.LOGGER_GOHD.warn("The item stack <" + location + ":" + meta + "> * " + amount + " was not found!");
+            return new ItemStack(getItem("minecraft", "barrier"), amount, 0);
+        }
     }
 
     //ResourceLocationなどからIBlockStateを取得するメソッド
@@ -75,22 +90,32 @@ public class RagiUtils {
         Block block = getBlock(domain, path);
         IBlockState state = block.getStateFromMeta(meta);
         if (block != Blocks.BARRIER) return state;
-        else return Blocks.BARRIER.getDefaultState();
+        else {
+            Reference.LOGGER_GOHD.warn("The blockstate <blockstate:" + block + ":" + meta + "> was not found!");
+            return Blocks.BARRIER.getDefaultState();
+        }
     }
 
     public static IBlockState getState(Block block, int meta) {
         IBlockState state = block.getStateFromMeta(meta);
         if (block != Blocks.BARRIER) return state;
-        else return Blocks.BARRIER.getDefaultState();
+        else {
+            Reference.LOGGER_GOHD.warn("The blockstate <blockstate:" + block + ":" + meta + "> was not found!");
+            return Blocks.BARRIER.getDefaultState();
+        }
     }
 
     //ResourceLocationからPotionを取得するメソッド
     //Potionがnullの場合は不運を返す
     public static Potion getPotion(String domain, String path) {
-        Potion potion = ForgeRegistries.POTIONS.getValue(new ResourceLocation(domain, path));
+        ResourceLocation location = new ResourceLocation(domain, path);
+        Potion potion = ForgeRegistries.POTIONS.getValue(location);
         Potion unluck = ForgeRegistries.POTIONS.getValue(new ResourceLocation("minecraft", "unluck"));
         if (Objects.nonNull(potion)) return potion;
-        else return unluck;
+        else {
+            Reference.LOGGER_GOHD.warn("The potion <potion:" + location + "> was not found!");
+            return unluck;
+        }
     }
 
     //ResourceLocationなどからPotionEffectを取得するメソッド
@@ -124,6 +149,7 @@ public class RagiUtils {
     //鉱石辞書を追加するメソッド
     public static void setOreDict(String oreDict, ItemStack stack) {
         OreDictionary.registerOre(oreDict, stack);
+        Reference.LOGGER_GOHD.info("New ore dictionary <ore:" + oreDict + "> was added to" + stackToBracket(stack));
     }
 
     //titleコマンドをより簡潔に実行するメソッド
@@ -139,5 +165,14 @@ public class RagiUtils {
     //Hypixelで慣れ親しんだこの音声を再び聞いたとき，感動で泣きそうになりました
     public static void soundHypixel(World world, BlockPos pos) {
         world.playSound(null, pos, RagiUtils.getSound("minecraft", "entity.player.levelup"), SoundCategory.BLOCKS, 1.0F, 0.5F);
+    }
+
+    //ItemStackをCrTのブラケット記法に変換するメソッド (ログ出力用)
+    public static String stackToBracket(ItemStack stack) {
+        Item item = stack.getItem();
+        ResourceLocation location = item.getRegistryName();
+        int amount = stack.getCount();
+        int meta = stack.getMetadata();
+        return "<" + location + ":" + meta + "> * " + amount;
     }
 }
