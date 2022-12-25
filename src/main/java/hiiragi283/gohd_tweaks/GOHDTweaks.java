@@ -31,7 +31,8 @@ public class GOHDTweaks {
     //Initializationの段階で呼ばれるevent
     @Mod.EventHandler
     public void Init(FMLInitializationEvent event) {
-        GOHDRecipe.registerRecipes();
+        GOHDRecipe.addCrafting();
+        GOHDRecipe.addFurnace();
         GOHDRegistry.registerOreDict();
         proxy.loadInit();
     }
@@ -40,7 +41,8 @@ public class GOHDTweaks {
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {
         IntegrationCore.loadInit();
-        GOHDRecipe.removeRecipes();
+        GOHDRecipe.removeCrafting();
+        GOHDRecipe.removeFurnace();
         proxy.loadPostInit();
     }
 }
