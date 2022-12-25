@@ -8,13 +8,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.CraftingManager;
-import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
@@ -159,32 +154,6 @@ public class RagiUtils {
 
     public static SoundEvent getSound(String domain, String path) {
         return getSound(domain + ":" + path);
-    }
-
-    //クラフトレシピを削除するメソッド
-    public static void removeCrafting(String registryName) {
-        //registryNameからResource Locationを生成
-        ResourceLocation location = getResource(registryName);
-        //locationからレシピを取得
-        IRecipe recipeBefore = CraftingManager.getRecipe(location);
-        //取得したレシピがnullでない場合
-        if(Objects.nonNull(recipeBefore)) {
-            //recipeBeforeから素材のリストを取得
-            NonNullList<Ingredient> ingBefore = recipeBefore.getIngredients();
-            //ingBeforeの中身を消す
-            ingBefore.clear();
-            //置き換え後のレシピを作成
-            IRecipe recipeAfter = new ShapedRecipes(location.toString(), 1, 1, ingBefore, ItemStack.EMPTY);
-            //recipeAfterに名前を設定
-            recipeAfter.setRegistryName(location);
-            //レシピを置き換える
-            ForgeRegistries.RECIPES.register(recipeAfter);
-            Reference.LOGGER_GOHD.info("The recipe <recipe:" + location + "> was removed successfully!");
-        }
-        //取得したレシピがnullの場合
-        else {
-            Reference.LOGGER_GOHD.warn("The recipe <recipe:" + location + "> was not found...");
-        }
     }
 
     //鉱石辞書を追加するメソッド
