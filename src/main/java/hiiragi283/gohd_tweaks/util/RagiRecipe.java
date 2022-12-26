@@ -34,7 +34,7 @@ public class RagiRecipe {
     //かまどレシピを追加するメソッド
     public static void addFurnace(ItemStack output, ItemStack input) {
         GameRegistry.addSmelting(input, output, 0);
-        RagiLogger.infoDebug("The smelting recipe " + RagiUtils.stackToBracket(input) + " -> " + RagiUtils.stackToBracket(output) + " was removed successfully!");
+        RagiLogger.infoDebug("The smelting recipe " + RagiUtils.stackToBracket(input) + " -> " + RagiUtils.stackToBracket(output) + " was added successfully!");
     }
 
     //かまどレシピを削除するメソッド

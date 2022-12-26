@@ -30,7 +30,7 @@ public class IntegrationCore {
             }
         }
         //Thermal Expansionが読み込まれている場合
-        if (Loader.isModLoaded("thermal_expansion")) {
+        if (Loader.isModLoaded("thermalexpansion")) {
             try {
                 //Thermalとの連携レシピの登録
                 ThermalSeries.loadInit();
