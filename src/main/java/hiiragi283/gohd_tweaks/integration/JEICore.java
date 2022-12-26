@@ -6,6 +6,7 @@ import hiiragi283.gohd_tweaks.integration.jei.SandpaperCategory;
 import hiiragi283.gohd_tweaks.integration.jei.SandpaperMaker;
 import hiiragi283.gohd_tweaks.integration.jei.SandpaperRecipe;
 import hiiragi283.gohd_tweaks.integration.jei.SandpaperWrapper;
+import hiiragi283.gohd_tweaks.util.RagiLogger;
 import mezz.jei.api.*;
 import mezz.jei.api.ingredients.IModIngredientRegistration;
 import mezz.jei.api.recipe.IRecipeCategoryRegistration;
@@ -29,7 +30,7 @@ public class JEICore implements IModPlugin {
         final IJeiHelpers jeiHelpers = registry.getJeiHelpers();
         registry.handleRecipes(SandpaperRecipe.class, SandpaperWrapper::new, "gohd_tweaks.sandpaper");
         SandpaperMaker.register(registry);
-        Reference.LOGGER_GOHD.info("The integration for JEI/HEI has loaded!");
+        RagiLogger.info("The integration for JEI/HEI has loaded!");
         //catalystの登録
         registry.addRecipeCatalyst(new ItemStack(GOHDRegistry.ItemSandPaper), "gohd_tweaks.sandpaper");
         registry.addRecipeCatalyst(new ItemStack(GOHDRegistry.ItemSandPaperDiamond), "gohd_tweaks.sandpaper");

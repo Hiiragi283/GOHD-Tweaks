@@ -36,7 +36,7 @@ public class RagiUtils {
         Block block = ForgeRegistries.BLOCKS.getValue(getResource(registryName));
         if (Objects.nonNull(block)) return block;
         else {
-            Reference.LOGGER_GOHD.warn("The block <" + registryName + "> was not found...");
+            RagiLogger.warnDebug("The block <" + registryName + "> was not found...");
             return Blocks.BARRIER;
         }
     }
@@ -52,7 +52,7 @@ public class RagiUtils {
         Fluid water = net.minecraftforge.fluids.FluidRegistry.getFluid("water");
         if (Objects.nonNull(fluid)) return fluid;
         else {
-            Reference.LOGGER_GOHD.warn("The fluid <fluid:" + name + "> was not found...");
+            RagiLogger.warnDebug("The fluid <fluid:" + name + "> was not found...");
             return water;
         }
     }
@@ -64,7 +64,7 @@ public class RagiUtils {
         Item barrier = ForgeRegistries.ITEMS.getValue(new ResourceLocation("minecraft", "barrier"));
         if (Objects.nonNull(item)) return item;
         else {
-            Reference.LOGGER_GOHD.warn("The item <" + registryName + "> was not found...");
+            RagiLogger.warnDebug("The item <" + registryName + "> was not found...");
             return barrier;
         }
     }
@@ -79,7 +79,7 @@ public class RagiUtils {
         Item item = ForgeRegistries.ITEMS.getValue(getResource(registryName));
         if (Objects.nonNull(item)) return new ItemStack(item, amount, meta);
         else {
-            Reference.LOGGER_GOHD.warn("The item stack <" + registryName + ":" + meta + "> * " + amount + " was not found...");
+            RagiLogger.warnDebug("The item stack <" + registryName + ":" + meta + "> * " + amount + " was not found...");
             return new ItemStack(getItem("minecraft", "barrier"), amount, 0);
         }
     }
@@ -95,7 +95,7 @@ public class RagiUtils {
         IBlockState state = block.getStateFromMeta(meta);
         if (block != Blocks.BARRIER) return state;
         else {
-            Reference.LOGGER_GOHD.warn("The blockstate <blockstate:" + block + ":" + meta + "> was not found...");
+            RagiLogger.warnDebug("The blockstate <blockstate:" + block + ":" + meta + "> was not found...");
             return Blocks.BARRIER.getDefaultState();
         }
     }
@@ -108,7 +108,7 @@ public class RagiUtils {
         IBlockState state = block.getStateFromMeta(meta);
         if (block != Blocks.BARRIER) return state;
         else {
-            Reference.LOGGER_GOHD.warn("The blockstate <blockstate:" + block + ":" + meta + "> was not found...");
+            RagiLogger.warnDebug("The blockstate <blockstate:" + block + ":" + meta + "> was not found...");
             return Blocks.BARRIER.getDefaultState();
         }
     }
@@ -120,7 +120,7 @@ public class RagiUtils {
         Potion unluck = ForgeRegistries.POTIONS.getValue(new ResourceLocation("minecraft", "unluck"));
         if (Objects.nonNull(potion)) return potion;
         else {
-            Reference.LOGGER_GOHD.warn("The potion <potion:" + registryName + "> was not found...");
+            RagiLogger.warnDebug("The potion <potion:" + registryName + "> was not found...");
             return unluck;
         }
     }
@@ -147,7 +147,7 @@ public class RagiUtils {
         SoundEvent levelUp = ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("minecraft", "entity.player.levelup"));
         if (Objects.nonNull(sound)) return sound;
         else {
-            Reference.LOGGER_GOHD.warn("The sound <soundevent:" + location + "> was not found...");
+            RagiLogger.warnDebug("The sound <soundevent:" + location + "> was not found...");
             return levelUp;
         }
     }
@@ -159,7 +159,7 @@ public class RagiUtils {
     //鉱石辞書を追加するメソッド
     public static void setOreDict(String oreDict, ItemStack stack) {
         OreDictionary.registerOre(oreDict, stack);
-        Reference.LOGGER_GOHD.info("New ore dictionary <ore:" + oreDict + "> was added to " + stackToBracket(stack));
+        RagiLogger.infoDebug("New ore dictionary <ore:" + oreDict + "> was added to " + stackToBracket(stack));
     }
 
     //titleコマンドをより簡潔に実行するメソッド

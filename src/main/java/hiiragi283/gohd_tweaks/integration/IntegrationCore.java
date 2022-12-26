@@ -1,6 +1,7 @@
 package hiiragi283.gohd_tweaks.integration;
 
 import hiiragi283.gohd_tweaks.Reference;
+import hiiragi283.gohd_tweaks.util.RagiLogger;
 import net.minecraftforge.fml.common.Loader;
 
 public class IntegrationCore {
@@ -11,10 +12,10 @@ public class IntegrationCore {
                 //ASとの連携レシピの登録
                 AstralSorcery.loadInit();
                 //ログに完了の報告を流す
-                Reference.LOGGER_GOHD.info("The integration for AstralSorcery has loaded!");
+                RagiLogger.info("The integration for AstralSorcery has loaded!");
             } catch (Exception e) {
                 //失敗した場合、エラーをログに吐く
-                Reference.LOGGER_GOHD.error("Loading the integration for AstralSorcery is failed!");
+                RagiLogger.error("Loading the integration for AstralSorcery is failed!");
             }
         }
         //Heat And Climateが読み込まれている場合
@@ -23,10 +24,10 @@ public class IntegrationCore {
                 //HaCとの連携レシピの登録
                 HeatAndClimate.loadInit();
                 //ログに完了の報告を流す
-                Reference.LOGGER_GOHD.info("The integration for HeatAndClimate has loaded!");
+                RagiLogger.info("The integration for HeatAndClimate has loaded!");
             } catch (Exception e) {
                 //失敗した場合、エラーをログに吐く
-                Reference.LOGGER_GOHD.error("Loading the integration for HeatAndClimate is failed...");
+                RagiLogger.error("Loading the integration for HeatAndClimate is failed...");
             }
         }
         //Thermal Expansionが読み込まれている場合
@@ -35,10 +36,10 @@ public class IntegrationCore {
                 //Thermalとの連携レシピの登録
                 ThermalSeries.loadInit();
                 //ログに完了の報告を流す
-                Reference.LOGGER_GOHD.info("The integration for ThermalSeries has loaded!");
+                RagiLogger.info("The integration for ThermalSeries has loaded!");
             } catch (Exception e) {
                 //失敗した場合、エラーをログに吐く
-                Reference.LOGGER_GOHD.error("Loading the integration forThermalSeries is failed...");
+                RagiLogger.error("Loading the integration forThermalSeries is failed...");
             }
         }
     }

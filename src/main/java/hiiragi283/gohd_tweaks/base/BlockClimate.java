@@ -7,6 +7,7 @@ import defeatedcrow.hac.config.CoreConfigDC;
 import defeatedcrow.hac.core.util.DCUtil;
 import hiiragi283.gohd_tweaks.GOHDTweaks;
 import hiiragi283.gohd_tweaks.Reference;
+import hiiragi283.gohd_tweaks.util.RagiLogger;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -93,7 +94,7 @@ public class BlockClimate extends BlockBase {
                         // 効果音
                         if (playSEOnChanging(meta)) {
                             world.playSound(null, pos, getSE(meta), SoundCategory.BLOCKS, 0.8F, 2.0F);
-                            Reference.LOGGER_GOHD.info("Smelting! " + output.getDisplayName());
+                            RagiLogger.infoDebug("Smelting! " + output.getDisplayName());
                         }
                         return true;
                     }

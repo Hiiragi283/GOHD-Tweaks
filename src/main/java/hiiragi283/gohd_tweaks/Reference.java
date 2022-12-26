@@ -2,8 +2,6 @@ package hiiragi283.gohd_tweaks;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.server.MinecraftServer;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 public class Reference {
     //MOD IDの定義
@@ -20,8 +18,6 @@ public class Reference {
     public static final String CLIENT_PROXY_CLASS = "hiiragi283.gohd_tweaks.proxy.ClientProxy";
     //Server側のProxyの定義
     public static final String SERVER_PROXY_CLASS = "hiiragi283.gohd_tweaks.proxy.ServerProxy";
-    //ログ出力用
-    public static final Logger LOGGER_GOHD = LogManager.getLogger(Reference.MOD_ID);
     //Serverの定義 (コマンド実行用)
     public static final MinecraftServer SERVER = Minecraft.getMinecraft().getIntegratedServer();
 
