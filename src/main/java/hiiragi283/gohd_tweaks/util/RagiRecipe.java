@@ -1,8 +1,10 @@
 package hiiragi283.gohd_tweaks.util;
 
+import defeatedcrow.hac.core.util.DCUtil;
 import hiiragi283.gohd_tweaks.Reference;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
+import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.NonNullList;
@@ -10,9 +12,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Objects;
+import java.util.*;
 
 public class RagiRecipe {
 
@@ -34,11 +34,24 @@ public class RagiRecipe {
     //かまどレシピを追加するメソッド
     public static void addFurnace(ItemStack output, ItemStack input) {
         GameRegistry.addSmelting(input, output, 0);
+        RagiLogger.infoDebug("The smelting recipe " + RagiUtils.stackToBracket(input) + " -> " + RagiUtils.stackToBracket(output) + " was removed successfully!");
     }
 
     //かまどレシピを削除するメソッド
     public static void removeFurnace(ItemStack output) {
-        GameRegistry.addSmelting(ItemStack.EMPTY, output, 0);
+        //かまどレシピのマップを取得する
+        Map<ItemStack, ItemStack> mapFurnace = FurnaceRecipes.instance().getSmeltingList();
+        //インプットのイテレータを取得する
+        Iterator<ItemStack> iteratorFurnace = mapFurnace.keySet().iterator();
+        //イテレータの各要素について実行する
+        while(iteratorFurnace.hasNext()) {
+            //完成品が一致する場合
+            if(DCUtil.isSameItem(mapFurnace.get(iteratorFurnace.next()), output, false)) {
+                //レシピを削除する
+                iteratorFurnace.remove();
+                RagiLogger.infoDebug("The smelting output " + RagiUtils.stackToBracket(output) + " was removed successfully!");
+            }
+        }
     }
 
     //定型クラフトレシピを追加するメソッド
