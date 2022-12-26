@@ -1,6 +1,6 @@
 package hiiragi283.gohd_tweaks.proxy;
 
-public class ServerProxy extends CommonProxy{
+public class ServerProxy extends CommonProxy {
 
     //Pre-Initializationで読み込むメソッド
     public void loadPreInit() {

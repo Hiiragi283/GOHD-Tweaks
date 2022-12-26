@@ -1,6 +1,5 @@
 package hiiragi283.gohd_tweaks.integration;
 
-import hiiragi283.gohd_tweaks.Reference;
 import hiiragi283.gohd_tweaks.util.RagiLogger;
 import net.minecraftforge.fml.common.Loader;
 

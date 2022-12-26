@@ -49,7 +49,7 @@ public class ItemBase extends Item {
     public String getUnlocalizedName(@Nonnull ItemStack stack) {
         //メタデータが0のみの場合、なにもしない
         if (maxMeta == 0) return super.getUnlocalizedName();
-        //メタデータを使う場合、メタデータごとに異なる翻訳キーを返す
+            //メタデータを使う場合、メタデータごとに異なる翻訳キーを返す
         else return super.getUnlocalizedName() + "." + stack.getMetadata();
     }
 

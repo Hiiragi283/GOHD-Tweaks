@@ -1,8 +1,8 @@
 package hiiragi283.gohd_tweaks.proxy;
 
-import hiiragi283.gohd_tweaks.init.GOHDRegistry;
 import hiiragi283.gohd_tweaks.block.BlockDust;
 import hiiragi283.gohd_tweaks.block.BlockHeating;
+import hiiragi283.gohd_tweaks.init.GOHDRegistry;
 import hiiragi283.gohd_tweaks.item.ItemBlockDust;
 import hiiragi283.gohd_tweaks.item.ItemBlockHeating;
 import hiiragi283.gohd_tweaks.item.ItemDust;
@@ -31,7 +31,8 @@ public class ClientProxy extends CommonProxy {
     }
 
     //Post-Initializationで読み込むメソッド
-    public void loadPostInit() {}
+    public void loadPostInit() {
+    }
 
     //代入されたItemに応じてモデルファイルのパスを登録するメソッド
     @SideOnly(Side.CLIENT)

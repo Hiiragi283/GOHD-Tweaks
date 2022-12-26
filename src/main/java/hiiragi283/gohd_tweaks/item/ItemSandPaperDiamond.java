@@ -13,6 +13,7 @@ public class ItemSandPaperDiamond extends ItemToolClick {
     public ItemSandPaperDiamond() {
         super("sandpaper_diamond", 8192); //ItemSandPaperクラスを継承
     }
+
     @Override
     public IBlockState RecipeMap(IBlockState state) {
         return RagiMap.MAP_SANDPAPER.get(state);

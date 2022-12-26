@@ -1,6 +1,5 @@
 package hiiragi283.gohd_tweaks.integration;
 
-import hiiragi283.gohd_tweaks.Reference;
 import hiiragi283.gohd_tweaks.init.GOHDRegistry;
 import hiiragi283.gohd_tweaks.integration.jei.SandpaperCategory;
 import hiiragi283.gohd_tweaks.integration.jei.SandpaperMaker;

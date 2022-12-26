@@ -1,6 +1,5 @@
 package hiiragi283.gohd_tweaks.event;
 
-import hiiragi283.gohd_tweaks.Reference;
 import hiiragi283.gohd_tweaks.util.RagiLogger;
 import hiiragi283.gohd_tweaks.util.RagiUtils;
 import net.minecraft.block.Block;

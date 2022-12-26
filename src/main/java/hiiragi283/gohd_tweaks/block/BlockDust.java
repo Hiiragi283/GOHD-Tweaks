@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nonnull;
 
-public class BlockDust extends BlockClimate implements IBlockColor{
+public class BlockDust extends BlockClimate implements IBlockColor {
     public BlockDust() {
         super(Material.GROUND, "dustblock", 14);
         this.setHardness(1.5F);

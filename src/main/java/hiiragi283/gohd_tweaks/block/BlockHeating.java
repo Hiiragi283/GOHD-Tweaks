@@ -3,8 +3,8 @@ package hiiragi283.gohd_tweaks.block;
 import defeatedcrow.hac.api.blockstate.DCState;
 import defeatedcrow.hac.api.climate.BlockSet;
 import defeatedcrow.hac.api.climate.IClimate;
-import hiiragi283.gohd_tweaks.init.GOHDRegistry;
 import hiiragi283.gohd_tweaks.base.BlockClimate;
+import hiiragi283.gohd_tweaks.init.GOHDRegistry;
 import hiiragi283.gohd_tweaks.util.RagiColor;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -29,6 +29,19 @@ public class BlockHeating extends BlockClimate implements IBlockColor {
         this.setTickRandomly(true);
     }
 
+    public static BlockSet getFailureProduct(IBlockState state) {
+        int i = DCState.getInt(state, DCState.TYPE16);
+        switch (i) {
+            case 0:
+            case 1:
+                return new BlockSet(GOHDRegistry.BlockHeating, 2);
+            case 3:
+            case 4:
+                return new BlockSet(GOHDRegistry.BlockHeating, 5);
+        }
+        return null;
+    }
+
     @Override
     public int tickRate(@Nonnull World world) {
         return 100;
@@ -51,19 +64,6 @@ public class BlockHeating extends BlockClimate implements IBlockColor {
                 world.scheduleUpdate(pos, this, this.tickRate(world) + rand.nextInt(21));
             }
         }
-    }
-
-    public static BlockSet getFailureProduct(IBlockState state) {
-        int i = DCState.getInt(state, DCState.TYPE16);
-        switch (i) {
-            case 0:
-            case 1:
-                return new BlockSet(GOHDRegistry.BlockHeating, 2);
-            case 3:
-            case 4:
-                return new BlockSet(GOHDRegistry.BlockHeating, 5);
-        }
-        return null;
     }
 
     //着色の仕方を定義するメソッド

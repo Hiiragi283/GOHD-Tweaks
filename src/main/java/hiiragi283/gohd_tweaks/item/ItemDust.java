@@ -23,9 +23,9 @@ public class ItemDust extends ItemBase implements IItemColor {
         if (tintindex == 0) {
             //metaが0の場合
             if (meta == 0) return RagiMaterialEnum.SOULARIUM.getColorHex();
-            //metaが1の場合
+                //metaが1の場合
             else if (meta == 1) return RagiMaterialEnum.END_STEEL.getColorHex();
-            //それ以外の場合
+                //それ以外の場合
             else return RagiColor.CLEAR.getRGB();
         }
         //それ以外の場合

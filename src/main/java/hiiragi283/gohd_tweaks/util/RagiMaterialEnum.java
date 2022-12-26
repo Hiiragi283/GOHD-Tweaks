@@ -12,7 +12,6 @@ public enum RagiMaterialEnum {
     ELECTRUM(3, "electrum", new Color(200, 176, 74)),
     INVAR(4, "invar", new Color(153, 163, 153)),
     CONSTANTAN(5, "constantan", new Color(211, 159, 72)),
-    //
     ELECTRICAL_STEEL(8, "electrical_steel", new Color(201, 201, 201)),
     ENERGETIC_ALLOY(9, "energetic_alloy", new Color(255, 166, 56)),
     VIBRANT_ALLOY(13, "vibrant_alloy", new Color(207, 244, 116)),
