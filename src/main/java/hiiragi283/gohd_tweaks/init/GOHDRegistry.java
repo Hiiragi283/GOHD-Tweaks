@@ -5,10 +5,7 @@ import hiiragi283.gohd_tweaks.base.ItemBlockBase;
 import hiiragi283.gohd_tweaks.block.BlockDust;
 import hiiragi283.gohd_tweaks.block.BlockGroutFormed;
 import hiiragi283.gohd_tweaks.block.BlockHeating;
-import hiiragi283.gohd_tweaks.event.PlayerChangedDimension;
-import hiiragi283.gohd_tweaks.event.PlayerLoggedIn;
-import hiiragi283.gohd_tweaks.event.PlayerTick;
-import hiiragi283.gohd_tweaks.event.RightClickBlock;
+import hiiragi283.gohd_tweaks.event.*;
 import hiiragi283.gohd_tweaks.item.*;
 import hiiragi283.gohd_tweaks.util.RagiUtils;
 import net.minecraft.block.Block;
@@ -44,6 +41,7 @@ public class GOHDRegistry {
 
     //Eventを登録するメソッド
     public static void registerEvents() {
+        MinecraftForge.EVENT_BUS.register(new ItemTooltip());
         MinecraftForge.EVENT_BUS.register(new PlayerChangedDimension());
         MinecraftForge.EVENT_BUS.register(new PlayerLoggedIn());
         MinecraftForge.EVENT_BUS.register(new PlayerTick());
@@ -67,8 +65,23 @@ public class GOHDRegistry {
 
     //鉱石辞書を登録するメソッド
     public static void registerOreDict() {
-        RagiUtils.setOreDict("dustSoulSand", new ItemStack(GOHDRegistry.ItemDust, 1, 0));
+        RagiUtils.setOreDict("blockAstralStarmetal", RagiUtils.getStack("astraladditions:block_starmetal", 1, 0));
+        RagiUtils.setOreDict("blockCoke", RagiUtils.getStack("thermalfoundation:storage_resource", 1, 1));
+        RagiUtils.setOreDict("blockDragonstone", RagiUtils.getStack("botania:storage", 1, 4));
+        RagiUtils.setOreDict("blockElvenElementium", RagiUtils.getStack("botania:storage", 1, 2));
+        RagiUtils.setOreDict("blockIronwood", RagiUtils.getStack("twilightforest:block_storage", 1, 0));
+        RagiUtils.setOreDict("blockManaDiamond", RagiUtils.getStack("botania:storage", 1, 3));
+        RagiUtils.setOreDict("blockManasteel", RagiUtils.getStack("botania:storage", 1, 0));
+        RagiUtils.setOreDict("blockTerrasteel", RagiUtils.getStack("botania:storage", 1, 1));
+        RagiUtils.setOreDict("dropCoaltar", RagiUtils.getStack("thermalfoundation:material", 1, 833));
+        RagiUtils.setOreDict("dropRosin", RagiUtils.getStack("thermalfoundation:material", 1, 832));
         RagiUtils.setOreDict("dustEndstone", new ItemStack(GOHDRegistry.ItemDust, 1, 1));
+        RagiUtils.setOreDict("dustSoulSand", new ItemStack(GOHDRegistry.ItemDust, 1, 0));
+        RagiUtils.setOreDict("gemDragonStone", RagiUtils.getStack("botania:manaresource", 1, 9));
+        RagiUtils.setOreDict("gemManaDiamond", RagiUtils.getStack("botania:manaresource", 1, 2));
+        RagiUtils.setOreDict("gemSlag", RagiUtils.getStack("thermalfoundation:material", 1, 864));
+        RagiUtils.setOreDict("itemCloth", RagiUtils.getStack("botania:manaresource", 1, 22));
+        RagiUtils.setOreDict("nuggetElvenElementium", RagiUtils.getStack("botania:manaresource", 1, 19));
+        RagiUtils.setOreDict("oreRockCrystal", RagiUtils.getStack("astralsorcery:blockcustomore", 1, 0));
     }
-
 }
