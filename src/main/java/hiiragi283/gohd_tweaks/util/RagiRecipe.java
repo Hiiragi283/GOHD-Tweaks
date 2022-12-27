@@ -44,9 +44,9 @@ public class RagiRecipe {
         //インプットのイテレータを取得する
         Iterator<ItemStack> iteratorFurnace = mapFurnace.keySet().iterator();
         //イテレータの各要素について実行する
-        while(iteratorFurnace.hasNext()) {
+        while (iteratorFurnace.hasNext()) {
             //完成品が一致する場合
-            if(DCUtil.isSameItem(mapFurnace.get(iteratorFurnace.next()), output, false)) {
+            if (DCUtil.isSameItem(mapFurnace.get(iteratorFurnace.next()), output, false)) {
                 //レシピを削除する
                 iteratorFurnace.remove();
                 RagiLogger.infoDebug("The smelting output " + RagiUtils.stackToBracket(output) + " was removed successfully!");
@@ -71,6 +71,15 @@ public class RagiRecipe {
         RagiLogger.infoDebug("The recipe <recipe:" + location + "> was added successfully!");
     }
 
+    //定型クラフトレシピを上書きするメソッド
+    public static void addShapedOverride(String registryName, ItemStack output, Object... inputs) {
+        //registryNameからResource Locationを生成
+        ResourceLocation location = RagiUtils.getResource(registryName);
+        //レシピを上書きする
+        GameRegistry.addShapedRecipe(location, location, output, inputs);
+        RagiLogger.infoDebug("The recipe <recipe:" + location + "> was overrided successfully!");
+    }
+
     //不定型クラフトレシピを追加するメソッド
     public static void addShapeless(ItemStack output, Ingredient... inputs) {
         //registryNameからResource Locationを生成
@@ -88,6 +97,15 @@ public class RagiRecipe {
         RagiLogger.infoDebug("The recipe <recipe:" + location + "> was added successfully!");
     }
 
+    //不定型クラフトレシピを上書きするメソッド
+    public static void addShapelessOverride(String registryName, ItemStack output, Ingredient... inputs) {
+        //registryNameからResource Locationを生成
+        ResourceLocation location = RagiUtils.getResource(registryName);
+        //レシピを上書きする
+        GameRegistry.addShapelessRecipe(location, location, output, inputs);
+        RagiLogger.infoDebug("The recipe <recipe:" + location + "> was overrided successfully!");
+    }
+
     //クラフトレシピを削除するメソッド
     public static void remove(String registryName) {
         //registryNameからResource Locationを生成
@@ -97,7 +115,7 @@ public class RagiRecipe {
         //取得したレシピがnullでない場合
         if (Objects.nonNull(recipeBefore)) {
             //レシピを置き換える
-            GameRegistry.addShapedRecipe(location, location, recipeBefore.getRecipeOutput(), "   ", " 1 ", "   ", '1', RagiUtils.getStack("minecraft:barrier", 1, 0));
+            GameRegistry.addShapedRecipe(location, location, recipeBefore.getRecipeOutput(), "A", 'A', RagiUtils.getStack("minecraft:barrier", 1, 0));
             RagiLogger.infoDebug("The recipe <recipe:" + location + "> was removed successfully!");
         }
         //取得したレシピがnullの場合

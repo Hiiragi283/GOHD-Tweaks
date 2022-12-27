@@ -13,12 +13,12 @@ public class ThermalSeries {
 
     //Thermalとの連携レシピをまとめて登録するメソッド
     public static void loadInit() {
-        registerCentrifuge();
-        registerPulverizer();
+        addCentrifuge();
+        addPulverizer();
     }
 
     //遠心分離機のレシピの登録をするメソッド
-    public static void registerCentrifuge() {
+    public static void addCentrifuge() {
         //Mobの処理レシピの登録
         CentrifugeManager.addDefaultMobRecipe("artifacts:mimic", Collections.singletonList(new ItemStack(GOHDRegistry.ItemRagiTicket, 1, 0)), Collections.singletonList(100), 8);
         CentrifugeManager.addDefaultMobRecipe("tconstruct:blueslime", Collections.singletonList(RagiUtils.getStack("tconstruct:edible", 2, 1)), Collections.singletonList(50), 4);
@@ -28,7 +28,7 @@ public class ThermalSeries {
     }
 
     //粉砕機のレシピの登録をするメソッド
-    public static void registerPulverizer() {
+    public static void addPulverizer() {
         ThermalExpansionHelper.addPulverizerRecipe(2000, RagiUtils.getStack("minecraft:soul_sand", 1, 0), RagiUtils.getStack("gohd_tweaks:dust", 1, 0));
         ThermalExpansionHelper.addPulverizerRecipe(2000, RagiUtils.getStack("minecraft:end_stone", 1, 0), RagiUtils.getStack("gohd_tweaks:dust", 1, 1));
     }

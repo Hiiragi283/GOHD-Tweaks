@@ -1,5 +1,8 @@
 package hiiragi283.gohd_tweaks.util;
 
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +18,12 @@ public class RagiList {
         add("astralsorcery:shaped/black_marble_engraved");
         add("astralsorcery:shaped/black_marble_pillar");
         add("astralsorcery:shaped/black_marble_runed");
+        add("astralsorcery:shaped/marble_arch");
+        add("astralsorcery:shaped/marble_bricks");
+        add("astralsorcery:shaped/marble_chiseled");
+        add("astralsorcery:shaped/marble_engraved");
+        add("astralsorcery:shaped/marble_pillar");
+        add("astralsorcery:shaped/marble_runed");
         add("astralsorcery:shaped/infused_wood_arch");
         add("astralsorcery:shaped/infused_wood_column");
         add("astralsorcery:shaped/infused_wood_engraved");
@@ -24,8 +33,8 @@ public class RagiList {
         add("botania:custombrick_0_alt");
         add("botania:dreamwood_3");
         add("botania:dreamwood_4");
-        add("botania:fertilizer_dye");
-        add("botania:lexicon");
+        //add("botania:fertilizer_dye");
+        //add("botania:lexicon");
         add("botania:livingrock_1");
         add("botania:livingrock_3");
         add("botania:livingrock_4");
@@ -50,7 +59,7 @@ public class RagiList {
         add("dcs_climate:main_container/dcs_gem_blue_1");
         add("dcs_climate:main_yagen/dcs_gem_layer_4");
         add("enderio:ender_dust");
-        add("inspirations:building/mulch/plain");
+        //add("inspirations:building/mulch/plain");
         add("mia:biomesoplenty/bamboo_thatching");
         add("mia:mia/packed_paper/packed_paper_swap_0");
         add("mia:mia/packed_paper/packed_paper_swap_1");
@@ -60,23 +69,23 @@ public class RagiList {
         add("minecraft:chiseled_red_sandstone");
         add("minecraft:chiseled_sandstone");
         add("minecraft:chiseled_stonebrick");
-        add("minecraft:furnace");
+        //add("minecraft:furnace");
         add("minecraft:pillar_quartz_block");
         add("minecraft:polished_granite");
         add("minecraft:purpur_pillar");
-        add("minecraft:slime");
+        //add("minecraft:slime");
         add("minecraft:smooth_red_sandstone");
         add("minecraft:smooth_sandstone");
         add("railcraft:cone_oven_red$2");
-        add("tconstruct:common/slime/pink/congealed");
-        add("tconstruct:common/slime/pink/slimeblock");
-        add("tconstruct:gadgets/slimeboots/fallback");
-        add("tconstruct:gadgets/slimesling/fallback");
+        //add("tconstruct:common/slime/pink/congealed");
+        //add("tconstruct:common/slime/pink/slimeblock");
+        //add("tconstruct:gadgets/slimeboots/fallback");
+        //add("tconstruct:gadgets/slimesling/fallback");
         add("tconstruct:smeltery/casting_basin");
         add("tconstruct:smeltery/casting_table");
         add("tconstruct:smeltery/channel");
         add("tconstruct:smeltery/faucet");
-        add("tconstruct:smeltery/smeltery_controller");
+        //add("tconstruct:smeltery/smeltery_controller");
         add("thermalfoundation:material_99");
         add("thermalfoundation:material_100");
         add("thermalfoundation:storage");

@@ -1,6 +1,7 @@
 package hiiragi283.gohd_tweaks.init;
 
 import hiiragi283.gohd_tweaks.util.RagiList;
+import hiiragi283.gohd_tweaks.util.RagiNBT;
 import hiiragi283.gohd_tweaks.util.RagiRecipe;
 import hiiragi283.gohd_tweaks.util.RagiUtils;
 import net.minecraft.item.ItemStack;
@@ -35,6 +36,19 @@ public class GOHDRecipe {
         RagiRecipe.addShaped(new ItemStack(GOHDRegistry.ItemMoldTitanium, 1, 3), "ABA", 'A', "ingotTitaniumAlloy", 'B', RagiUtils.getStack("thermalfoundation:material", 1, 515));
         RagiRecipe.addShaped(new ItemStack(GOHDRegistry.ItemSandPaper), " A ", "ABA", " A ", 'A', "dustGarnet", 'B', "paper");
         RagiRecipe.addShapeless(new ItemStack(GOHDRegistry.ItemSandPaperDiamond), Ingredient.fromItems(GOHDRegistry.ItemSandPaper), RagiRecipe.setOreDict("gemDiamond"));
+
+        RagiRecipe.addShaped(RagiUtils.getStack("astralsorcery:blockaltar", 1, 0), "ABA", "ACA", "A A", 'A', "blockMarble", 'B', RagiUtils.getStack("astralsorcery:blockblackmarble", 1, OreDictionary.WILDCARD_VALUE), 'C', "workbench");
+        RagiRecipe.addShapedOverride("botania:fertilizer_dye", RagiUtils.getStack("botania:fertilizer", 1, 0), "AA", "AB", 'A', RagiUtils.getStack("minecraft:dye", 1, 15), 'B', RagiUtils.getStack("twilightforest:liveroot", 1, 0));
+        RagiRecipe.addShapedOverride("inspirations:building/mulch/plain", RagiUtils.getStack("inspirations:mulch", 2, 0), " A ", "A A", " A ", 'A', "stickWood");
+        RagiRecipe.addShapedOverride("minecraft:furnace", RagiUtils.getStack("minecraft:furnace", 1, 0), "AAA", "ABA", "AAA", 'A', "cobblestone", 'B', RagiUtils.getStack("dcs_climate:dcs_tinder", 1, 1));
+        RagiRecipe.addShapedOverride("minecraft:slime", RagiUtils.getStack("minecraft:slime", 1, 0), "AAA", "AAA", "AAA", 'A', RagiUtils.getStack("minecraft:slime_ball", 1, 0));
+        RagiRecipe.addShapedOverride("tconstruct:common/slime/pink/congealed", RagiUtils.getStack("tconstruct:slime_congealed", 1, 5), "AA", "AA", 'A', RagiUtils.getStack("tconstruct:edible", 1, 5));
+        RagiRecipe.addShapedOverride("tconstruct:common/slime/pink/slimeblock", RagiUtils.getStack("tconstruct:slime", 1, 5), "AAA", "AAA", "AAA", 'A', RagiUtils.getStack("tconstruct:edible", 1, 5));
+        RagiRecipe.addShapedOverride("tconstruct:gadgets/slimeboots/fallback", RagiUtils.getStack("tconstruct:slime_boots", 1, 5), "A A", "B B", 'A', RagiUtils.getStack("tconstruct:edible", 1, 5), 'B', RagiUtils.getStack("tconstruct:slime_congealed", 1, 5));
+        RagiRecipe.addShapedOverride("tconstruct:gadgets/slimesling/fallback", RagiUtils.getStack("tconstruct:slimesling", 1, 5), "ABA", "C C", " C ", 'A', "string", 'B', RagiUtils.getStack("tconstruct:slime_congealed", 1, 5), 'C', RagiUtils.getStack("tconstruct:slime_congealed", 1, 5));
+        RagiRecipe.addShapedOverride("tconstruct:smeltery/smeltery_controller", RagiUtils.getStack("tconstruct:smeltery_controller", 1, 0), "ABA", "ACA", "ADA", 'A', RagiUtils.getStack("tconstruct:materials", 1, 0), 'B', RagiUtils.getStack("tconstruct:seared_furnace_controller", 1, 0), 'C', RagiUtils.getStack("tconstruct:tinker_tank_controller", 1, 0), 'D', RagiUtils.getStack("dcs_climate:dcs_device_chamber", 1, 0));
+        RagiRecipe.addShapeless(RagiNBT.chestMimic(), RagiRecipe.setOreDict("itemArtifact"), Ingredient.fromStacks(RagiUtils.getStack("minecraft:trapped_chest", 1, 0)), Ingredient.fromStacks(RagiUtils.getStack("gohd_tweaks:ragi_ticket", 1, 0)));
+        RagiRecipe.addShapelessOverride("botania:lexicon", RagiUtils.getStack("botania:lexicon", 1, 0), Ingredient.fromStacks(RagiUtils.getStack("twilightforest:magic_map_focus", 1, 0)), Ingredient.fromStacks(RagiUtils.getStack("minecraft:book", 1, 0)));
     }
 
     //クラフトレシピを削除するメソッド
@@ -81,14 +95,24 @@ public class GOHDRecipe {
         RagiRecipe.addFurnace(RagiUtils.getStack("appliedenergistics2:material", 1, 23), RagiUtils.getStack("gohd_tweaks:parts_assembly", 1, 0));
         RagiRecipe.addFurnace(RagiUtils.getStack("appliedenergistics2:material", 1, 24), RagiUtils.getStack("gohd_tweaks:parts_assembly", 1, 1));
         RagiRecipe.addFurnace(RagiUtils.getStack("threng:material", 1, 6), RagiUtils.getStack("gohd_tweaks:parts_assembly", 1, 3));
-        RagiRecipe.addFurnace(RagiUtils.getStack("threng:material", 1, 13), RagiUtils.getStack("gohd_tweaks:parts_assembly", 1, 4));
+        RagiRecipe.addFurnace(RagiUtils.getStack("threng:material", 1, 14), RagiUtils.getStack("gohd_tweaks:parts_assembly", 1, 4));
     }
 
     //かまどレシピを削除するメソッド
     public static void removeFurnace() {
-        RagiRecipe.removeFurnace(RagiUtils.getStack("minecraft:log", 1, OreDictionary.WILDCARD_VALUE));
-        RagiRecipe.removeFurnace(RagiUtils.getStack("minecraft:log2", 1, OreDictionary.WILDCARD_VALUE));
         RagiRecipe.removeFurnace(RagiUtils.getStack("minecraft:coal", 1, 1));
+        RagiRecipe.removeFurnace(RagiUtils.getStack("minecraft:log2", 1, OreDictionary.WILDCARD_VALUE));
+        RagiRecipe.removeFurnace(RagiUtils.getStack("minecraft:log", 1, OreDictionary.WILDCARD_VALUE));
         RagiRecipe.removeFurnace(RagiUtils.getStack("thermalfoundation:material", 1, 130));
+        RagiRecipe.removeFurnace(RagiUtils.getStack("thermalfoundation:material", 1, 132));
+        RagiRecipe.removeFurnace(RagiUtils.getStack("thermalfoundation:material", 1, 133));
+        RagiRecipe.removeFurnace(RagiUtils.getStack("thermalfoundation:material", 1, 134));
+        RagiRecipe.removeFurnace(RagiUtils.getStack("thermalfoundation:material", 1, 135));
+        RagiRecipe.removeFurnace(RagiUtils.getStack("thermalfoundation:material", 1, 136));
+        RagiRecipe.removeFurnace(RagiUtils.getStack("thermalfoundation:material", 1, 160));
+        RagiRecipe.removeFurnace(RagiUtils.getStack("thermalfoundation:material", 1, 161));
+        RagiRecipe.removeFurnace(RagiUtils.getStack("thermalfoundation:material", 1, 162));
+        RagiRecipe.removeFurnace(RagiUtils.getStack("thermalfoundation:material", 1, 163));
+        RagiRecipe.removeFurnace(RagiUtils.getStack("thermalfoundation:material", 1, 164));
     }
 }
