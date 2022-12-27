@@ -7,6 +7,20 @@ import javax.annotation.Nonnull;
 
 public class RagiNBT {
 
+    //Safety Mimicを生成するメソッド
+    public static ItemStack chestMimic() {
+        ItemStack chest = RagiUtils.getStack("minecraft:chest", 1, 0);
+        NBTTagCompound nbtLoot = new NBTTagCompound();
+        nbtLoot.setString("LootTable", "artifacts:mimic_underground");
+        NBTTagCompound nbtName = new NBTTagCompound();
+        nbtName.setString("LocName", "item.safety_mimic.name");
+        NBTTagCompound nbt = new NBTTagCompound();
+        nbt.setTag("BlockEntityTag", nbtLoot);
+        nbt.setTag("display", nbtName);
+        chest.setTagCompound(nbt);
+        return chest;
+    }
+
     //stackに名前を設定するメソッド
     public static ItemStack setName(@Nonnull ItemStack stack, String name) {
         NBTTagCompound nbtBase = new NBTTagCompound();

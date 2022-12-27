@@ -40,6 +40,7 @@ item.parts_assembly.2.name=基本プロセッサアセンブリ
 item.parts_assembly.3.name=並列プロセッサアセンブリ
 item.parts_assembly.4.name=思考プロセッサアセンブリ
 item.ragi_ticket.name=らぎチケット
+item.safety_mimic.name=§bあんぜんミミック
 item.sandpaper.name=紙やすり
 item.sandpaper_diamond.name=ダイヤモンドの紙やすり
 item.stainless_ruler.name=ステンレス定規
@@ -57,4 +58,7 @@ text.gohd_tweaks.travel_overworld_sub.name=§e§o実家の§6§oような§e§o�
 text.gohd_tweaks.travel_twilight.name=§a§l黄昏§2§lの森
 text.gohd_tweaks.travel_twilight_sub.name=§a§o古き§2§o良き§a§o魔法§2§oの森
 text.gohd_tweaks.welcome.name=§c§l§oGOHD§r§lにようこそ!
-text.gohd_tweaks.welcome_sub.name=§l古き良き一日を♪!
+text.gohd_tweaks.welcome_sub.name=§l古き良き一日を♪
+
+# Tooltip
+tooltip.safety_mimic.name=§aなにがでるかはおたのしみ!
