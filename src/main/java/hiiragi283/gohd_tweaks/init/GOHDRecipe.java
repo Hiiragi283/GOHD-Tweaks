@@ -5,6 +5,7 @@ import hiiragi283.gohd_tweaks.util.RagiRecipe;
 import hiiragi283.gohd_tweaks.util.RagiUtils;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class GOHDRecipe {
 
@@ -85,6 +86,8 @@ public class GOHDRecipe {
 
     //かまどレシピを削除するメソッド
     public static void removeFurnace() {
+        RagiRecipe.removeFurnace(RagiUtils.getStack("minecraft:log", 1, OreDictionary.WILDCARD_VALUE));
+        RagiRecipe.removeFurnace(RagiUtils.getStack("minecraft:log2", 1, OreDictionary.WILDCARD_VALUE));
         RagiRecipe.removeFurnace(RagiUtils.getStack("minecraft:coal", 1, 1));
         RagiRecipe.removeFurnace(RagiUtils.getStack("thermalfoundation:material", 1, 130));
     }
