@@ -1,16 +1,18 @@
 [
-{
-  "modid": "gohd_tweaks",
-  "name": "GOHD Tweaks",
-  "description": "Only used for GOHD",
-  "version": "${version}",
-  "mcversion": "1.12.2",
-  "url": "https://github.com/Hiiragi283/GOHD-Tweaks",
-  "updateUrl": "",
-  "authorList": ["Hiiragi283"],
-  "credits": "The Forge and FML guys, for making this example",
-  "logoFile": "assets/biwako_mod/icon.png",
-  "screenshots": [],
-  "dependencies": []
-}
+  {
+    "modid": "gohd_tweaks",
+    "name": "GOHD Tweaks",
+    "description": "Only used for GOHD",
+    "version": "${version}",
+    "mcversion": "1.12.2",
+    "url": "https://github.com/Hiiragi283/GOHD-Tweaks",
+    "updateUrl": "",
+    "authorList": [
+      "Hiiragi283"
+    ],
+    "credits": "The Forge and FML guys, for making this example",
+    "logoFile": "assets/biwako_mod/icon.png",
+    "screenshots": [],
+    "dependencies": []
+  }
 ]

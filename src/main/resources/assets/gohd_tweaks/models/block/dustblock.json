@@ -1,8 +1,8 @@
 {
-	"credit": "Tweaked by Hiiraigi Russell Tsubasa",
-	"parent": "gohd_tweaks:block/all_colored",
-	"textures": {
-		"particle": "dcs_climate:blocks/ores/dustblock_lead",
-		"all": "dcs_climate:blocks/ores/dustblock_lead"
-	}
+  "credit": "Tweaked by Hiiraigi Russell Tsubasa",
+  "parent": "gohd_tweaks:block/all_colored",
+  "textures": {
+    "particle": "dcs_climate:blocks/ores/dustblock_lead",
+    "all": "dcs_climate:blocks/ores/dustblock_lead"
+  }
 }

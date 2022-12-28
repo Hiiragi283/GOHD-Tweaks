@@ -1,8 +1,8 @@
 {
-	"credit": "Tweaked by Hiiraigi Russell Tsubasa",
-	"parent": "gohd_tweaks:block/all_colored",
-	"textures": {
-		"particle": "dcs_climate:blocks/ores/metal_sus_fail",
-		"all": "dcs_climate:blocks/ores/metal_sus_fail"
-	}
+  "credit": "Tweaked by Hiiraigi Russell Tsubasa",
+  "parent": "gohd_tweaks:block/all_colored",
+  "textures": {
+    "particle": "dcs_climate:blocks/ores/metal_sus_fail",
+    "all": "dcs_climate:blocks/ores/metal_sus_fail"
+  }
 }

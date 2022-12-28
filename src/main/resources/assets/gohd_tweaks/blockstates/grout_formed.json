@@ -1,24 +1,90 @@
 {
   "defaults": {
     "transform": "forge:default-block",
-    "textures": { "all": "tconstruct:blocks/grout" }
+    "textures": {
+      "all": "tconstruct:blocks/grout"
+    }
   },
   "variants": {
-    "type=0": [{"model": "gohd_tweaks:grout_formed_table"}],
-    "type=1": [{"model": "gohd_tweaks:grout_formed_basin"}],
-    "type=2": [{"model": "gohd_tweaks:grout_formed_channel"}],
-    "type=3": [{"model": "cube_all"}],
-    "type=4": [{"model": "cube_all"}],
-    "type=5": [{"model": "cube_all"}],
-    "type=6": [{"model": "cube_all"}],
-    "type=7": [{"model": "cube_all"}],
-    "type=8": [{"model": "cube_all"}],
-    "type=9": [{"model": "cube_all"}],
-    "type=10": [{"model": "cube_all"}],
-    "type=11": [{"model": "cube_all"}],
-    "type=12": [{"model": "cube_all"}],
-    "type=13": [{"model": "cube_all"}],
-    "type=14": [{"model": "cube_all"}],
-    "type=15": [{"model": "cube_all"}]
+    "type=0": [
+      {
+        "model": "gohd_tweaks:grout_formed_table"
+      }
+    ],
+    "type=1": [
+      {
+        "model": "gohd_tweaks:grout_formed_basin"
+      }
+    ],
+    "type=2": [
+      {
+        "model": "gohd_tweaks:grout_formed_channel"
+      }
+    ],
+    "type=3": [
+      {
+        "model": "cube_all"
+      }
+    ],
+    "type=4": [
+      {
+        "model": "cube_all"
+      }
+    ],
+    "type=5": [
+      {
+        "model": "cube_all"
+      }
+    ],
+    "type=6": [
+      {
+        "model": "cube_all"
+      }
+    ],
+    "type=7": [
+      {
+        "model": "cube_all"
+      }
+    ],
+    "type=8": [
+      {
+        "model": "cube_all"
+      }
+    ],
+    "type=9": [
+      {
+        "model": "cube_all"
+      }
+    ],
+    "type=10": [
+      {
+        "model": "cube_all"
+      }
+    ],
+    "type=11": [
+      {
+        "model": "cube_all"
+      }
+    ],
+    "type=12": [
+      {
+        "model": "cube_all"
+      }
+    ],
+    "type=13": [
+      {
+        "model": "cube_all"
+      }
+    ],
+    "type=14": [
+      {
+        "model": "cube_all"
+      }
+    ],
+    "type=15": [
+      {
+        "model": "cube_all"
+      }
+    ]
   }
 }
